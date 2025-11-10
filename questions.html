@@ -13,7 +13,8 @@
       --panel: #111;
       --accent: #26d19a;
       --accent-2: #1ea97b;
-      --muted: #bcbcbc;
+      --muted: #cccccc;
+      --desc-bg: #1a1a1a;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,7 +43,7 @@
       border-radius: 18px;
       box-shadow: 0 0 25px rgba(38,209,154,.08);
       width: 100%;
-      max-width: 800px;
+      max-width: 1100px;
     }
 
     label {
@@ -53,7 +54,7 @@
       color: var(--accent);
     }
 
-    input, textarea {
+    input {
       width: 100%;
       padding: 12px;
       border-radius: 10px;
@@ -64,17 +65,12 @@
       font-size: .95rem;
     }
 
-    input:focus, textarea:focus {
+    input:focus {
       border-color: var(--accent);
       outline: none;
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .btn {
+    .btn, .facebook-btn {
       display: inline-block;
       margin-top: 25px;
       background: var(--accent);
@@ -95,40 +91,53 @@
     }
 
     .facebook-btn {
-      display: inline-block;
-      margin-top: 25px;
       background: #1877f2;
       color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 14px 26px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background .3s, transform .2s;
-      text-decoration: none;
       box-shadow: 0 0 12px rgba(24,119,242,.4);
     }
 
     .facebook-btn:hover {
       background: #0e63d3;
-      transform: translateY(-2px);
     }
 
-    .description-choice {
-      background: #0f0f0f;
-      padding: 15px;
-      border-radius: 10px;
+    .description-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .description-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .description-card {
+      background: var(--desc-bg);
+      border-radius: 12px;
+      padding: 18px;
       border: 1px solid #333;
-      margin-top: 10px;
+      transition: border .3s, background .3s;
     }
 
-    .description-choice input {
-      margin-right: 8px;
+    .description-card:hover {
+      border: 1px solid var(--accent);
+      background: #151515;
+    }
+
+    .description-card input {
       transform: scale(1.2);
+      margin-right: 10px;
+      accent-color: var(--accent);
     }
 
-    .custom-description {
-      margin-top: 15px;
+    .description-card label {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 400;
+      line-height: 1.5;
+      display: block;
     }
 
     footer {
@@ -154,35 +163,39 @@
 
     <button type="button" class="facebook-btn">Se connecter à Facebook</button>
 
-    <label>📝 Choisissez une description ou importez la vôtre</label>
+    <label>📝 Choisissez la description qui vous correspond le mieux :</label>
 
-    <div class="description-choice">
-      <input type="radio" name="description" id="desc1" value="desc1">
-      <label for="desc1">
-        À vendre – Maison familiale de 130 m² dans un secteur recherché  
-        <br><small>Découvrez cette charmante maison qui allie élégance, confort et fonctionnalité...</small>
-      </label>
-    </div>
+    <div class="description-grid">
+      <!-- Description 1 -->
+      <div class="description-card">
+        <input type="radio" name="description" id="desc1" value="À vendre – Maison familiale de 130 m² dans un secteur recherché. Découvrez cette charmante maison qui allie élégance, confort et fonctionnalité. Elle se compose d’un vaste séjour lumineux ouvert sur une cuisine moderne et équipée, idéale pour partager des moments conviviaux en famille. L’espace nuit comprend 4 chambres spacieuses dont une suite parentale, ainsi que 2 salles de bain aux finitions soignées. À l’extérieur, profitez d’un jardin paysagé parfaitement entretenu, agrémenté d’une terrasse ensoleillée et d’un garage privatif. Le tout dans un environnement calme et résidentiel, à proximité immédiate des commerces, écoles et transports. 📞 Contactez notre agence BelleMaison au 06 12 34 56 78 pour plus d’informations ou organiser une visite privée. 💰 Prix : sur demande">
+        <label for="desc1">À vendre – Maison familiale de 130 m² dans un secteur recherché.<br><br>
+        Découvrez cette charmante maison qui allie élégance, confort et fonctionnalité.<br><br>
+        Elle se compose d’un vaste séjour lumineux ouvert sur une cuisine moderne et équipée, idéale pour partager des moments conviviaux en famille.<br><br>
+        L’espace nuit comprend 4 chambres spacieuses dont une suite parentale, ainsi que 2 salles de bain aux finitions soignées.<br><br>
+        À l’extérieur, profitez d’un jardin paysagé parfaitement entretenu, agrémenté d’une terrasse ensoleillée et d’un garage privatif.<br><br>
+        📞 Contactez notre agence BelleMaison au 06 12 34 56 78<br>💰 Prix : sur demande</label>
+      </div>
 
-    <div class="description-choice">
-      <input type="radio" name="description" id="desc2" value="desc2">
-      <label for="desc2">
-        🏡 Maison familiale pleine de charme – à découvrir sans attendre !  
-        <br><small>130 m² de confort et de lumière dans un quartier calme et recherché...</small>
-      </label>
-    </div>
+      <!-- Description 2 -->
+      <div class="description-card">
+        <input type="radio" name="description" id="desc2" value="🏡 Maison familiale pleine de charme – à découvrir sans attendre ! 130 m² de confort et de lumière dans un quartier calme et recherché. Cette superbe maison séduit par son vaste séjour lumineux, sa cuisine moderne et équipée, et ses 4 chambres spacieuses, dont une belle suite parentale avec salle de bain privée. À l’extérieur, un jardin arboré et une terrasse ensoleillée offrent un cadre idéal pour vos moments de détente. Un garage privatif complète ce bien rare, alliant esthétisme et sérénité. 📍 Proche des écoles, commerces et transports. 📲 Contactez-nous dès aujourd’hui ! 💰 Prix : sur demande">
+        <label for="desc2">🏡 Maison familiale pleine de charme – à découvrir sans attendre !<br><br>
+        130 m² de confort et de lumière dans un quartier calme et recherché.<br><br>
+        Cette superbe maison séduit par son vaste séjour lumineux, sa cuisine moderne et équipée, et ses 4 chambres spacieuses, dont une suite parentale avec salle de bain privée.<br><br>
+        À l’extérieur, un jardin arboré et une terrasse ensoleillée offrent un cadre idéal pour vos moments de détente.<br><br>
+        📍 Proche des écoles, commerces et transports.<br>📲 Contactez-nous dès aujourd’hui !</label>
+      </div>
 
-    <div class="description-choice">
-      <input type="radio" name="description" id="desc3" value="desc3">
-      <label for="desc3">
-        ✨ Coup de cœur assuré pour cette belle maison familiale !  
-        <br><small>On tombe immédiatement sous le charme de cette maison de 130 m², baignée de lumière...</small>
-      </label>
-    </div>
-
-    <div class="custom-description">
-      <label for="customDesc">Ou importez votre propre description :</label>
-      <textarea id="customDesc" name="customDesc" placeholder="Collez ici la description de votre annonce..."></textarea>
+      <!-- Description 3 -->
+      <div class="description-card">
+        <input type="radio" name="description" id="desc3" value="✨ Coup de cœur assuré pour cette belle maison familiale ! On tombe immédiatement sous le charme de cette maison de 130 m², baignée de lumière et pensée pour une vie de famille harmonieuse. Elle offre un grand séjour ouvert sur une cuisine moderne, parfaite pour vos repas entre amis, ainsi que 4 chambres confortables et 2 salles de bain contemporaines. Le jardin arboré et la terrasse ensoleillée invitent à la détente dès les beaux jours. Située dans un quartier calme et verdoyant, cette maison allie sérénité et proximité des commodités. 💬 Vous cherchez un lieu de vie chaleureux, fonctionnel et accueillant ? Celui-ci pourrait bien être le vôtre.">
+        <label for="desc3">✨ Coup de cœur assuré pour cette belle maison familiale !<br><br>
+        On tombe immédiatement sous le charme de cette maison de 130 m², baignée de lumière et pensée pour une vie de famille harmonieuse.<br><br>
+        Elle offre un grand séjour ouvert sur une cuisine moderne, parfaite pour vos repas entre amis, ainsi que 4 chambres confortables et 2 salles de bain contemporaines.<br><br>
+        Le jardin arboré et la terrasse ensoleillée invitent à la détente dès les beaux jours.<br><br>
+        💬 Vous cherchez un lieu de vie chaleureux, fonctionnel et accueillant ? Celui-ci pourrait bien être le vôtre.</label>
+      </div>
     </div>
 
     <button type="submit" class="btn">Envoyer</button>
@@ -191,22 +204,34 @@
   <footer>© 2025 Noyer — Publication Automatique</footer>
 
   <script>
-    // Charger les données sauvegardées depuis la page précédente (localStorage)
     document.addEventListener("DOMContentLoaded", () => {
       const agencyName = localStorage.getItem("agencyName") || "";
       document.getElementById("agencyName").value = agencyName;
 
       document.getElementById("questionForm").addEventListener("submit", (e) => {
         e.preventDefault();
+
         const data = {
           agencyName: agencyName,
           email: document.getElementById("email").value,
           logo: document.getElementById("logo").value,
-          description: document.querySelector('input[name="description"]:checked')?.value || "",
-          customDesc: document.getElementById("customDesc").value
+          description: document.querySelector('input[name="description"]:checked')?.value || ""
         };
-        console.log("Formulaire envoyé :", data);
-        alert("✅ Informations envoyées avec succès !");
+
+        fetch("https://pierre07.app.n8n.cloud/webhook/infosclients", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(() => {
+          alert("✅ Informations envoyées avec succès !");
+          window.location.href = "abonnements.html";
+        })
+        .catch(err => {
+          console.error(err);
+          alert("❌ Erreur lors de l’envoi, veuillez réessayer.");
+        });
       });
     });
   </script>
