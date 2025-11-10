@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NOYER — Informations Agence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0a0a; --panel:#111; --muted:#bcbcbc;
+      --accent:#26d19a; --accent-2:#1ea97b;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:var(--bg); color:#e5e5e5; font-family:'JetBrains Mono', monospace;
+      min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px;
+    }
+    .wrap{width:100%; max-width:800px}
+    .title{text-align:center; margin-bottom:28px}
+    .title h1{color:var(--accent); letter-spacing:3px; font-size:2.4rem; text-transform:uppercase}
+    .subtitle{color:var(--muted); margin-top:8px; font-size:1rem}
+    .card{
+      background:var(--panel); border-radius:14px; padding:28px;
+      box-shadow:0 0 18px rgba(38,209,154,.08);
+    }
+    form{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+    label{display:block; font-size:.9rem; color:#dcdcdc; margin-bottom:8px}
+    input, textarea{
+      width:100%; background:#0e0e0e; color:#e9e9e9; border:1px solid #222;
+      border-radius:10px; padding:12px 14px; font-size:.95rem; outline:none;
+      transition:border .2s;
+    }
+    input:focus, textarea:focus{border-color:var(--accent)}
+    input[readonly]{background:#151515;color:#888;}
+    textarea{resize:none; grid-column:1/-1; height:100px;}
+    .btn{
+      grid-column:1/-1; margin-top:10px;
+      background:var(--accent); color:#0a0a0a; border:0; border-radius:10px;
+      padding:14px 22px; font-weight:700; cursor:pointer;
+      transition:all .3s ease; box-shadow:0 0 15px rgba(38,209,154,.35);
+    }
+    .btn:hover{background:var(--accent-2); transform:translateY(-2px);}
+    .status{grid-column:1/-1; margin-top:10px; font-size:.95rem; text-align:center;}
+    .ok{color:var(--accent)} .err{color:#ff5757}
+    footer{position:fixed; bottom:12px; left:0; right:0; text-align:center; color:#6d6d6d; font-size:.85rem}
+    .checkbox-wrap{display:flex; align-items:center; gap:8px;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="title">
+      <h1>NOYER</h1>
+      <p class="subtitle">Vérifiez vos informations avant la suite</p>
+    </div>
+
+    <div class="card">
+      <form id="questionsForm">
+        <!-- Champs verrouillés -->
+        <div>
+          <label>🏢 Nom de l’agence</label>
+          <input id="agency" name="agency" type="text" readonly />
+        </div>
+
+        <div>
+          <label>🗂️ URL des biens à vendre</label>
+          <input id="listUrl" name="listUrl" type="url" readonly />
+        </div>
+
+        <div class="full">
+          <label>🏷️ URL d’un bien</label>
+          <input id="itemUrl" name="itemUrl" type="url" readonly />
+        </div>
+
+        <!-- Nouveaux champs -->
+        <div class="full">
+          <label>🏘️ URL de la page des biens à louer (facultatif)</label>
+          <input id="rentUrl" name="rentUrl" type="url" placeholder="https://www.votre-agence.fr/locations" />
+        </div>
+
+        <div class="full">
+          <label>🖼️ Logo de l’agence</label>
+          <input id="logoUrl" name="logoUrl" type="url" placeholder="https://www.votre-agence.fr/logo.png" />
+          <div class="checkbox-wrap">
+            <input type="checkbox" id="noLogo" />
+            <label for="noLogo">Ne pas utiliser de logo</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" id="sendBtn">Envoyer</button>
+        <div id="status" class="status"></div>
+      </form>
+    </div>
+  </div>
+
+  <footer>© 2025 Noyer — Publication Automatique</footer>
+
+  <script>
+    const WEBHOOK_URL = 'https://YOUR-N8N-DOMAIN/webhook/noyer-infos';
+    const form = document.getElementById('questionsForm');
+    const statusEl = document.getElementById('status');
+    const sendBtn = document.getElementById('sendBtn');
+    const logoUrlInput = document.getElementById('logoUrl');
+    const noLogoCheckbox = document.getElementById('noLogo');
+
+    // 🔹 Remplir les champs depuis la mémoire locale
+    document.getElementById('agency').value = localStorage.getItem('noyerAgency') || '';
+    document.getElementById('listUrl').value = localStorage.getItem('noyerListUrl') || '';
+    document.getElementById('itemUrl').value = localStorage.getItem('noyerItemUrl') || '';
+
+    // 🔸 Gestion du checkbox "ne pas utiliser de logo"
+    noLogoCheckbox.addEventListener('change', () => {
+      logoUrlInput.disabled = noLogoCheckbox.checked;
+      if (noLogoCheckbox.checked) logoUrlInput.value = '';
+    });
+
+    function setStatus(msg, cls=''){ statusEl.className = 'status ' + cls; statusEl.textContent = msg; }
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      sendBtn.disabled = true;
+      setStatus('Envoi en cours...');
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.noLogo = noLogoCheckbox.checked;
+
+      try {
+        const res = await fetch(WEBHOOK_URL, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(data)
+        });
+        const response = await res.json().catch(()=> ({}));
+
+        if (res.ok) {
+          setStatus('✅ Informations envoyées avec succès !', 'ok');
+          form.reset();
+          localStorage.clear();
+        } else throw new Error(response?.message || 'Erreur serveur');
+      } catch(err){
+        setStatus('❌ Erreur : ' + err.message, 'err');
+      } finally {
+        sendBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
