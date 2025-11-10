@@ -1,262 +1,228 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NOYER — Questionnaire</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --bg: #0a0a0a;
-      --panel: #111;
       --accent: #26d19a;
-      --accent-2: #1ea97b;
-      --muted: #cccccc;
-      --desc-bg: #1a1a1a;
+      --accent-hover: #1ea97b;
+      --text: #e5e5e5;
+      --muted: #9a9a9a;
+      --panel: #111;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: var(--bg);
-      color: #e5e5e5;
+      background-color: var(--bg);
+      color: var(--text);
       font-family: 'JetBrains Mono', monospace;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      padding: 50px 20px;
+      justify-content: space-between;
+      padding: 40px 20px 80px;
     }
 
     h1 {
       color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 25px;
       text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
     }
 
     form {
+      max-width: 900px;
       background: var(--panel);
+      border-radius: 16px;
       padding: 30px;
-      border-radius: 18px;
-      box-shadow: 0 0 25px rgba(38,209,154,.08);
-      width: 100%;
-      max-width: 1100px;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgba(0, 255, 170, 0.05);
     }
 
     label {
       display: block;
+      margin-top: 25px;
       font-weight: 600;
-      margin-top: 20px;
-      margin-bottom: 8px;
       color: var(--accent);
     }
 
-    input {
+    input[type="text"],
+    input[type="email"] {
       width: 100%;
       padding: 12px;
-      border-radius: 10px;
-      border: 1px solid #333;
-      background: #0f0f0f;
-      color: #fff;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: .95rem;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      background: transparent;
+      color: var(--text);
+      font-size: 0.95rem;
     }
 
-    input:focus {
-      border-color: var(--accent);
-      outline: none;
+    input[readonly] {
+      background-color: #1b1b1b;
+      color: #ccc;
     }
 
-    .btn, .facebook-btn {
-      display: inline-block;
-      margin-top: 25px;
-      background: var(--accent);
-      color: #0a0a0a;
-      border: none;
-      border-radius: 10px;
-      padding: 14px 26px;
+    button, .btn {
+      background-color: var(--accent);
+      color: #000;
       font-weight: bold;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 30px;
       cursor: pointer;
-      transition: background .3s, transform .2s;
+      font-size: 1rem;
+      transition: 0.3s;
+      display: inline-block;
       text-decoration: none;
-      box-shadow: 0 0 12px rgba(38,209,154,.4);
     }
 
-    .btn:hover {
-      background: var(--accent-2);
+    button:hover, .btn:hover {
+      background-color: var(--accent-hover);
       transform: translateY(-2px);
     }
 
     .facebook-btn {
-      background: #1877f2;
-      color: #fff;
-      box-shadow: 0 0 12px rgba(24,119,242,.4);
+      background-color: #1877F2;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      margin-top: 20px;
+      cursor: pointer;
     }
 
     .facebook-btn:hover {
-      background: #0e63d3;
+      background-color: #145dbf;
     }
 
-    .description-grid {
+    .descriptions {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
-    @media (min-width: 900px) {
-      .description-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    .card {
+      background: #121212;
+      border: 1px solid #1f1f1f;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: left;
+      color: var(--text);
+      cursor: pointer;
+      transition: 0.3s ease;
     }
 
-    .description-card {
-      background: var(--desc-bg);
-      border-radius: 12px;
-      padding: 18px;
-      border: 1px solid #333;
-      transition: border .3s, background .3s;
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
     }
 
-    .description-card:hover {
-      border: 1px solid var(--accent);
-      background: #151515;
-    }
-
-    .description-card input {
-      transform: scale(1.2);
+    .card input[type="radio"] {
       margin-right: 10px;
-      accent-color: var(--accent);
-    }
-
-    .description-card label {
-      color: var(--muted);
-      font-size: .9rem;
-      font-weight: 400;
-      line-height: 1.5;
-      display: block;
     }
 
     footer {
-      margin-top: 60px;
       text-align: center;
-      color: #666;
-      font-size: .9rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 50px;
     }
 
-    footer a {
+    .footer-links {
+      margin-top: 8px;
+    }
+
+    .footer-links a {
       color: var(--accent);
       text-decoration: none;
-      margin: 0 6px;
+      margin: 0 8px;
+      transition: color 0.3s ease;
     }
 
-    footer a:hover {
+    .footer-links a:hover {
+      color: var(--accent-hover);
       text-decoration: underline;
-    }
-
-    hr {
-      margin: 30px 0;
-      opacity: 0.2;
     }
   </style>
 </head>
 <body>
-  <h1>Complétez vos informations</h1>
 
-  <form id="questionForm">
+  <h1>COMPLÉTEZ VOS INFORMATIONS</h1>
+
+  <form id="questionForm" action="https://pierre07.app.n8n.cloud/webhook/infosclients" method="POST">
     <label>🏢 Nom de l’agence</label>
-    <input type="text" id="agencyName" placeholder="Votre agence" required>
+    <input type="text" id="agencyName" name="agencyName" readonly />
 
     <label>📧 Adresse e-mail de contact</label>
-    <input type="email" id="email" name="email" placeholder="ex : contact@votreagence.fr" required>
+    <input type="email" name="email" placeholder="ex : contact@votreagence.fr" required>
 
     <label>🖼️ URL du logo (facultatif)</label>
-    <input type="url" id="logo" name="logo" placeholder="https://www.votreagence.fr/logo.png">
+    <input type="text" name="logoUrl" placeholder="https://www.votreagence.fr/logo.png">
 
-    <button type="button" class="facebook-btn" id="facebookButton">Se connecter à Facebook</button>
+    <button type="button" class="facebook-btn">Se connecter à Facebook</button>
 
-    <label>📝 Choisissez la description qui vous correspond le mieux :</label>
+    <label style="margin-top:30px;">📝 Choisissez la description qui vous correspond le mieux :</label>
 
-    <div class="description-grid">
-      <!-- 3 descriptions inchangées -->
-      <div class="description-card">
-        <input type="radio" name="description" id="desc1" value="À vendre – Maison familiale de 130 m² dans un secteur recherché...">
-        <label for="desc1">À vendre – Maison familiale de 130 m² dans un secteur recherché... (texte complet ici)</label>
-      </div>
+    <div class="descriptions">
+      <label class="card">
+        <input type="radio" name="descriptionChoice" value="1" required>
+        <strong>À vendre – Maison familiale de 130 m² dans un secteur recherché</strong><br><br>
+        Découvrez cette charmante maison qui allie élégance, confort et fonctionnalité.<br><br>
+        Elle se compose d’un vaste séjour lumineux ouvert sur une cuisine moderne et équipée, idéale pour partager des moments conviviaux en famille.<br><br>
+        À l’extérieur, profitez d’un jardin paysagé avec terrasse et garage privatif.
+      </label>
 
-      <div class="description-card">
-        <input type="radio" name="description" id="desc2" value="🏡 Maison familiale pleine de charme – à découvrir sans attendre...">
-        <label for="desc2">🏡 Maison familiale pleine de charme – à découvrir sans attendre... (texte complet ici)</label>
-      </div>
+      <label class="card">
+        <input type="radio" name="descriptionChoice" value="2">
+        <strong>🏡 Maison familiale pleine de charme – à découvrir sans attendre !</strong><br><br>
+        130 m² de confort et de lumière dans un quartier calme et recherché.<br><br>
+        Cette superbe maison séduit par son vaste séjour, sa cuisine moderne, et ses 4 chambres spacieuses.<br><br>
+        À l’extérieur, un jardin arboré et une terrasse ensoleillée offrent un cadre de détente idéal.
+      </label>
 
-      <div class="description-card">
-        <input type="radio" name="description" id="desc3" value="✨ Coup de cœur assuré pour cette belle maison familiale ! ...">
-        <label for="desc3">✨ Coup de cœur assuré pour cette belle maison familiale ! ... (texte complet ici)</label>
-      </div>
+      <label class="card">
+        <input type="radio" name="descriptionChoice" value="3">
+        <strong>✨ Coup de cœur assuré pour cette belle maison familiale !</strong><br><br>
+        On tombe immédiatement sous le charme de cette maison de 130 m², baignée de lumière.<br><br>
+        Elle offre un grand séjour ouvert sur une cuisine moderne, 4 chambres confortables, et un jardin accueillant.<br><br>
+        Située dans un quartier calme et verdoyant, proche des commodités.
+      </label>
     </div>
 
-    <button type="submit" class="btn">Envoyer</button>
+    <button type="submit">Envoyer</button>
   </form>
 
   <footer>
-    <hr>
-    <p>
-      <a href="/mentions-legales.html" target="_blank">Mentions légales</a> |
-      <a href="/politique-confidentialite.html" target="_blank">Politique de confidentialité</a> |
-      <a href="/conditions-utilisation.html" target="_blank">Conditions d’utilisation</a> |
-      <a href="/suppression-donnees.html" target="_blank">Suppression des données</a>
-    </p>
-    <p>© 2025 Noyer — Publication Automatique</p>
+    © 2025 Noyer — Publication Automatique
+    <div class="footer-links">
+      <a href="confidentialite.html">Politique de confidentialité</a> ·
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="conditions-utilisation.html">CGU</a> ·
+      <a href="conditions-vente.html">CGV</a>
+    </div>
   </footer>
 
   <script>
-    // Préremplissage au chargement
+    // ✅ Récupère les infos stockées depuis verifier.html
     document.addEventListener("DOMContentLoaded", () => {
-      document.getElementById("agencyName").value = localStorage.getItem("agencyName") || "";
-      document.getElementById("email").value = localStorage.getItem("contactEmail") || "";
-      document.getElementById("logo").value = localStorage.getItem("logoUrl") || "";
-    });
-
-    // Sauvegarde avant Facebook login
-    document.getElementById("facebookButton").addEventListener("click", () => {
-      localStorage.setItem("agencyName", document.getElementById("agencyName").value);
-      localStorage.setItem("contactEmail", document.getElementById("email").value);
-      localStorage.setItem("logoUrl", document.getElementById("logo").value);
-
-      alert("🔗 Données enregistrées ! (ici tu rediriges ensuite vers ton flux Facebook Login)");
-      // window.location.href = "verifier.html"; // si tu veux aller à la page suivante
-    });
-
-    // Soumission finale du formulaire
-    document.getElementById("questionForm").addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const data = {
-        agencyName: document.getElementById("agencyName").value,
-        email: document.getElementById("email").value,
-        logo: document.getElementById("logo").value,
-        description: document.querySelector('input[name="description"]:checked')?.value || ""
-      };
-
-      fetch("https://pierre07.app.n8n.cloud/webhook/infosclients", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      })
-      .then(r => r.json())
-      .then(() => {
-        alert("✅ Informations envoyées avec succès !");
-        window.location.href = "abonnements.html";
-      })
-      .catch(err => {
-        console.error(err);
-        alert("❌ Erreur lors de l’envoi, veuillez réessayer.");
-      });
+      const agencyName = localStorage.getItem("agencyName");
+      if (agencyName) {
+        document.getElementById("agencyName").value = agencyName;
+      }
     });
   </script>
+
 </body>
 </html>
