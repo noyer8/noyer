@@ -94,7 +94,10 @@
     const continueBtn = document.getElementById('continueBtn');
     const statusEl = document.getElementById('status');
 
-    function setStatus(msg, cls=''){ statusEl.className = 'status ' + cls; statusEl.textContent = msg; }
+    function setStatus(msg, cls=''){ 
+      statusEl.className = 'status ' + cls; 
+      statusEl.textContent = msg; 
+    }
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -102,14 +105,21 @@
       const listUrl = form.listUrl.value.trim();
       const itemUrl = form.itemUrl.value.trim();
 
-      if (!agency || !listUrl || !itemUrl) { setStatus('Veuillez remplir tous les champs.', 'err'); return; }
+      if (!agency || !listUrl || !itemUrl) { 
+        setStatus('Veuillez remplir tous les champs.', 'err'); 
+        return; 
+      }
 
       verifyBtn.disabled = true;
       setStatus('Vérification en cours…', '');
 
       try {
         const payload = { agency, listUrl, itemUrl, source: 'noyer-site' };
-        const res = await fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        const res = await fetch(WEBHOOK_URL, { 
+          method: 'POST', 
+          headers: { 'Content-Type': 'application/json' }, 
+          body: JSON.stringify(payload) 
+        });
         const data = await res.json().catch(() => ({}));
 
         if (!res.ok) throw new Error(data?.reason || 'Erreur serveur');
@@ -119,10 +129,10 @@
           continueBtn.style.display = 'inline-block';
           verifyBtn.style.display = 'none';
 
-          // 🔹 Enregistrer les données dans la mémoire locale
-          localStorage.setItem('noyerAgency', agency);
-          localStorage.setItem('noyerListUrl', listUrl);
-          localStorage.setItem('noyerItemUrl', itemUrl);
+          // ✅ Sauvegarde compatible avec questions.html
+          localStorage.setItem('agencyName', agency);
+          localStorage.setItem('listUrl', listUrl);
+          localStorage.setItem('itemUrl', itemUrl);
 
         } else {
           setStatus('❌ Non éligible : ' + (data.reason || 'site non compatible.'), 'err');
