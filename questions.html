@@ -179,7 +179,8 @@
     <label>🖼️ URL du logo (facultatif)</label>
     <input type="text" name="logoUrl" placeholder="https://www.votreagence.fr/logo.png">
 
-    <button type="button" class="facebook-btn">Se connecter à Facebook</button>
+    <!-- Bouton Facebook -->
+    <button type="button" class="facebook-btn" onclick="loginWithFacebook()">Se connecter à Facebook</button>
 
     <label style="margin-top:30px;">📝 Choisissez la description qui vous correspond le mieux :</label>
 
@@ -223,15 +224,50 @@
     </div>
   </footer>
 
+  <!-- Facebook SDK -->
+  <script async defer crossorigin="anonymous" 
+    src="https://connect.facebook.net/fr_FR/sdk.js"></script>
+
   <script>
-    // ✅ Récupère les infos stockées depuis verifier.html
+    // Initialisation du SDK Facebook
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '2451194691945458',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v21.0'
+      });
+    };
+
+    // Fonction de connexion Facebook
+    function loginWithFacebook() {
+      FB.login(function(response) {
+        if (response.authResponse) {
+          console.log('✅ Connecté avec succès !');
+          const accessToken = response.authResponse.accessToken;
+          console.log('Access Token :', accessToken);
+
+          // Envoi du token à n8n
+          fetch("https://pierre07.app.n8n.cloud/webhook/facebook_login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token: accessToken })
+          });
+
+          alert("Connexion réussie !");
+        } else {
+          console.log('❌ Connexion annulée ou échouée.');
+        }
+      }, {scope: 'email,pages_show_list,pages_manage_posts,pages_read_engagement'});
+    }
+
+    // Récupère les infos de verifier.html
     document.addEventListener("DOMContentLoaded", () => {
       const agencyName = localStorage.getItem("agencyName");
       if (agencyName) {
         document.getElementById("agencyName").value = agencyName;
       }
 
-      // ✅ Gérer l'envoi du formulaire avec redirection
       const form = document.getElementById("questionForm");
       const loading = document.getElementById("loading");
 
