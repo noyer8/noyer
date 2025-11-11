@@ -155,6 +155,14 @@
       color: var(--accent-hover);
       text-decoration: underline;
     }
+
+    #loading {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      color: var(--muted);
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -202,6 +210,7 @@
     </div>
 
     <button type="submit">Envoyer</button>
+    <p id="loading">⏳ Envoi en cours...</p>
   </form>
 
   <footer>
@@ -221,6 +230,38 @@
       if (agencyName) {
         document.getElementById("agencyName").value = agencyName;
       }
+
+      // ✅ Gérer l'envoi du formulaire avec redirection
+      const form = document.getElementById("questionForm");
+      const loading = document.getElementById("loading");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        loading.style.display = "block";
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+
+          if (response.ok) {
+            loading.textContent = "✅ Formulaire envoyé avec succès !";
+            setTimeout(() => {
+              window.location.href = "abonnements.html";
+            }, 1000);
+          } else {
+            loading.textContent = "⚠️ Une erreur est survenue, veuillez réessayer.";
+          }
+        } catch (error) {
+          console.error("Erreur :", error);
+          loading.textContent = "❌ Erreur de connexion, réessayez plus tard.";
+        }
+      });
     });
   </script>
 
