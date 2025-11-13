@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --bg:#0a0a0a;
@@ -15,6 +16,7 @@
       --text:#e5e5e5;
       --muted:#bbbbbb;
     }
+
     * { box-sizing:border-box; margin:0; padding:0; }
 
     body {
@@ -27,17 +29,15 @@
       margin:0 auto;
     }
 
-    /* 🔹 HEADER AVEC LOGO CLIQUABLE */
+    /* 🟩 Logo identique aux autres pages */
     header {
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      margin-bottom: 35px;
+      position: absolute;
+      top: 25px;
+      left: 40px;
     }
 
     header img {
-      height: 90px;
+      height: 120px;
       width: auto;
       cursor: pointer;
     }
@@ -51,6 +51,7 @@
     h1 {
       font-size:1.8rem;
       text-align:center;
+      margin-top:150px; /* laisse la place du logo */
       margin-bottom:22px;
     }
 
@@ -61,6 +62,7 @@
     }
 
     ul { margin:8px 0 18px 22px; }
+
     a { color:var(--accent); text-decoration:none; }
     a:hover { text-decoration:underline; }
 
@@ -73,16 +75,25 @@
     }
 
     footer {
-      margin-top:50px;
+      margin-top:60px;
       text-align:center;
       color:#666;
       font-size:.85rem;
     }
+
+    .footer-links {
+      margin-top: 12px;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      margin: 0 8px;
+    }
   </style>
 </head>
+
 <body>
 
-  <!-- 🔹 LOGO CLIQUABLE (vers index.html) -->
   <header>
     <a href="index.html">
       <img src="https://i.imgur.com/2i2T706.png" alt="Logo Noyer">
@@ -183,6 +194,16 @@
        ☎️ +32 478 16 65 06</p>
   </div>
 
-  <footer>© 2025 Noyer — Conditions Générales d’Utilisation</footer>
+  <footer>
+    © 2025 Noyer — Conditions Générales d’Utilisation
+
+    <div class="footer-links">
+      <a href="confidentialite.html">Politique de confidentialité</a> ·
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="conditions-utilisation.html">CGU</a> ·
+      <a href="conditions-vente.html">CGV</a>
+    </div>
+  </footer>
+
 </body>
 </html>
