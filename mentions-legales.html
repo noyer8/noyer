@@ -7,21 +7,97 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    :root{--bg:#0a0a0a;--panel:#111;--accent:#26d19a;--text:#e5e5e5;--muted:#bbbbbb}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);color:var(--text);font-family:'JetBrains Mono',monospace;line-height:1.6;padding:40px 20px 80px;max-width:900px;margin:0 auto}
-    h1,h2{color:var(--accent);margin-top:32px;margin-bottom:14px}
-    h1{font-size:1.8rem;text-align:center;margin-bottom:22px}
-    p,li{color:var(--muted);margin-bottom:10px;font-size:.95rem}
-    ul{margin:8px 0 18px 22px}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .block{background:#111;border:1px solid #1f1f1f;border-radius:12px;padding:18px;margin:14px 0}
-    footer{margin-top:50px;text-align:center;color:#666;font-size:.85rem}
+    :root {
+      --bg:#0a0a0a;
+      --panel:#111;
+      --accent:#26d19a;
+      --text:#e5e5e5;
+      --muted:#bbbbbb;
+    }
+    * { box-sizing:border-box; margin:0; padding:0; }
+
+    body {
+      background:var(--bg);
+      color:var(--text);
+      font-family:'JetBrains Mono',monospace;
+      line-height:1.6;
+      padding:40px 20px 80px;
+      max-width:900px;
+      margin:0 auto;
+    }
+
+    /* 🔹 HEADER UNIFIÉ AVEC LOGO CLIQUABLE */
+    header {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 35px;
+    }
+
+    header img {
+      height: 90px;
+      width: auto;
+      cursor: pointer;
+    }
+
+    h1, h2 {
+      color:var(--accent);
+      margin-top:32px;
+      margin-bottom:14px;
+    }
+
+    h1 {
+      font-size:1.8rem;
+      text-align:center;
+      margin-bottom:22px;
+    }
+
+    p, li {
+      color:var(--muted);
+      margin-bottom:10px;
+      font-size:.95rem;
+    }
+
+    ul {
+      margin:8px 0 18px 22px;
+    }
+
+    a {
+      color:var(--accent);
+      text-decoration:none;
+    }
+
+    a:hover {
+      text-decoration:underline;
+    }
+
+    .block {
+      background:#111;
+      border:1px solid #1f1f1f;
+      border-radius:12px;
+      padding:18px;
+      margin:14px 0;
+    }
+
+    footer {
+      margin-top:50px;
+      text-align:center;
+      color:#666;
+      font-size:.85rem;
+    }
   </style>
 </head>
 <body>
+
+  <!-- 🔹 LOGO CLIQUABLE -->
+  <header>
+    <a href="index.html">
+      <img src="https://i.imgur.com/2i2T706.png" alt="Logo Noyer">
+    </a>
+  </header>
 
   <h1>🧾 Mentions légales — Noyer</h1>
 
@@ -34,10 +110,10 @@
        TVA : <strong>[à compléter, ex. BE0xxx.xxx.xxx]</strong></p>
     <p>Adresse : Minderbroedersrui 15, 2000 Antwerpen, Belgique</p>
     <p>Site : <strong>[à compléter, ex. https://noyer.be]</strong></p>
-    <p>Email : <strong>contact@noyer.io</strong> (support) — <strong>contact@noyer.io</strong> (RGPD)<br>
-       Contact secondaire : <strong>contact@noyer.io</strong><br>
+    <p>Email : <strong>contact@noyer.io</strong> (support)<br>
+       RGPD : <strong>contact@noyer.io</strong><br>
        Téléphone : +32 478 16 65 06</p>
-    <p>Service réservé aux professionnels (B2B).</p>
+    <p>Service exclusivement réservé aux professionnels (B2B).</p>
   </div>
 
   <h2>2. Hébergement du site</h2>
@@ -46,44 +122,48 @@
        One Microsoft Way, Redmond, WA 98052, États-Unis<br>
        Site : <a href="https://pages.github.com" target="_blank" rel="noopener">https://pages.github.com</a><br>
        Localisation : États-Unis</p>
-    <p><strong>Render.com</strong> (hébergement applicatif du service)<br>
-       <a href="https://render.com" target="_blank" rel="noopener">https://render.com</a> — Localisation : UE / USA (SCC + DPF)</p>
-    <p><strong>n8n.cloud</strong> (automatisation des flux)<br>
-       <a href="https://n8n.cloud" target="_blank" rel="noopener">https://n8n.cloud</a> — Localisation : EEE</p>
+
+    <p><strong>Render.com</strong> — Hébergement applicatif<br>
+       <a href="https://render.com" target="_blank" rel="noopener">https://render.com</a><br>
+       Localisation : UE / USA (SCC + DPF)</p>
+
+    <p><strong>n8n.cloud</strong> — Automatisation des flux<br>
+       <a href="https://n8n.cloud" target="_blank" rel="noopener">https://n8n.cloud</a><br>
+       Localisation : EEE</p>
   </div>
 
   <h2>3. Propriété intellectuelle</h2>
   <div class="block">
-    <p>L’ensemble du contenu du site (textes, graphismes, logos, images, structure, code source) est la propriété exclusive de <strong>Noyer</strong> ou de ses partenaires, sauf mention contraire.</p>
-    <p>Toute reproduction, représentation, diffusion ou exploitation, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
-    <p>Le nom et le logo <strong>NOYER</strong> sont des signes distinctifs protégés ; toute utilisation non autorisée est prohibée.</p>
-    <p><em>Crédits images</em> : images tiers utilisées avec autorisation/licence lorsque applicable.</p>
+    <p>L’ensemble du contenu du site (textes, visuels, code source, structure) est la propriété exclusive de <strong>Noyer</strong> ou de ses partenaires.</p>
+    <p>Toute reproduction ou exploitation sans autorisation écrite préalable est interdite.</p>
+    <p>Le nom et le logo <strong>NOYER</strong> sont protégés.</p>
   </div>
 
   <h2>4. Responsabilité</h2>
   <div class="block">
-    <p><strong>Noyer</strong> met tout en œuvre pour assurer l’exactitude et la mise à jour des informations. Des erreurs ou interruptions temporaires peuvent survenir ; Noyer ne saurait être tenu responsable des conséquences d’une indisponibilité, maintenance ou mauvaise utilisation du service.</p>
-    <p>Le site peut contenir des liens externes ; Noyer n’est pas responsable de leur contenu ou fonctionnement.</p>
-    <p>L’utilisation de la plateforme est régie par les <a href="conditions-utilisation.html">CGU</a> et les <a href="conditions-vente.html">CGV</a> (B2B).</p>
+    <p><strong>Noyer</strong> veille à la qualité des informations, mais ne garantit pas l’absence d’erreurs ou d’interruptions.</p>
+    <p>Le site peut contenir des liens externes dont le contenu n’est pas sous la responsabilité de Noyer.</p>
+    <p>L’utilisation du service est régie par les <a href="conditions-utilisation.html">CGU</a> et les <a href="conditions-vente.html">CGV</a>.</p>
   </div>
 
   <h2>5. Données personnelles</h2>
   <div class="block">
-    <p>Les données collectées via le site (nom, e-mail, logo, URLs, pages ID, access tokens, etc.) sont utilisées uniquement pour fournir le service <strong>Noyer</strong> et sont traitées dans des environnements sécurisés (n8n.cloud, Render, Stripe, GitHub Pages).</p>
-    <p>Pour en savoir plus : <a href="confidentialite.html">Politique de confidentialité</a>.</p>
+    <p>Les données collectées (nom, email, logos, URLs, pages ID, access tokens, etc.) sont utilisées uniquement pour fournir le service.</p>
+    <p>Pour plus d’informations, consultez la <a href="confidentialite.html">Politique de confidentialité</a>.</p>
   </div>
 
   <h2>6. Droit applicable — Juridiction</h2>
   <div class="block">
-    <p>Les présentes mentions et tout litige relatif au site ou au service sont soumis au <strong>droit belge</strong>. Compétence exclusive des tribunaux d’<strong>Anvers</strong>, sauf disposition impérative contraire.</p>
+    <p>Les présentes mentions sont régies par le <strong>droit belge</strong>. Les tribunaux d’<strong>Anvers</strong> sont exclusivement compétents.</p>
   </div>
 
   <h2>7. Contact</h2>
   <div class="block">
-    <p>Pour toute question : <a href="mailto:support@noyer.be">contact@noyer.io</a><br>
-       RGPD : <a href="mailto:privacy@noyer.be">contact@noyer.io</a></p>
+    <p>Support : <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>
+       RGPD : <a href="mailto:contact@noyer.io">contact@noyer.io</a></p>
   </div>
 
   <footer>© 2025 Noyer — Mentions légales</footer>
+
 </body>
 </html>
