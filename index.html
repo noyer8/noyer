@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NOYER — Publication Automatique</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -32,12 +33,12 @@
       position: relative;
     }
 
-    /* LOGO */
     header {
       position: absolute;
       top: 25px;
       left: 40px;
     }
+
     header img {
       height: 120px;
       width: auto;
@@ -55,6 +56,13 @@
       text-transform: uppercase;
       letter-spacing: .12em;
       margin-bottom: 12px;
+    }
+
+    h2 {
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin-bottom: 14px;
+      color: var(--text);
     }
 
     p {
@@ -75,46 +83,14 @@
       display: inline-block;
       box-shadow: 0 0 20px rgba(38,209,154,0.25);
     }
+
     .cta:hover {
       background: var(--accent-dark);
       transform: translateY(-2px);
       box-shadow: 0 0 30px rgba(38,209,154,0.4);
     }
 
-    /* CARROUSEL */
-    .carousel-container {
-      width: 100%;
-      max-width: 620px;
-      margin: 60px auto;
-      overflow: hidden;
-      border-radius: 14px;
-      background: #000;
-      box-shadow: 0 0 20px rgba(0,0,0,0.35);
-    }
-
-    .carousel-slide {
-      display: flex;
-      width: 200%;
-      transition: transform 0.8s ease;
-    }
-
-    .carousel-item {
-      width: 100%;
-      flex-shrink: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #000;
-      padding: 0;
-    }
-
-    .carousel-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* SECTION CARDS */
+    /* CARTES */
     .steps {
       display: flex;
       justify-content: center;
@@ -144,6 +120,47 @@
       box-shadow: 0 0 20px rgba(38,209,154,0.1);
     }
 
+    .step h3 {
+      color: var(--accent);
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    /* CAROUSEL */
+    .carousel {
+      margin-top: 70px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .carousel .slide {
+      display: none;
+      max-width: 350px;
+    }
+
+    .carousel .slide.active {
+      display: block;
+    }
+
+    .carousel img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    iframe {
+      border-radius: 12px;
+    }
+
     footer {
       margin-top: 80px;
       text-align: center;
@@ -154,85 +171,94 @@
 
     footer a {
       color: var(--accent);
-      margin: 0 8px;
       text-decoration: none;
+      margin: 0 8px;
     }
-    footer a:hover { text-decoration: underline; }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
 
     @media (max-width: 900px) {
-      .steps { flex-wrap: wrap; }
+      .steps {
+        flex-wrap: wrap;
+      }
+      .step {
+        flex: 1 1 100%;
+        max-width: none;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-</header>
+  <header>
+    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+  </header>
 
-<main>
-  <h1>NOYER</h1>
-  <p>Publication automatique de vos biens immobiliers. Gagnez du temps, augmentez votre visibilité et concentrez-vous sur vos clients.</p>
-  <a href="verifier.html" class="cta">Commencer</a>
+  <main>
+    <h1>NOYER</h1>
+    <h2>Publication automatique de vos biens immobiliers</h2>
+    <p>Automatisez la mise en ligne de vos annonces sur les réseaux sociaux. Gagnez du temps, augmentez votre visibilité et concentrez-vous sur l’essentiel : vos clients.</p>
+    <a href="verifier.html" class="cta">Commencer</a>
 
-  <!-- 🟩 CARROUSEL -->
-  <div class="carousel-container">
-    <div class="carousel-slide" id="carousel">
-      
-      <!-- IMAGE PAGE D'EXEMPLE -->
-      <div class="carousel-item">
-        <img src="https://i.imgur.com/V0wJ2xF.jpeg" alt="Page Exemple">
+    <!-- ÉTAPES -->
+    <section class="steps">
+      <div class="step">
+        <h3>📝 Répondez à quelques questions</h3>
+        <p>En moins de 2 minutes, indiquez vos informations et préférences d’agence. Noyer personnalise vos publications automatiquement.</p>
+      </div>
+      <div class="step">
+        <h3>🔗 Connectez votre compte Facebook</h3>
+        <p>Reliez votre page professionnelle pour permettre les publications automatiques.</p>
+      </div>
+      <div class="step">
+        <h3>⚡ Laissez Noyer s’occuper du reste</h3>
+        <p>Vos annonces sont publiées automatiquement, avec photos & texte optimisé.</p>
+      </div>
+    </section>
+
+    <!-- CARROUSEL -->
+    <section class="carousel">
+      <div class="slide active">
+        <img src="https://i.imgur.com/V0wJ2xF.jpeg" alt="Aperçu Exemple">
       </div>
 
-      <!-- POST FACEBOOK -->
-      <div class="carousel-item">
-        <iframe 
-          src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid05uB8ethD9p6W4EHM4iPq5irwNdGue5MXd4vp4WVmVbJdgsjrrakAVfRaGVK7rosal%26id%3D61583220933420&show_text=true&width=500"
-          width="500" height="715"
-          style="border:none;overflow:hidden;background:#000;"
-          scrolling="no" frameborder="0" allowfullscreen="true"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+      <div class="slide">
+        <iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid05uB8ethD9p6W4EHM4iPq5irwNdGue5MXd4vp4WVmVbJdgsjrrakAVfRaGVK7rosal%26id%3D61583220933420&show_text=true&width=500"
+                width="350" height="500"
+                scrolling="no" frameborder="0"
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
         </iframe>
       </div>
+    </section>
 
-    </div>
-  </div>
+  </main>
 
-  <!-- STEPS -->
-  <section class="steps">
-    <div class="step">
-      <h3>📝 Répondez à quelques questions</h3>
-      <p>En moins de 2 minutes, indiquez vos informations et préférences d’agence.</p>
+  <footer>
+    <p>© 2025 Noyer — Publication Automatique</p>
+    <div>
+      <a href="confidentialite.html">Politique de confidentialité</a> ·
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="conditions-utilisation.html">CGU</a> ·
+      <a href="conditions-vente.html">CGV</a>
     </div>
-    <div class="step">
-      <h3>🔗 Connectez votre compte Facebook</h3>
-      <p>Reliez votre page professionnelle pour permettre les publications automatiques.</p>
-    </div>
-    <div class="step">
-      <h3>⚡ Laissez Noyer s’occuper du reste</h3>
-      <p>Vos annonces sont publiées automatiquement, avec photos & texte optimisé.</p>
-    </div>
-  </section>
-</main>
+  </footer>
 
-<footer>
-  © 2025 Noyer — Publication Automatique<br><br>
-  <a href="confidentialite.html">Politique de confidentialité</a> ·
-  <a href="mentions-legales.html">Mentions légales</a> ·
-  <a href="conditions-utilisation.html">CGU</a> ·
-  <a href="conditions-vente.html">CGV</a>
-</footer>
+  <!-- JS CAROUSEL -->
+  <script>
+    let index = 0;
+    const slides = document.querySelectorAll('.carousel .slide');
 
-<!-- SCRIPT CARROUSEL -->
-<script>
-let index = 0;
-setInterval(() => {
-  index = (index + 1) % 2;
-  document.getElementById("carousel").style.transform = 
-    `translateX(-${index * 100}%)`;
-}, 3000);
-</script>
+    function showNextSlide() {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }
+
+    setInterval(showNextSlide, 3000);
+  </script>
 
 </body>
 </html>
