@@ -17,7 +17,11 @@
       --accent-dark: #1ea97b;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+    }
 
     body {
       font-family: 'JetBrains Mono', monospace;
@@ -25,32 +29,36 @@
       color: var(--text);
       min-height: 100vh;
       padding: 30px 10px 80px;
+      overflow-x: hidden;
     }
 
+    /* HEADER */
     header {
       position: absolute;
-      top: 25px;
-      left: 40px;
+      top: 20px;
+      left: 20px;
     }
 
     header img {
-      height: 120px;
+      height: 90px;
       width: auto;
     }
 
+    /* MAIN */
     main {
       text-align: center;
       max-width: 720px;
       margin: 0 auto;
-      margin-top: 160px;
+      margin-top: 150px;
+      padding: 0 10px;
     }
 
     h1 {
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       color: var(--accent);
       letter-spacing: .12em;
       text-transform: uppercase;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     h2 {
@@ -76,6 +84,7 @@
       display: inline-block;
       box-shadow: 0 0 20px rgba(38,209,154,0.25);
       transition: .25s;
+      margin-bottom: 20px;
     }
 
     .cta:hover {
@@ -83,16 +92,15 @@
       transform: translateY(-2px);
     }
 
-    /* ---- CARDS ---- */
+    /* ---- STEPS ---- */
     .steps {
       display: flex;
-      gap: 18px;
       justify-content: center;
-      margin-top: 70px;
+      gap: 18px;
       width: 100%;
       max-width: 1050px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 50px auto;
+      flex-wrap: wrap;
     }
 
     .step {
@@ -102,6 +110,7 @@
       border-radius: 14px;
       width: 300px;
       transition: .25s;
+      text-align: left;
     }
 
     .step:hover {
@@ -112,21 +121,21 @@
     .step h3 {
       color: var(--accent);
       margin-bottom: 10px;
-      font-size: 1.05rem;
+      font-size: 1rem;
     }
 
     .step p {
       font-size: 0.88rem;
       color: var(--muted);
-      line-height: 1.6;
     }
 
-    /* ---- CAROUSEL (DÉPLACÉ ET CENTRÉ GLOBAL) ---- */
+    /* ---- CAROUSEL ---- */
     .carousel-wrapper {
       width: 100%;
       display: flex;
-      justify-content: center; /* CENTRAGE GLOBAL PARFAIT */
-      margin-top: 70px;
+      justify-content: center;
+      margin-top: 60px;
+      padding: 0 15px;
     }
 
     .carousel {
@@ -141,25 +150,23 @@
       display: none;
       justify-content: center;
       width: 100%;
-      text-align: center;
     }
 
     .slide.active {
       display: flex;
     }
 
-    .carousel img,
-    .carousel iframe {
-      margin: 0 auto;
-      display: block;
+    .carousel img {
+      width: 100%;
+      max-width: 350px;
       border-radius: 12px;
     }
 
-    .carousel img {
-      width: 350px;
-    }
-
     iframe {
+      width: 100%;
+      max-width: 450px;
+      height: 650px;
+      border-radius: 12px;
       background: #fff;
     }
 
@@ -183,17 +190,58 @@
       background: var(--accent);
     }
 
+    /* ---- FOOTER ---- */
     footer {
       margin-top: 80px;
       text-align: center;
       color: var(--muted);
       font-size: .9rem;
+      padding: 0 20px;
     }
 
     footer a {
       color: var(--accent);
       text-decoration: none;
     }
+
+    /* ----------- MEDIA QUERIES ----------- */
+
+    @media (max-width: 600px) {
+
+      header img {
+        height: 70px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.85rem;
+      }
+
+      .steps {
+        gap: 14px;
+      }
+
+      .step {
+        width: 100%;
+        max-width: 380px;
+      }
+
+      .carousel img {
+        max-width: 300px;
+      }
+
+      iframe {
+        height: 600px;
+      }
+    }
+
   </style>
 </head>
 
@@ -231,7 +279,7 @@
   </section>
 </main>
 
-<!-- CAROUSEL — DÉPLACÉ & CENTRÉ GLOBAL -->
+<!-- CAROUSEL -->
 <div class="carousel-wrapper">
   <section class="carousel">
 
@@ -242,8 +290,6 @@
     <div class="slide">
       <iframe 
         src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid05uB8ethD9p6W4EHM4iPq5irwNdGue5MXd4vp4WVmVbJdgsjrrakAVfRaGVK7rosal%26id%3D61583220933420&show_text=true&width=450"
-        width="450" 
-        height="650"
         scrolling="no"
         frameborder="0"
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
