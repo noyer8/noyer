@@ -23,9 +23,6 @@
       font-family: 'JetBrains Mono', monospace;
       background: var(--bg);
       color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       min-height: 100vh;
       padding: 30px 10px 80px;
     }
@@ -44,6 +41,7 @@
     main {
       text-align: center;
       max-width: 720px;
+      margin: 0 auto;
       margin-top: 160px;
     }
 
@@ -93,6 +91,8 @@
       margin-top: 70px;
       width: 100%;
       max-width: 1050px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .step {
@@ -121,21 +121,26 @@
       line-height: 1.6;
     }
 
-    /* ---- CAROUSEL (corrigé + centré) ---- */
-    .carousel {
-      margin-top: 80px;
+    /* ---- CAROUSEL (DÉPLACÉ ET CENTRÉ GLOBAL) ---- */
+    .carousel-wrapper {
       width: 100%;
+      display: flex;
+      justify-content: center; /* CENTRAGE GLOBAL PARFAIT */
+      margin-top: 70px;
+    }
+
+    .carousel {
       max-width: 480px;
-      position: relative;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center; /* ← centre tout */
+      align-items: center;
     }
 
     .slide {
       display: none;
       justify-content: center;
-      width: 100%;       /* ← centrage garanti */
+      width: 100%;
       text-align: center;
     }
 
@@ -145,7 +150,7 @@
 
     .carousel img,
     .carousel iframe {
-      margin: 0 auto;     /* ← centre l’image et l’iframe */
+      margin: 0 auto;
       display: block;
       border-radius: 12px;
     }
@@ -224,8 +229,10 @@
       <p>Vos annonces sont publiées automatiquement, avec texte & photos optimisés.</p>
     </div>
   </section>
+</main>
 
-  <!-- CAROUSEL -->
+<!-- CAROUSEL — DÉPLACÉ & CENTRÉ GLOBAL -->
+<div class="carousel-wrapper">
   <section class="carousel">
 
     <div class="slide active">
@@ -249,8 +256,7 @@
       <div class="dot" onclick="showSlide(1)"></div>
     </div>
   </section>
-
-</main>
+</div>
 
 <footer>
   © 2025 Noyer — Publication Automatique<br>
