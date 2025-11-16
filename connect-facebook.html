@@ -118,7 +118,7 @@
     }
   </style>
 
-  <!-- SDK Facebook -->
+  <!-- SDK Facebook (gardé même si non utilisé pour login) -->
   <script async defer crossorigin="anonymous"
     src="https://connect.facebook.net/fr_FR/sdk.js"></script>
 
@@ -171,30 +171,32 @@
 </footer>
 
 <script>
-  // INIT SDK
-  window.fbAsyncInit = function () {
-    FB.init({
-      appId: "2451194691945458",
-      cookie: true,
-      xfbml: true,
-      version: "v19.0"
-    });
-  };
-
+  /** 
+   * LOGIN OFFICIEL PAR OAUTH (obligatoire pour Instagram Business)
+   * On ouvre la popup Facebook avec les permissions correctes.
+   */
   function loginWithFacebook() {
-    FB.login(response => {
-      if (response.authResponse) {
-        const accessToken = response.authResponse.accessToken;
+    const appId = "2451194691945458";
+    const redirectUri = "https://noyer-backend.onrender.com/auth/callback";
 
-        // redirection vers ton backend qui traite le token
-        window.location.href = "https://noyer-backend.onrender.com/save-token?token=" + accessToken;
-      } else {
-        alert("Connexion annulée.");
-      }
-    }, {
-      scope: "pages_manage_posts,pages_read_engagement,pages_show_list,instagram_business_basic,instagram_business_content_publish",
-      return_scopes: true
-    });
+    const scopes = [
+      "pages_manage_posts",
+      "pages_read_engagement",
+      "pages_show_list",
+      "instagram_basic",
+      "instagram_content_publish",
+      "business_management"
+    ].join(",");
+
+    const oauthUrl = 
+      "https://www.facebook.com/v19.0/dialog/oauth" +
+      "?client_id=" + appId +
+      "&redirect_uri=" + encodeURIComponent(redirectUri) +
+      "&response_type=code" +
+      "&scope=" + encodeURIComponent(scopes) +
+      "&state=secure_noyer_123";
+
+    window.location.href = oauthUrl;
   }
 </script>
 
