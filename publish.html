@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Publication Noyer</title>
+  <style>
+    body {
+      background: #000;
+      color: #e7e7e7;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    h1 {
+      color: #26d19a;
+      font-size: 2rem;
+    }
+
+    p {
+      color: #bdbdbd;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 14px 24px;
+      font-size: 1.1rem;
+      background: #26d19a;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      color: #08241a;
+    }
+
+    button:hover {
+      background: #1ea97b;
+      transform: translateY(-2px);
+    }
+
+    #status {
+      margin-top: 25px;
+      font-size: 1rem;
+      color: #26d19a;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Publier mon bien sur les réseaux sociaux</h1>
+  <p>Cliquez sur le bouton ci-dessous pour lancer la publication automatique.</p>
+
+  <button onclick="triggerPublication()">Publier mon bien maintenant</button>
+
+  <div id="status"></div>
+
+  <script>
+    function triggerPublication() {
+      document.getElementById("status").innerHTML = "⏳ Publication en cours...";
+
+      fetch("https://pierre07.app.n8n.cloud/webhook/appmeta", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          demo: true,
+          action: "publish_property"
+        })
+      })
+      .then(res => res.text())
+      .then(() => {
+        document.getElementById("status").innerHTML =
+          "✅ Votre bien est en cours de publication sur Facebook et Instagram !";
+      })
+      .catch(err => {
+        document.getElementById("status").innerHTML =
+          "❌ Une erreur est survenue.";
+        console.error(err);
+      });
+    }
+  </script>
+
+</body>
+</html>
