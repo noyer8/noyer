@@ -90,10 +90,18 @@
 </div>
 
 <script>
-  function publishListing() {
-    const url = document.getElementById("propertyUrl").value;
+  // Retrieve Meta token from URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const accessToken = urlParams.get("token");
 
-    if (!url) {
+  if (!accessToken) {
+    alert("Missing access token. Please reconnect with Meta.");
+  }
+
+  function publishListing() {
+    const propertyUrl = document.getElementById("propertyUrl").value;
+
+    if (!propertyUrl) {
       alert("Please enter a property URL.");
       return;
     }
@@ -104,7 +112,8 @@
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        property_url: url,
+        property_url: propertyUrl,
+        access_token: accessToken,
         demo: true
       })
     })
