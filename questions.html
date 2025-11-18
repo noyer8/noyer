@@ -197,82 +197,70 @@
     <input type="text" name="logoUrl" placeholder="https://www.votreagence.fr/logo.png">
     <div class="alert">ℹ️ L’ajout automatique du logo sur vos photos est disponible uniquement avec le forfait <b>Business</b>.</div>
 
-    <!-- STYLE DESCRIPTIONS -->
-    <label>📝 Style de description souhaité</label>
-    <div class="info">Sélectionnez le ton qui représente le mieux votre agence.</div>
+  <!-- STYLE DESCRIPTIONS -->
+<label>📝 Choisissez le style de publication qui vous correspond le mieux :</label>
+<div class="info">Sélectionnez la description que vous souhaitez pour vos futures publications immobilières.</div>
 
-    <div class="descriptions">
+<div class="descriptions">
 
-      <label class="card">
-        <input type="radio" name="descriptionChoice" value="1" required>
-        <strong>⭐ Classique & professionnel</strong><br><br>
-        Texte formel, clair et orienté immobilier traditionnel.
-      </label>
+  <!-- Description 1 -->
+  <label class="card">
+    <input type="radio" name="descriptionChoice" value="1" required>
+    <strong>🏡✨ Style familial & chaleureux</strong><br><br>
 
-      <label class="card">
-        <input type="radio" name="descriptionChoice" value="2">
-        <strong>🏡 Chaleureux & familial</strong><br><br>
-        Ton convivial mettant en valeur le confort et la vie de famille.
-      </label>
+    🌟 <strong>À vendre — Votre futur nid familial vous attend !</strong><br><br>
 
-      <label class="card">
-        <input type="radio" name="descriptionChoice" value="3">
-        <strong>✨ Premium & émotion</strong><br><br>
-        Style plus impactant, idéal pour biens coup de cœur.
-      </label>
+    ❤️ On tombe immédiatement sous le charme de cette maison lumineuse, pensée pour offrir un maximum de confort au quotidien.<br><br>
 
-    </div>
+    ✔️ <strong>Vaste séjour</strong> ouvert sur une cuisine moderne  
+    ✔️ <strong>Jardin accueillant</strong> pour profiter en famille  
+    ✔️ <strong>Chambres spacieuses</strong>, parfaites pour tous<br><br>
 
-    <!-- SUBMIT -->
-    <button type="submit">Valider mes informations</button>
-    <p id="loading">⏳ Envoi en cours…</p>
+    Cette maison réunit parfaitement chaleur, praticité et bien-être.  
+    <br><br>
+    <strong>Un vrai coup de cœur familial 🫶</strong>
+  </label>
 
-  </form>
+  <!-- Description 2 -->
+  <label class="card">
+    <input type="radio" name="descriptionChoice" value="2">
+    <strong>🔑🏙️ Style professionnel & efficace</strong><br><br>
 
-  <footer>
-    © 2025 Noyer — Publication Automatique<br>
-    <a href="confidentialite.html">Politique de confidentialité</a> ·
-    <a href="mentions-legales.html">Mentions légales</a> ·
-    <a href="conditions-utilisation.html">CGU</a> ·
-    <a href="conditions-vente.html">CGV</a>
-  </footer>
+    📍 <strong>Nouvelle opportunité immobilière à découvrir</strong><br><br>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const agencyName = localStorage.getItem("agencyName");
-      if (agencyName) {
-        document.getElementById("agencyName").value = agencyName;
-      }
+    💼 Idéal pour les personnes souhaitant un bien fonctionnel, bien situé et prêt à accueillir un nouveau projet.<br><br>
 
-      const form = document.getElementById("questionForm");
-      const loading = document.getElementById("loading");
+    • Séjour lumineux  
+    • Cuisine équipée  
+    • Chambres confortables  
+    • Extérieur agréable<br><br>
 
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        loading.style.display = "block";
+    Une maison saine, pratique, avec toutes les commodités nécessaires.  
+    <br><br>
+    <strong>À visiter rapidement pour ne pas la manquer.</strong>
+  </label>
 
-        const data = Object.fromEntries(new FormData(form).entries());
+  <!-- Description 3 -->
+  <label class="card">
+    <input type="radio" name="descriptionChoice" value="3">
+    <strong>💎🔥 Style premium & émotion</strong><br><br>
 
-        try {
-          const response = await fetch(form.action, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-          });
+    ✨ <strong>Un bien d’exception, pensé pour séduire dès le premier regard.</strong><br><br>
 
-          if (response.ok) {
-            loading.textContent = "✅ Formulaire envoyé !";
-            setTimeout(() => window.location.href = "fonctionnement.html", 800);
-          } else {
-            loading.textContent = "⚠️ Erreur, veuillez réessayer.";
-          }
+    Architecture élégante, volumes généreux, finitions soignées :  
+    cette maison offre une atmosphère unique où chaque détail compte.<br><br>
 
-        } catch (_) {
-          loading.textContent = "❌ Erreur réseau.";
-        }
-      });
-    });
-  </script>
+    🌅 <strong>Lumière naturelle omniprésente</strong>  
+    🌿 <strong>Extérieurs conçus pour la détente</strong>  
+    🛏️ <strong>Espaces de vie premium</strong><br><br>
 
-</body>
-</html>
+    <strong>Le parfait équilibre entre confort haut de gamme et émotion.</strong>  
+    <br><br>
+    👉 Pour les amateurs de biens rares qui veulent vivre une vraie expérience.
+  </label>
+
+</div>
+
+<!-- SUBMIT -->
+<button type="submit">Valider mes informations</button>
+<p id="loading">⏳ Envoi en cours…</p>
