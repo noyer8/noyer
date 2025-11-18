@@ -24,6 +24,7 @@
       color: var(--text);
       font-family: "JetBrains Mono", monospace;
       padding: 40px 20px 80px;
+      min-height: 100vh;
     }
 
     /* LOGO */
@@ -33,10 +34,7 @@
       left: 40px;
       cursor: pointer;
     }
-
-    .logo img {
-      height: 120px;
-    }
+    .logo img { height: 120px; }
 
     /* TITLE */
     h1 {
@@ -46,8 +44,6 @@
       font-size: 2rem;
       letter-spacing: 2px;
     }
-
-    /* SUBTEXT */
     .subtitle {
       text-align: center;
       margin-top: 10px;
@@ -55,6 +51,7 @@
       font-size: .95rem;
     }
 
+    /* FORM */
     form {
       max-width: 900px;
       background: var(--panel);
@@ -87,12 +84,9 @@
       color: #ccc;
     }
 
-    .info {
-      font-size: .8rem;
-      color: var(--muted);
-      margin-top: 4px;
-    }
+    .info { font-size: .8rem; color: var(--muted); margin-top: 4px; }
 
+    /* ALERT BUSINESS */
     .alert {
       background: #16231c;
       border-left: 3px solid var(--accent);
@@ -103,7 +97,7 @@
       font-size: .85rem;
     }
 
-    /* DESCRIPTION CARDS */
+    /* DESCRIPTIONS */
     .descriptions {
       display: grid;
       grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
@@ -118,7 +112,10 @@
       border-radius: 10px;
       cursor: pointer;
       transition: .25s;
+      color: var(--text) !important;
     }
+
+    .card strong { color: var(--text) !important; }
 
     .card:hover {
       border-color: var(--accent);
@@ -166,7 +163,6 @@
       text-decoration: none;
       margin: 0 5px;
     }
-
     footer a:hover { color: var(--accent-hover); }
   </style>
 </head>
@@ -190,81 +186,108 @@
     <!-- EMAIL -->
     <label>📧 Adresse e-mail de contact</label>
     <input type="email" name="email" required placeholder="ex : contact@votreagence.fr">
-    <div class="info">Nous utiliserons cette adresse uniquement pour vous envoyer vos contenus formats, workflows et factures.</div>
+    <div class="info">Nous utiliserons cette adresse uniquement pour vous envoyer vos contenus, workflows et factures.</div>
 
     <!-- LOGO -->
     <label>🖼️ URL du logo de l’agence (facultatif)</label>
     <input type="text" name="logoUrl" placeholder="https://www.votreagence.fr/logo.png">
     <div class="alert">ℹ️ L’ajout automatique du logo sur vos photos est disponible uniquement avec le forfait <b>Business</b>.</div>
 
-<!-- STYLE DESCRIPTIONS -->
-<label>📝 Choisissez la description que vous souhaitez pour vos futures publications :</label>
-<div class="info">Sélectionnez la formulation qui correspond le mieux à vos annonces immobilières.</div>
+    <!-- STYLE DESCRIPTIONS -->
+    <label>📝 Choisissez la description que vous souhaitez pour vos futures publications :</label>
+    <div class="info">Sélectionnez la formulation qui correspond le mieux à vos annonces immobilières.</div>
 
-<style>
-  /* Forcer le texte en blanc dans les cartes */
-  .card {
-    color: var(--text) !important;
-  }
-  .card strong {
-    color: var(--text) !important;
-  }
-</style>
+    <div class="descriptions">
 
-<div class="descriptions">
+      <!-- Description 1 -->
+      <label class="card">
+        <input type="radio" name="descriptionChoice" value="1" required>
+        🌟 <strong>À vendre — Votre futur nid familial vous attend !</strong><br><br>
+        ❤️ Maison lumineuse, pensée pour un confort quotidien optimal.<br><br>
+        ✔️ Grand séjour ouvert  
+        ✔️ Cuisine moderne  
+        ✔️ Jardin accueillant<br><br>
+        <strong>Un vrai coup de cœur familial 🫶</strong>
+      </label>
 
-  <!-- Description 1 -->
-  <label class="card">
-    <input type="radio" name="descriptionChoice" value="1" required>
+      <!-- Description 2 -->
+      <label class="card">
+        <input type="radio" name="descriptionChoice" value="2">
+        📍 <strong>Nouvelle opportunité immobilière à découvrir</strong><br><br>
+        💼 Parfait pour un projet de vie ou un investissement rationnel.<br><br>
+        • Séjour lumineux  
+        • Cuisine équipée  
+        • Extérieur agréable<br><br>
+        <strong>À visiter rapidement.</strong>
+      </label>
 
-    🌟 <strong>À vendre — Votre futur nid familial vous attend !</strong><br><br>
+      <!-- Description 3 -->
+      <label class="card">
+        <input type="radio" name="descriptionChoice" value="3">
+        ✨ <strong>Un bien d’exception qui séduit immédiatement</strong><br><br>
+        Architecture élégante, volumes généreux et finitions premium.<br><br>
+        🌅 Lumière naturelle  
+        🌿 Extérieurs détente  
+        🛏️ Espaces haut de gamme<br><br>
+        <strong>Pour les amateurs de biens rares.</strong>
+      </label>
 
-    ❤️ On tombe immédiatement sous le charme de cette maison lumineuse, pensée pour offrir un maximum de confort au quotidien.<br><br>
+    </div>
 
-    ✔️ <strong>Vaste séjour</strong> ouvert sur une cuisine moderne  
-    ✔️ <strong>Jardin accueillant</strong> pour profiter en famille  
-    ✔️ <strong>Chambres spacieuses</strong>, parfaites pour tous<br><br>
+    <!-- SUBMIT -->
+    <button type="submit">Valider mes informations</button>
+    <p id="loading">⏳ Envoi en cours…</p>
 
-    Cette maison réunit parfaitement chaleur, praticité et bien-être.<br><br>
-    <strong>Un vrai coup de cœur familial 🫶</strong>
-  </label>
+  </form>
 
-  <!-- Description 2 -->
-  <label class="card">
-    <input type="radio" name="descriptionChoice" value="2">
+  <footer>
+    © 2025 Noyer — Publication Automatique<br>
+    <a href="confidentialite.html">Politique de confidentialité</a> ·
+    <a href="mentions-legales.html">Mentions légales</a> ·
+    <a href="conditions-utilisation.html">CGU</a> ·
+    <a href="conditions-vente.html">CGV</a>
+  </footer>
 
-    📍 <strong>Nouvelle opportunité immobilière à découvrir</strong><br><br>
+  <!-- SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
 
-    💼 Idéal pour les personnes recherchant un bien fonctionnel, bien situé et prêt à accueillir un nouveau projet.<br><br>
+      const agencyName = localStorage.getItem("agencyName");
+      if (agencyName) {
+        document.getElementById("agencyName").value = agencyName;
+      }
 
-    • Séjour lumineux  
-    • Cuisine équipée  
-    • Chambres confortables  
-    • Extérieur agréable<br><br>
+      const form = document.getElementById("questionForm");
+      const loading = document.getElementById("loading");
 
-    Une maison saine, pratique, avec toutes les commodités nécessaires.<br><br>
-    <strong>À visiter rapidement pour ne pas la manquer.</strong>
-  </label>
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        loading.style.display = "block";
 
-  <!-- Description 3 -->
-  <label class="card">
-    <input type="radio" name="descriptionChoice" value="3">
+        const data = Object.fromEntries(new FormData(form).entries());
 
-    ✨ <strong>Un bien d’exception qui séduit dès le premier regard</strong><br><br>
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
 
-    Architecture élégante, volumes généreux, finitions soignées :  
-    cette maison offre une atmosphère unique où chaque détail compte.<br><br>
+          if (response.ok) {
+            loading.textContent = "✅ Formulaire envoyé !";
+            setTimeout(() => {
+              window.location.href = "https://noyer.io/abonnements.html";
+            }, 800);
+          } else {
+            loading.textContent = "⚠️ Une erreur est survenue.";
+          }
 
-    🌅 <strong>Lumière naturelle omniprésente</strong>  
-    🌿 <strong>Extérieurs conçus pour la détente</strong>  
-    🛏️ <strong>Espaces de vie premium</strong><br><br>
+        } catch (error) {
+          loading.textContent = "❌ Erreur réseau.";
+        }
+      });
+    });
+  </script>
 
-    <strong>Le parfait équilibre entre confort haut de gamme et émotion.</strong><br><br>
-    👉 Pour les amateurs de biens rares qui veulent vivre une vraie expérience.
-  </label>
-
-</div>
-
-<!-- SUBMIT -->
-<button type="submit">Valider mes informations</button>
-<p id="loading">⏳ Envoi en cours…</p>
+</body>
+</html>
