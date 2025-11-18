@@ -32,7 +32,6 @@
       overflow-x: hidden;
     }
 
-    /* HEADER */
     header {
       position: absolute;
       top: 20px;
@@ -44,7 +43,6 @@
       width: auto;
     }
 
-    /* MAIN */
     main {
       text-align: center;
       max-width: 720px;
@@ -92,7 +90,6 @@
       transform: translateY(-2px);
     }
 
-    /* ---- STEPS ---- */
     .steps {
       display: flex;
       justify-content: center;
@@ -118,18 +115,6 @@
       transform: translateY(-3px);
     }
 
-    .step h3 {
-      color: var(--accent);
-      margin-bottom: 10px;
-      font-size: 1rem;
-    }
-
-    .step p {
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-
-    /* ---- CAROUSEL ---- */
     .carousel-wrapper {
       width: 100%;
       display: flex;
@@ -154,12 +139,6 @@
 
     .slide.active {
       display: flex;
-    }
-
-    .carousel img {
-      width: 100%;
-      max-width: 350px;
-      border-radius: 12px;
     }
 
     iframe {
@@ -190,7 +169,6 @@
       background: var(--accent);
     }
 
-    /* ---- FOOTER ---- */
     footer {
       margin-top: 80px;
       text-align: center;
@@ -202,44 +180,6 @@
     footer a {
       color: var(--accent);
       text-decoration: none;
-    }
-
-    /* ----------- MEDIA QUERIES ----------- */
-
-    @media (max-width: 600px) {
-
-      header img {
-        height: 70px;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1rem;
-      }
-
-      p {
-        font-size: 0.85rem;
-      }
-
-      .steps {
-        gap: 14px;
-      }
-
-      .step {
-        width: 100%;
-        max-width: 380px;
-      }
-
-      .carousel img {
-        max-width: 300px;
-      }
-
-      iframe {
-        height: 600px;
-      }
     }
 
   </style>
@@ -260,7 +200,6 @@
 
   <a href="verifier.html" class="cta">Commencer</a>
 
-  <!-- STEPS -->
   <section class="steps">
     <div class="step">
       <h3>📝 Répondez à quelques questions</h3>
@@ -279,21 +218,23 @@
   </section>
 </main>
 
-<!-- CAROUSEL -->
 <div class="carousel-wrapper">
   <section class="carousel">
 
+    <!-- ⭐ REPLACED FIRST SLIDE HERE ⭐ -->
     <div class="slide active">
-      <img src="https://i.imgur.com/0QLEzUn.jpeg" alt="Démo exemple">
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="https://www.instagram.com/p/DRNvpNJjMgz/?utm_source=ig_embed&amp;utm_campaign=loading"
+        data-instgrm-version="14"
+        style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px rgba(0,0,0,.5),0 1px 10px rgba(0,0,0,.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:100%;">
+      </blockquote>
+      <script async src="//www.instagram.com/embed.js"></script>
     </div>
 
     <div class="slide">
       <iframe 
-        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0NXq89ETzduhSzcUUhYo34ij2d3pj2W6ikXpHkjdJaygv4Aqoj3FxK55gXCYA1dPNl%26id%3D61583421766843&show_text=true&width=500" width="500" height="781" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-        scrolling="no"
-        frameborder="0"
-        allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-        allowfullscreen="true">
+        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0NXq89ETzduhSzcUUhYo34ij2d3pj2W6ikXpHkjdJaygv4Aqoj3FxK55gXCYA1dPNl%26id%3D61583421766843&show_text=true&width=500"
+        scrolling="no" frameborder="0" allowfullscreen="true">
       </iframe>
     </div>
 
@@ -301,6 +242,7 @@
       <div class="dot active" onclick="showSlide(0)"></div>
       <div class="dot" onclick="showSlide(1)"></div>
     </div>
+
   </section>
 </div>
 
@@ -320,7 +262,6 @@ const dots = document.querySelectorAll('.dot');
 function showSlide(n) {
   slides.forEach(s => s.classList.remove('active'));
   dots.forEach(d => d.classList.remove('active'));
-
   slides[n].classList.add('active');
   dots[n].classList.add('active');
   index = n;
