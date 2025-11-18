@@ -1,87 +1,121 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Publication Noyer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noyer — Publish Demo</title>
+
   <style>
     body {
-      background: #000;
-      color: #e7e7e7;
+      background: #0f0f0f;
+      color: #ffffff;
       font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #1a1a1a;
+      padding: 30px;
+      width: 360px;
+      border-radius: 12px;
+      border: 1px solid #29d39a;
       text-align: center;
-      padding-top: 100px;
     }
 
     h1 {
-      color: #26d19a;
-      font-size: 2rem;
+      margin-bottom: 20px;
+      font-size: 22px;
+      color: #29d39a;
     }
 
-    p {
-      color: #bdbdbd;
-      margin-bottom: 30px;
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #29d39a;
+      background: #111;
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 14px;
     }
 
     button {
-      padding: 14px 24px;
-      font-size: 1.1rem;
-      background: #26d19a;
+      width: 100%;
+      padding: 12px;
+      background: #29d39a;
+      color: #001f12;
       border: none;
-      border-radius: 10px;
       font-weight: bold;
+      border-radius: 8px;
       cursor: pointer;
+      font-size: 15px;
       transition: 0.2s;
-      color: #08241a;
     }
 
     button:hover {
-      background: #1ea97b;
-      transform: translateY(-2px);
+      background: #1f9e72;
     }
 
-    #status {
-      margin-top: 25px;
-      font-size: 1rem;
-      color: #26d19a;
+    #success {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #29d39a;
+      display: none;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>Publier mon bien sur les réseaux sociaux</h1>
-  <p>Cliquez sur le bouton ci-dessous pour lancer la publication automatique.</p>
+<div class="container">
+  <h1>Publish Real Estate Listing</h1>
 
-  <button onclick="triggerPublication()">Publier mon bien maintenant</button>
+  <label for="propertyUrl">Property URL</label>
+  <input type="text" id="propertyUrl" placeholder="https://example.com/property">
 
-  <div id="status"></div>
+  <button onclick="publishListing()">Publish on Social Media</button>
 
-  <script>
-    function triggerPublication() {
-      document.getElementById("status").innerHTML = "⏳ Publication en cours...";
+  <div id="success">Your listing is being published…</div>
+</div>
 
-      fetch("https://pierre07.app.n8n.cloud/webhook/appmeta", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          demo: true,
-          action: "publish_property"
-        })
-      })
-      .then(res => res.text())
-      .then(() => {
-        document.getElementById("status").innerHTML =
-          "✅ Votre bien est en cours de publication sur Facebook et Instagram !";
-      })
-      .catch(err => {
-        document.getElementById("status").innerHTML =
-          "❌ Une erreur est survenue.";
-        console.error(err);
-      });
+<script>
+  function publishListing() {
+    const url = document.getElementById("propertyUrl").value;
+
+    if (!url) {
+      alert("Please enter a property URL.");
+      return;
     }
-  </script>
+
+    fetch("https://pierre07.app.n8n.cloud/webhook/appmeta", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        property_url: url,
+        demo: true
+      })
+    })
+    .then(() => {
+      document.getElementById("success").style.display = "block";
+    })
+    .catch(() => {
+      alert("Error sending request.");
+    });
+  }
+</script>
 
 </body>
 </html>
