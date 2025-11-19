@@ -56,7 +56,7 @@
       console.log("CODE REÇU :", authCode);
 
       // Envoie le code à ton backend pour obtenir un access_token permanent
-      fetch("https://noyer-backend.onrender.com/meta/exchange-code", {
+      fetch("https://noyer-backend-meta.onrender.com/meta/exchange-code", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code: authCode })
