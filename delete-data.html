@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOYER — Suppression des données</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #000000;
+      --panel: #111111;
+      --accent: #26d19a;
+      --accent-dark: #1ea97b;
+      --text: #e7e7e7;
+      --muted: #9a9a9a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "JetBrains Mono", monospace;
+      min-height: 100vh;
+      padding: 40px 20px 60px;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 30px;
+      cursor: pointer;
+    }
+
+    .logo img {
+      height: 90px;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 120px auto 0;
+      background: var(--panel);
+      border-radius: 16px;
+      padding: 30px 24px 32px;
+      border: 1px solid rgba(38, 209, 154, 0.18);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      font-size: 1.8rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-left: 18px;
+      margin-bottom: 14px;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .box {
+      background: #151515;
+      border-radius: 10px;
+      padding: 14px 16px;
+      border: 1px solid rgba(38, 209, 154, 0.2);
+      margin-top: 10px;
+      margin-bottom: 18px;
+      font-size: 0.88rem;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--accent-dark);
+    }
+
+    .email {
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 6px;
+    }
+
+    footer a:hover {
+      color: var(--accent-dark);
+    }
+
+    @media (max-width: 600px) {
+      .logo img {
+        height: 70px;
+      }
+
+      main {
+        margin-top: 110px;
+        padding: 22px 18px 26px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Logo cliquable -->
+  <div class="logo" onclick="window.location.href='index.html'">
+    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer" />
+  </div>
+
+  <main>
+    <h1>SUPPRESSION DES DONNÉES</h1>
+    <div class="subtitle">
+      Cette page explique comment demander la suppression de vos données liées à NOYER.
+    </div>
+
+    <h2>1. Contexte</h2>
+    <p>
+      NOYER utilise les API Meta (Facebook & Instagram) afin de publier automatiquement
+      des annonces immobilières sur vos comptes professionnels, avec votre autorisation.
+    </p>
+    <p>
+      Conformément aux règles Meta et à la réglementation en vigueur (ex. RGPD), vous pouvez
+      à tout moment demander la suppression des données que nous traitons pour votre compte.
+    </p>
+
+    <h2>2. Quelles données sont concernées&nbsp;?</h2>
+    <p>Les données susceptibles d’être supprimées incluent notamment&nbsp;:</p>
+    <ul>
+      <li>Les informations de base de votre agence (nom, e-mail de contact, préférences de publication)</li>
+      <li>Les paramètres liés à vos pages Facebook / comptes Instagram utilisés pour la publication</li>
+      <li>Les historiques internes de publication générés par NOYER</li>
+    </ul>
+
+    <div class="box">
+      NOYER ne stocke pas votre mot de passe Facebook/Instagram.<br />
+      L’accès est géré uniquement via des jetons sécurisés (access tokens) fournis par Meta.
+    </div>
+
+    <h2>3. Comment demander la suppression de vos données&nbsp;?</h2>
+    <p>
+      Pour demander la suppression de vos données liées à NOYER, veuillez nous contacter à l’adresse suivante&nbsp;:
+    </p>
+
+    <p>
+      📧 <span class="email">contact@noyer.io</span>
+    </p>
+
+    <p>Merci d’indiquer dans votre e-mail&nbsp;:</p>
+    <ul>
+      <li>Votre nom et le nom de votre agence</li>
+      <li>L’adresse e-mail utilisée sur NOYER</li>
+      <li>La mention explicite que vous souhaitez la <strong>suppression de vos données</strong></li>
+    </ul>
+
+    <div class="box">
+      Dès réception de votre demande, nous traiterons la suppression de vos données dans un
+      délai maximum de <span class="highlight">30 jours</span>, sauf obligation légale contraire.
+    </div>
+
+    <h2>4. Révocation de l’accès depuis Facebook / Instagram</h2>
+    <p>
+      Vous pouvez également retirer directement l’accès de NOYER à vos comptes Meta depuis
+      les paramètres Facebook / Instagram&nbsp;:
+    </p>
+    <ul>
+      <li>Rendez-vous dans <strong>Paramètres &gt; Applications et sites web</strong></li>
+      <li>Recherchez l’application <strong>“NOYER”</strong></li>
+      <li>Cliquez sur <strong>Supprimer</strong> ou <strong>Révoquer l’accès</strong></li>
+    </ul>
+
+    <p>
+      La révocation coupe immédiatement la connexion entre NOYER et vos comptes Meta.  
+      Vous pouvez ensuite nous envoyer un e-mail pour demander la suppression complète
+      des données encore stockées dans notre système.
+    </p>
+
+    <h2>5. Questions</h2>
+    <p>
+      Pour toute question concernant vos données, notre utilisation des API Meta ou notre conformité,
+      vous pouvez nous écrire à&nbsp;:
+      <a href="mailto:contact@noyer.io">contact@noyer.io</a>.
+    </p>
+  </main>
+
+  <footer>
+    © 2025 Noyer — Publication Automatique<br />
+    <a href="confidentialite.html">Politique de confidentialité</a> ·
+    <a href="mentions-legales.html">Mentions légales</a> ·
+    <a href="conditions-utilisation.html">CGU</a> ·
+    <a href="conditions-vente.html">CGV</a>
+  </footer>
+
+</body>
+</html>
