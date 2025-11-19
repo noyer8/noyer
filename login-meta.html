@@ -108,7 +108,7 @@
       js = d.createElement(s);
       js.id = id;
       js.src = "https://connect.facebook.net/fr_FR/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs);
+      fjs.parentNode.insertBefore(js, s);
     })(document, "script", "facebook-jssdk");
 
     // Initialisation du SDK
@@ -134,16 +134,19 @@
       }
 
       if (response.status === "connected") {
-        var code = response.authResponse.code;
+        // Pour Business Login, la réponse renverra un "code" (à échanger côté serveur)
+        let auth = response.authResponse;
+
         statusEl.textContent =
-          "Connecté via Business Login ✅\n\nCode reçu :\n" + code +
-          "\n\n⚠️ Tu dois envoyer ce 'code' à ton backend pour obtenir le access_token.";
+          "Connecté via Business Login ✅\n\n" +
+          "Voici les données retournées :\n\n" +
+          JSON.stringify(auth, null, 2) +
+          "\n\n⚠️ Tu devras envoyer le `code` à ton backend pour obtenir les tokens.";
       } else {
         statusEl.textContent = "Non connecté.";
       }
     }
 
-    // Login Business (OBLIGATOIRE pour apps Entreprise)
     document.addEventListener("DOMContentLoaded", function () {
       var btn = document.getElementById("fb-login-btn");
 
@@ -153,10 +156,9 @@
             statusChangeCallback(response);
           },
           {
-            config_id: "1441904197363641",
-            response_type: "code", // Obligatoire pour Business Login
+            config_id: "1441904197363641", // TON CONFIG ID
             scope:
-              "public_profile,email,pages_manage_posts,pages_show_list,instagram_content_publish,pages_read_engagement,instagram_basic"
+              "public_profile,email,pages_manage_posts,pages_show_list,instagram_content_publish,pages_read_engagement,instagram_basic",
           }
         );
       });
