@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: system-ui, sans-serif;
       background: #f5f5f5;
       display: flex;
       flex-direction: column;
@@ -78,14 +77,13 @@
   </style>
 </head>
 <body>
-  <!-- Nécessaire pour le SDK Facebook -->
+
   <div id="fb-root"></div>
 
   <div class="card">
-    <h1>Connexion à Meta</h1>
+    <h1>Connexion avec Meta</h1>
     <p>
-      Clique sur le bouton ci-dessous pour te connecter avec Facebook et
-      autoriser l&apos;accès aux permissions nécessaires.
+      Clique sur le bouton ci-dessous pour te connecter via Facebook Login for Business.
     </p>
 
     <button id="fb-login-btn" type="button">
@@ -102,37 +100,32 @@
   </div>
 
   <script>
-    // 1) Chargement du SDK Facebook
+    // Charger le SDK Facebook
     (function (d, s, id) {
       var js,
         fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s);
       js.id = id;
-      // SDK en français
       js.src = "https://connect.facebook.net/fr_FR/sdk.js";
       fjs.parentNode.insertBefore(js, fjs);
     })(document, "script", "facebook-jssdk");
 
-    // 2) Initialisation du SDK quand il est chargé
+    // Initialisation du SDK
     window.fbAsyncInit = function () {
       FB.init({
-        appId: "2451194691945458", // TON APP ID
-        cookie: true, // pour avoir accès au cookie de session
-        xfbml: false, // on n'utilise pas les plugins FB ici
-        version: "v19.0", // version de l'API (à adapter si besoin)
+        appId: "2451194691945458", // Ton App ID
+        cookie: true,
+        xfbml: false,
+        version: "v19.0",
       });
 
-      // Optionnel : vérifier si l'utilisateur est déjà connecté
       FB.getLoginStatus(function (response) {
         statusChangeCallback(response);
       });
     };
 
-    // 3) Fonction appelée après login ou vérification de statut
     function statusChangeCallback(response) {
-      console.log("statusChangeCallback", response);
-
       var statusEl = document.getElementById("status");
 
       if (!response) {
@@ -141,42 +134,34 @@
       }
 
       if (response.status === "connected") {
-        // L'utilisateur est connecté à Facebook ET a autorisé l'app
-        var accessToken = response.authResponse.accessToken;
-        var userID = response.authResponse.userID;
-
+        var code = response.authResponse.code;
         statusEl.textContent =
-          "Connecté ✅\n\nUser ID : " +
-          userID +
-          "\nAccess Token (à envoyer à ton backend) :\n" +
-          accessToken;
-      } else if (response.status === "not_authorized") {
-        // Connecté à Facebook mais pas à ton app
-        statusEl.textContent =
-          "Connecté à Facebook, mais ton application n'est pas autorisée.";
+          "Connecté via Business Login ✅\n\nCode reçu :\n" + code +
+          "\n\n⚠️ Tu dois envoyer ce 'code' à ton backend pour obtenir le access_token.";
       } else {
-        // Pas connecté à Facebook
-        statusEl.textContent = "Non connecté à Facebook.";
+        statusEl.textContent = "Non connecté.";
       }
     }
 
-    // 4) Quand on clique sur le bouton → popup login
+    // Login Business (OBLIGATOIRE pour apps Entreprise)
     document.addEventListener("DOMContentLoaded", function () {
       var btn = document.getElementById("fb-login-btn");
 
       btn.addEventListener("click", function () {
         FB.login(
           function (response) {
-            // Quand l'utilisateur a fini l'auth dans la popup
             statusChangeCallback(response);
           },
           {
+            config_id: "1441904197363641",
+            response_type: "code", // Obligatoire pour Business Login
             scope:
-              "public_profile,email,pages_manage_posts,pages_show_list,instagram_content_publish,pages_read_engagement,instagram_basic",
+              "public_profile,email,pages_manage_posts,pages_show_list,instagram_content_publish,pages_read_engagement,instagram_basic"
           }
         );
       });
     });
   </script>
+
 </body>
 </html>
