@@ -26,6 +26,11 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
+    h1 {
+      font-size: 1.4rem;
+      margin: 0 0 0.5rem 0;
+    }
+
     #fb-login-btn {
       display: inline-flex;
       align-items: center;
@@ -39,10 +44,7 @@
       font-weight: 600;
       cursor: pointer;
       width: 100%;
-    }
-
-    #fb-login-btn:hover {
-      opacity: 0.95;
+      margin-top: 1rem;
     }
 
     #status {
@@ -52,6 +54,14 @@
       border-radius: 8px;
       padding: 10px;
       white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    small {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: #777;
     }
   </style>
 </head>
@@ -62,49 +72,66 @@
 
   <div class="card">
     <h1>Connexion avec Meta</h1>
+    <p>Clique sur le bouton pour te connecter via Facebook Login for Business.</p>
+
     <button id="fb-login-btn">Se connecter avec Facebook</button>
+
     <div id="status">Statut : en attente…</div>
+
+    <small>
+      Permissions demandées : public_profile, email, pages_manage_posts,
+      pages_show_list, instagram_content_publish, pages_read_engagement,
+      instagram_basic.
+    </small>
   </div>
 
   <script>
-    // CHARGEMENT CORRECT DU SDK FACEBOOK
+    // Chargement correct du SDK Facebook
     (function (d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s);
       js.id = id;
       js.src = "https://connect.facebook.net/fr_FR/sdk.js";
-      fjs.parentNode.insertBefore(js, fjs); // ✔️ CORRECTION ICI
+      fjs.parentNode.insertBefore(js, fjs); // IMPORTANT
     })(document, "script", "facebook-jssdk");
 
-    // INITIALISATION DU SDK
+    // Initialisation du SDK
     window.fbAsyncInit = function () {
       FB.init({
-        appId: "2451194691945458",
+        appId: "2451194691945458", // ton App ID
         cookie: true,
         xfbml: false,
-        version: "v19.0"
+        version: "v19.0",
       });
 
-      FB.getLoginStatus(function (response) {
-        document.getElementById("status").textContent = "SDK chargé. Prêt.";
+      FB.getLoginStatus(function () {
+        document.getElementById("status").textContent =
+          "SDK chargé. Clique sur le bouton pour te connecter.";
       });
     };
 
     function statusChangeCallback(response) {
-      let statusEl = document.getElementById("status");
+      var statusEl = document.getElementById("status");
+
+      if (!response) {
+        statusEl.textContent = "Aucune réponse de Facebook.";
+        return;
+      }
 
       if (response.status === "connected") {
+        // Pour Business Login, on s'attend à un "code" à échanger côté backend
         statusEl.textContent =
-          "Connecté via Business Login :\n" +
-          JSON.stringify(response.authResponse, null, 2);
+          "Connecté ✅\n\nRéponse brute :\n" +
+          JSON.stringify(response, null, 2) +
+          "\n\n⚠️ En backend, il faudra échanger le code contre des tokens.";
       } else {
-        statusEl.textContent = "Non connecté.";
+        statusEl.textContent = "Non connecté ou accès refusé.";
       }
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-      let btn = document.getElementById("fb-login-btn");
+      var btn = document.getElementById("fb-login-btn");
 
       btn.addEventListener("click", function () {
         FB.login(
@@ -112,9 +139,10 @@
             statusChangeCallback(response);
           },
           {
-            config_id: "1441904197363641",
+            config_id: "1441904197363641", // ton config_id Business Login
+            response_type: "code",         // 🔥 on force 'code' (pas 'token')
             scope:
-              "public_profile,email,pages_manage_posts,pages_show_list,instagram_content_publish,pages_read_engagement,instagram_basic"
+              "public_profile,email,pages_manage_posts,pages_show_list,instagram_content_publish,pages_read_engagement,instagram_basic",
           }
         );
       });
