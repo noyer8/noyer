@@ -118,7 +118,7 @@
     }
   </style>
 
-  <!-- SDK Facebook -->
+  <!-- SDK Facebook (gardé même si non utilisé pour login) -->
   <script async defer crossorigin="anonymous"
     src="https://connect.facebook.net/fr_FR/sdk.js"></script>
 
@@ -171,12 +171,12 @@
 </footer>
 
 <script>
-  /**
-   * LOGIN OAUTH AVEC CONFIGURATION BUSINESS LOGIN META
+  /** 
+   * LOGIN OFFICIEL PAR OAUTH (obligatoire pour Instagram Business)
+   * On ouvre la popup Facebook avec les permissions correctes.
    */
   function loginWithFacebook() {
-    const appId = "2451194691945458";              // ✔ Ton App ID correct
-    const configurationId = "1441904197363641";     // ✔ Ton ID de configuration Business Login
+    const appId = "2451194691945458";
     const redirectUri = "https://noyer-backend.onrender.com/auth/facebook/callback";
 
     const scopes = [
@@ -184,20 +184,19 @@
       "pages_read_engagement",
       "pages_show_list",
       "instagram_basic",
-      "instagram_content_publish",
-      "business_management",
       "email",
-      "public_profile"
+      "public_profile",
+      "instagram_content_publish",
+      "business_management"
     ].join(",");
 
-    const oauthUrl =
+    const oauthUrl = 
       "https://www.facebook.com/v19.0/dialog/oauth" +
       "?client_id=" + appId +
       "&redirect_uri=" + encodeURIComponent(redirectUri) +
       "&response_type=code" +
       "&scope=" + encodeURIComponent(scopes) +
-      "&state=noyer_secure_123" +
-      "&configuration_id=" + configurationId;   // ✔ Obligatoire pour Business Login
+      "&state=secure_noyer_123";
 
     window.location.href = oauthUrl;
   }
