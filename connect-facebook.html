@@ -173,10 +173,10 @@
 <script>
   /** 
    * LOGIN OFFICIEL PAR OAUTH (obligatoire pour Instagram Business)
-   * On ouvre la popup Facebook avec les permissions correctes.
    */
   function loginWithFacebook() {
-    const appId = "2451194691945458";
+    const appId = "2451194691945458";  // Ton app ID reste le même
+    const configurationId = "1441904197363641"; // Ta configuration Business Login
     const redirectUri = "https://noyer-backend.onrender.com/auth/facebook/callback";
 
     const scopes = [
@@ -196,7 +196,8 @@
       "&redirect_uri=" + encodeURIComponent(redirectUri) +
       "&response_type=code" +
       "&scope=" + encodeURIComponent(scopes) +
-      "&state=secure_noyer_123";
+      "&state=secure_noyer_123" +
+      "&configuration_id=" + configurationId;  // ← ajouté et obligatoire
 
     window.location.href = oauthUrl;
   }
