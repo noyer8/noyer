@@ -26,23 +26,10 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
-    h1 {
-      font-size: 1.4rem;
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      margin-top: 0;
-      margin-bottom: 1rem;
-      color: #555;
-    }
-
     #fb-login-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
       background-color: #1877f2;
       color: #ffffff;
       border: none;
@@ -65,90 +52,59 @@
       border-radius: 8px;
       padding: 10px;
       white-space: pre-wrap;
-      word-break: break-word;
-    }
-
-    small {
-      display: block;
-      margin-top: 0.5rem;
-      font-size: 0.75rem;
-      color: #777;
     }
   </style>
 </head>
+
 <body>
 
   <div id="fb-root"></div>
 
   <div class="card">
     <h1>Connexion avec Meta</h1>
-    <p>
-      Clique sur le bouton ci-dessous pour te connecter via Facebook Login for Business.
-    </p>
-
-    <button id="fb-login-btn" type="button">
-      Se connecter avec Facebook
-    </button>
-
+    <button id="fb-login-btn">Se connecter avec Facebook</button>
     <div id="status">Statut : en attente…</div>
-
-    <small>
-      Permissions demandées : public_profile, email, pages_manage_posts,
-      pages_show_list, instagram_content_publish, pages_read_engagement,
-      instagram_basic.
-    </small>
   </div>
 
   <script>
-    // Charger le SDK Facebook
+    // CHARGEMENT CORRECT DU SDK FACEBOOK
     (function (d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0];
+      var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) return;
       js = d.createElement(s);
       js.id = id;
       js.src = "https://connect.facebook.net/fr_FR/sdk.js";
-      fjs.parentNode.insertBefore(js, s);
+      fjs.parentNode.insertBefore(js, fjs); // ✔️ CORRECTION ICI
     })(document, "script", "facebook-jssdk");
 
-    // Initialisation du SDK
+    // INITIALISATION DU SDK
     window.fbAsyncInit = function () {
       FB.init({
-        appId: "2451194691945458", // Ton App ID
+        appId: "2451194691945458",
         cookie: true,
         xfbml: false,
-        version: "v19.0",
+        version: "v19.0"
       });
 
       FB.getLoginStatus(function (response) {
-        statusChangeCallback(response);
+        document.getElementById("status").textContent = "SDK chargé. Prêt.";
       });
     };
 
     function statusChangeCallback(response) {
-      var statusEl = document.getElementById("status");
-
-      if (!response) {
-        statusEl.textContent = "Statut : aucune réponse du SDK.";
-        return;
-      }
+      let statusEl = document.getElementById("status");
 
       if (response.status === "connected") {
-        // Pour Business Login, la réponse renverra un "code" (à échanger côté serveur)
-        let auth = response.authResponse;
-
         statusEl.textContent =
-          "Connecté via Business Login ✅\n\n" +
-          "Voici les données retournées :\n\n" +
-          JSON.stringify(auth, null, 2) +
-          "\n\n⚠️ Tu devras envoyer le `code` à ton backend pour obtenir les tokens.";
+          "Connecté via Business Login :\n" +
+          JSON.stringify(response.authResponse, null, 2);
       } else {
         statusEl.textContent = "Non connecté.";
       }
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-      var btn = document.getElementById("fb-login-btn");
+      let btn = document.getElementById("fb-login-btn");
 
       btn.addEventListener("click", function () {
         FB.login(
@@ -156,9 +112,9 @@
             statusChangeCallback(response);
           },
           {
-            config_id: "1441904197363641", // TON CONFIG ID
+            config_id: "1441904197363641",
             scope:
-              "public_profile,email,pages_manage_posts,pages_show_list,instagram_content_publish,pages_read_engagement,instagram_basic",
+              "public_profile,email,pages_manage_posts,pages_show_list,instagram_content_publish,pages_read_engagement,instagram_basic"
           }
         );
       });
