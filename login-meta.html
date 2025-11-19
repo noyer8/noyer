@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Connexion Meta - noyer.io</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+
+    #fb-login-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background-color: #1877f2;
+      color: #ffffff;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    #fb-login-btn:hover {
+      opacity: 0.95;
+    }
+
+    #status {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      background: #f0f2f5;
+      border-radius: 8px;
+      padding: 10px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    small {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <!-- Nécessaire pour le SDK Facebook -->
+  <div id="fb-root"></div>
+
+  <div class="card">
+    <h1>Connexion à Meta</h1>
+    <p>
+      Clique sur le bouton ci-dessous pour te connecter avec Facebook et
+      autoriser l&apos;accès aux permissions nécessaires.
+    </p>
+
+    <button id="fb-login-btn" type="button">
+      Se connecter avec Facebook
+    </button>
+
+    <div id="status">Statut : en attente…</div>
+
+    <small>
+      Permissions demandées : public_profile, email, pages_manage_posts,
+      pages_show_list, instagram_content_publish, pages_read_engagement,
+      instagram_basic.
+    </small>
+  </div>
+
+  <script>
+    // 1) Chargement du SDK Facebook
+    (function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s);
+      js.id = id;
+      // SDK en français
+      js.src = "https://connect.facebook.net/fr_FR/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, "script", "facebook-jssdk");
+
+    // 2) Initialisation du SDK quand il est chargé
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: "2451194691945458", // TON APP ID
+        cookie: true, // pour avoir accès au cookie de session
+        xfbml: false, // on n'utilise pas les plugins FB ici
+        version: "v19.0", // version de l'API (à adapter si besoin)
+      });
+
+      // Optionnel : vérifier si l'utilisateur est déjà connecté
+      FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
+      });
+    };
+
+    // 3) Fonction appelée après login ou vérification de statut
+    function statusChangeCallback(response) {
+      console.log("statusChangeCallback", response);
+
+      var statusEl = document.getElementById("status");
+
+      if (!response) {
+        statusEl.textContent = "Statut : aucune réponse du SDK.";
+        return;
+      }
+
+      if (response.status === "connected") {
+        // L'utilisateur est connecté à Facebook ET a autorisé l'app
+        var accessToken = response.authResponse.accessToken;
+        var userID = response.authResponse.userID;
+
+        statusEl.textContent =
+          "Connecté ✅\n\nUser ID : " +
+          userID +
+          "\nAccess Token (à envoyer à ton backend) :\n" +
+          accessToken;
+      } else if (response.status === "not_authorized") {
+        // Connecté à Facebook mais pas à ton app
+        statusEl.textContent =
+          "Connecté à Facebook, mais ton application n'est pas autorisée.";
+      } else {
+        // Pas connecté à Facebook
+        statusEl.textContent = "Non connecté à Facebook.";
+      }
+    }
+
+    // 4) Quand on clique sur le bouton → popup login
+    document.addEventListener("DOMContentLoaded", function () {
+      var btn = document.getElementById("fb-login-btn");
+
+      btn.addEventListener("click", function () {
+        FB.login(
+          function (response) {
+            // Quand l'utilisateur a fini l'auth dans la popup
+            statusChangeCallback(response);
+          },
+          {
+            scope:
+              "public_profile,email,pages_manage_posts,pages_show_list,instagram_content_publish,pages_read_engagement,instagram_basic",
+          }
+        );
+      });
+    });
+  </script>
+</body>
+</html>
