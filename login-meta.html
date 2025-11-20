@@ -8,54 +8,43 @@
 
   <h2>Connexion avec Meta (Facebook / Instagram)</h2>
 
-  <!-- Bouton Login Facebook avec CONFIG_ID -->
-  <div 
-    class="fb-login-button" 
-    login_config_id=32932249913040230
-    onlogin="checkLoginState();"
-    data-size="large"
-    data-button-type="continue_with"
-    data-layout="default"
-    data-auto-logout-link="false"
-    data-use-continue-as="false">
-  </div>
+  <!-- Ton propre bouton -->
+  <button onclick="connectMeta()">
+    Connexion Meta
+  </button>
 
   <!-- SDK Facebook -->
   <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js">
-  </script>
+    src="https://connect.facebook.net/en_US/sdk.js"></script>
 
   <script>
-    // Initialisation du SDK Facebook
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '2451194691945458',
         cookie     : true,
-        xfbml      : true,
+        xfbml      : false,
         version    : 'v19.0'
       });
     };
 
-    // Fonction appelée après login
-    function checkLoginState() {
-      FB.getLoginStatus(function(response) {
-        console.log("Login Status:", response);
-
-        if (response.status === "connected") {
-          // Token temporaire (NE SERT PAS POUR PUBLICATION)
-          console.log("FB accessToken:", response.authResponse.accessToken);
-        }
+    // 🔥 APPEL OFFICIEL BUSINESS LOGIN
+    function connectMeta() {
+      FB.login(function(response) {
+        console.log("Réponse login :", response);
+      }, {
+        login_config_id: "32932249913040230",
+        response_type: "code",
+        override_default_response_type: true
       });
     }
 
-    // Si Facebook redirige ici avec ?code=XXXXX
+    // 🔥 TRAITEMENT SI REDIRIGÉ AVEC ?code=
     const urlParams = new URLSearchParams(window.location.search);
     const authCode = urlParams.get("code");
 
     if (authCode) {
       console.log("CODE REÇU :", authCode);
 
-      // Envoie le code à ton backend pour obtenir un access_token permanent
       fetch("https://noyer-backend-meta.onrender.com/meta/exchange-code", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
