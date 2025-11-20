@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Noyer — Plan Business</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noyer — Business — Étape 1</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,15 +24,12 @@
       background: var(--bg);
       color: #e5e5e5;
       font-family: "JetBrains Mono", monospace;
-      padding: 40px 20px 80px;
+      padding: 40px 20px 100px;
     }
 
-    /* HEADER / LOGO IDENTIQUE */
+    /* LOGO */
     header {
       width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
       position: absolute;
       top: 25px;
       left: 40px;
@@ -45,44 +42,79 @@
     }
 
     h1 {
-      color: var(--accent);
       text-align: center;
       margin-top: 150px;
-      margin-bottom: 30px;
-      letter-spacing: 3px;
+      font-size: 2.3rem;
       text-transform: uppercase;
-      font-size: 2.4rem;
-    }
-
-    .section {
-      background: var(--panel);
-      padding: 28px;
-      border-radius: 18px;
-      max-width: 900px;
-      margin: 0 auto 35px;
-      box-shadow: 0 0 25px rgba(38,209,154,.08);
-    }
-
-    .section h2 {
+      letter-spacing: 3px;
       color: var(--accent);
-      margin-bottom: 15px;
-      font-size: 1.8rem;
     }
 
-    .section p, .section li {
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    ul {
+    h2 {
+      text-align: center;
       margin-top: 10px;
-      list-style: none;
+      font-size: 1.3rem;
+      color: var(--muted);
     }
 
-    li::before {
-      content: "• ";
-      color: var(--accent);
+    .container {
+      margin: 40px auto;
+      max-width: 1200px;
+      display: flex;
+      gap: 25px;
+    }
+
+    .desc-box {
+      background: var(--panel);
+      padding: 25px;
+      border-radius: 18px;
+      flex: 1;
+      box-shadow: 0 0 25px rgba(38,209,154,.08);
+      overflow-y: auto;
+      max-height: 650px;
+      white-space: pre-line;
+    }
+
+    .desc-box:hover {
+      box-shadow: 0 0 30px rgba(38,209,154,.25);
+    }
+
+    /* Checkbox + bouton */
+    .confirm-box {
+      margin: 40px auto 0;
+      max-width: 900px;
+      font-size: 1rem;
+      display: flex;
+      gap: 12px;
+      color: var(--muted);
+      align-items: center;
+    }
+
+    .btn-next {
+      margin: 30px auto 0;
+      display: block;
+      background: var(--accent);
+      color: #0a0a0a;
+      padding: 16px 30px;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: not-allowed;
+      opacity: .4;
+      font-size: 1.1rem;
+      width: fit-content;
+      text-decoration: none;
+      box-shadow: 0 0 12px rgba(38,209,154,.4);
+      transition: .3s ease;
+    }
+
+    .btn-next.enabled {
+      cursor: pointer;
+      opacity: 1;
+    }
+
+    .btn-next.enabled:hover {
+      background: var(--accent-2);
+      transform: translateY(-2px);
     }
 
     footer {
@@ -90,10 +122,6 @@
       text-align: center;
       color: #666;
       font-size: .9rem;
-    }
-
-    .footer-links {
-      margin-top: 12px;
     }
 
     .footer-links a {
@@ -109,68 +137,68 @@
 
 <body>
 
-  <!-- LOGO -->
-  <header>
-    <a href="index.html">
-      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-    </a>
-  </header>
+<header>
+  <a href="index.html">
+    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+  </a>
+</header>
 
-  <h1>Noyer Business</h1>
+<h1>Étape 1</h1>
+<h2>Choisissez votre style de description</h2>
 
-  <!-- Présentation du plan -->
-  <div class="section">
-    <h2>Présentation du plan Business</h2>
+<!-- TES 3 DESCRIPTIONS ICI, INTACTES -->
+<div class="container">
 
-    <p>
-      Le plan <strong>Noyer Business</strong> est notre solution la plus complète, conçue pour les agences qui veulent automatiser l’ensemble de leur communication immobilière sur les réseaux sociaux.
-    </p>
-
-    <ul>
-      <li><strong>Publications illimitées</strong> chaque mois.</li>
-      <li>Jusqu’à <strong>12 photos</strong> par post.</li>
-      <li>Publication automatique sur <strong>Facebook</strong> et <strong>Instagram</strong>.</li>
-      <li>Publication en <strong>story</strong> pour chaque bien.</li>
-      <li>Création automatique d’un <strong>Reel</strong> dynamique pour chaque publication.</li>
-      <li><strong>Ajout du logo de l’agence</strong> sur chaque photo (optionnel).</li>
-      <li>Tous les avantages du plan <strong>Premium</strong>.</li>
-    </ul>
+  <div class="desc-box">
+    <!-- Description 1 que tu avais mise -->
+    <p>MET ICI TA DESCRIPTION 1</p>
   </div>
 
-  <!-- Fonctionnement -->
-  <div class="section">
-    <h2>Comment ça marche ?</h2>
-
-    <p>
-      Noyer s’occupe de tout, de la détection du bien jusqu’à sa mise en ligne sur vos réseaux sociaux.  
-      Voici le processus complet :
-    </p>
-
-    <ul>
-      <li>Analyse automatique des nouveaux biens publiés sur votre site web.</li>
-      <li>Récupération des <strong>12 premières photos</strong> (ou moins si l’annonce en contient moins).</li>
-      <li>Redimensionnement professionnel de toutes les images.</li>
-      <li>Ajout automatique du <strong>logo de votre agence</strong> (si l’option est activée).</li>
-      <li>Génération d’une <strong>description attrayante optimisée</strong> pour Facebook et Instagram.</li>
-      <li>Création d’un <strong>Reel vidéo</strong> complet avec les photos du bien.</li>
-      <li>Publication sur Facebook, Instagram + story avec un timing optimal.</li>
-      <li>Les publications sont espacées pour éviter toute saturation.</li>
-    </ul>
-
-    <p style="margin-top:15px;">
-      Ce plan est idéal pour les agences actives, souhaitant maximiser leur visibilité avec un minimum d’efforts.
-    </p>
+  <div class="desc-box">
+    <!-- Description 2 -->
+    <p>MET ICI TA DESCRIPTION 2</p>
   </div>
 
-  <footer>
-    © 2025 Noyer — Publication Automatique
-    <div class="footer-links">
-      <a href="confidentialite.html">Politique de confidentialité</a> ·
-      <a href="mentions-legales.html">Mentions légales</a> ·
-      <a href="conditions-utilisation.html">CGU</a> ·
-      <a href="conditions-vente.html">CGV</a>
-    </div>
-  </footer>
+  <div class="desc-box">
+    <!-- Description 3 -->
+    <p>MET ICI TA DESCRIPTION 3</p>
+  </div>
+
+</div>
+
+<!-- Case obligatoire -->
+<label class="confirm-box">
+  <input type="checkbox" id="confirm">
+  J’ai pris connaissance du fonctionnement et je choisis ce style de description.
+</label>
+
+<!-- Bouton Suivant -->
+<a id="nextBtn" class="btn-next">Suivant</a>
+
+<footer>
+  © 2025 Noyer — Publication Automatique
+  <div class="footer-links">
+    <a href="confidentialite.html">Politique de confidentialité</a> ·
+    <a href="mentions-legales.html">Mentions légales</a> ·
+    <a href="conditions-utilisation.html">CGU</a> ·
+    <a href="conditions-vente.html">CGV</a>
+  </div>
+</footer>
+
+<script>
+  const checkbox = document.getElementById('confirm');
+  const nextBtn = document.getElementById('nextBtn');
+
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      nextBtn.classList.add('enabled');
+      nextBtn.href = "business2.html";
+    } else {
+      nextBtn.classList.remove('enabled');
+      nextBtn.removeAttribute("href");
+    }
+  });
+</script>
 
 </body>
 </html>
