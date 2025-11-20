@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NOYER — Abonnements</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --panel: #111;
+      --accent: #26d19a;
+      --accent-2: #1ea97b;
+      --muted: #bcbcbc;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: #e5e5e5;
+      font-family: 'JetBrains Mono', monospace;
+      min-height: 100vh;
+      padding: 30px 20px 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: absolute;
+      top: 25px;
+      left: 40px;
+    }
+
+    header img {
+      height: 120px;
+      width: auto;
+      cursor: pointer;
+    }
+
+    h1 {
+      color: var(--accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 150px;
+      margin-bottom: 40px;
+      font-size: 2.3rem;
+      text-align: center;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    @media (min-width: 860px) {
+      .plans { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .card {
+      background: var(--panel);
+      border-radius: 18px;
+      box-shadow: 0 0 25px rgba(38,209,154,.08);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 35px rgba(38,209,154,.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: contain;
+      background-color: #0a0a0a;
+      padding: 10px;
+    }
+
+    .card-content {
+      padding: 26px 22px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card h2 {
+      color: var(--accent);
+      margin-bottom: 10px;
+      font-size: 1.6rem;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      color: #e5e5e5;
+      margin-bottom: 18px;
+    }
+
+    ul {
+      list-style: none;
+      text-align: left;
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #0a0a0a;
+      border: none;
+      border-radius: 10px;
+      padding: 14px 24px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background .3s, transform .2s;
+      text-decoration: none;
+      box-shadow: 0 0 12px rgba(38,209,154,.4);
+    }
+
+    .btn:hover {
+      background: var(--accent-2);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #666;
+      font-size: .9rem;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html">
+      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+    </a>
+  </header>
+
+  <h1>Choisissez votre plan d’abonnement</h1>
+
+  <div class="plans">
+
+    <!-- Noyer Basic -->
+    <div class="card">
+      <img src="https://i.imgur.com/78GipiM.png" alt="Noyer Basic">
+      <div class="card-content">
+        <h2>Noyer Basic</h2>
+        <p class="price">49,99 € / mois</p>
+        <ul>
+          <li>Publiez jusqu’à <strong>8 annonces par mois</strong>.</li>
+          <li>Jusqu’à <strong>6 photos</strong> par publication.</li>
+          <li>Redimension automatique pour un rendu parfait.</li>
+          <li><strong>Description professionnelle</strong> générée automatiquement.</li>
+        </ul>
+        <a href="basic.html" class="btn">Choisir ce plan</a>
+      </div>
+    </div>
+
+    <!-- Noyer Premium -->
+    <div class="card">
+      <img src="https://i.imgur.com/edQbXZp.png" alt="Noyer Premium">
+      <div class="card-content">
+        <h2>Noyer Premium</h2>
+        <p class="price">109,99 € / mois</p>
+        <ul>
+          <li>Publication automatique sur <strong>Facebook & Instagram</strong>.</li>
+          <li>16 annonces automatiques par mois.</li>
+          <li><strong>10 photos</strong> par publication.</li>
+          <li>Inclut tous les avantages du plan Basic.</li>
+        </ul>
+        <a href="premium.html" class="btn">Choisir ce plan</a>
+      </div>
+    </div>
+
+    <!-- Noyer Business -->
+    <div class="card">
+      <img src="https://i.imgur.com/EJ6lS7M.png" alt="Noyer Business">
+      <div class="card-content">
+        <h2>Noyer Buisness</h2>
+        <p class="price">189,99 € / mois</p>
+        <ul>
+          <li><strong>30 publications automatiques</strong> chaque mois.</li>
+          <li><strong>15 images</strong> par annonce.</li>
+          <li>Ajout automatique du <strong>logo de l’agence</strong> sur chaque photo.</li>
+          <li>Inclut tous les avantages du plan Premium.</li>
+        </ul>
+        <a href="business.html" class="btn">Choisir ce plan</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2025 Noyer — Publication Automatique
+
+    <div class="footer-links">
+      <a href="confidentialite.html">Politique de confidentialité</a> ·
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="conditions-utilisation.html">CGU</a> ·
+      <a href="conditions-vente.html">CGV</a>
+    </div>
+  </footer>
+
+</body>
+</html>
