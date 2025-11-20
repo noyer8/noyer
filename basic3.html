@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noyer — Étape 3</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000;
+      --panel: #111;
+      --accent: #26d19a;
+      --accent-2: #1ea97b;
+      --muted: #bcbcbc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: #e5e5e5;
+      font-family: "JetBrains Mono", monospace;
+      padding: 40px 20px 80px;
+    }
+
+    /* HEADER */
+    header {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: absolute;
+      top: 25px;
+      left: 40px;
+    }
+
+    header img {
+      height: 120px;
+      width: auto;
+      cursor: pointer;
+    }
+
+    h1 {
+      color: var(--accent);
+      text-align: center;
+      margin-top: 150px;
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 2.3rem;
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 40px;
+      font-size: 1.2rem;
+    }
+
+    .section {
+      background: var(--panel);
+      padding: 30px;
+      border-radius: 18px;
+      max-width: 900px;
+      margin: 0 auto 35px;
+      box-shadow: 0 0 25px rgba(38,209,154,.08);
+    }
+
+    label {
+      display: block;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: var(--muted);
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin-top: 8px;
+      border-radius: 10px;
+      border: 1px solid #333;
+      background: #0a0a0a;
+      color: #e5e5e5;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 1rem;
+    }
+
+    .btn-next {
+      margin-top: 30px;
+      background: var(--accent);
+      color: #0a0a0a;
+      padding: 16px 30px;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: inline-block;
+      opacity: .4;
+      cursor: not-allowed;
+      transition: .3s ease;
+      box-shadow: 0 0 12px rgba(38,209,154,.4);
+    }
+
+    .btn-next.enabled {
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    .btn-next.enabled:hover {
+      background: var(--accent-2);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #666;
+      font-size: .9rem;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      margin: 0 8px;
+      text-decoration: none;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGO -->
+  <header>
+    <a href="index.html">
+      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+    </a>
+  </header>
+
+  <h1>Étape 3</h1>
+  <h2>Vos coordonnées</h2>
+
+  <div class="section">
+    <label>Nom de l’agence :</label>
+    <input type="text" id="agence">
+
+    <label>Adresse email :</label>
+    <input type="email" id="email">
+
+    <label>Numéro de téléphone :</label>
+    <input type="text" id="telephone">
+
+    <label>Nom & prénom du responsable :</label>
+    <input type="text" id="responsable">
+
+    <a id="nextBtn" class="btn-next">Suivant</a>
+  </div>
+
+  <footer>
+    © 2025 Noyer — Publication Automatique
+    <div class="footer-links">
+      <a href="confidentialite.html">Politique de confidentialité</a> ·
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="conditions-utilisation.html">CGU</a> ·
+      <a href="conditions-vente.html">CGV</a>
+    </div>
+  </footer>
+
+  <script>
+    const fields = [
+      document.getElementById('agence'),
+      document.getElementById('email'),
+      document.getElementById('telephone'),
+      document.getElementById('responsable')
+    ];
+
+    const nextBtn = document.getElementById('nextBtn');
+
+    function checkForm() {
+      const allFilled = fields.every(f => f.value.trim() !== "");
+      if (allFilled) {
+        nextBtn.classList.add('enabled');
+        nextBtn.href = "basic-connect-facebook.html";
+      } else {
+        nextBtn.classList.remove('enabled');
+        nextBtn.removeAttribute('href');
+      }
+    }
+
+    fields.forEach(f => f.addEventListener('input', checkForm));
+  </script>
+
+</body>
+</html>
