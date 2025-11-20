@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noyer — Premium | Étape 2</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --panel: #111;
+      --accent: #26d19a;
+      --accent-2: #1ea97b;
+      --muted: #bcbcbc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: #e5e5e5;
+      font-family: 'JetBrains Mono', monospace;
+      padding: 40px 20px 80px;
+    }
+
+    /* LOGO */
+    header {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: absolute;
+      top: 25px;
+      left: 40px;
+    }
+
+    header img {
+      height: 120px;
+      width: auto;
+      cursor: pointer;
+    }
+
+    h1 {
+      margin-top: 150px;
+      text-align: center;
+      font-size: 2.4rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 40px;
+      font-size: 1.3rem;
+      color: var(--muted);
+    }
+
+    .days-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    @media (min-width: 700px) {
+      .days-container { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .day-card {
+      background: var(--panel);
+      padding: 18px;
+      border-radius: 14px;
+      text-align: center;
+      cursor: pointer;
+      transition: .3s ease;
+      border: 2px solid transparent;
+      user-select: none;
+    }
+
+    .day-card.selected {
+      border-color: var(--accent);
+      box-shadow: 0 0 18px rgba(38,209,154,0.25);
+      background: #0f0f0f;
+    }
+
+    .day-card:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Hidden checkbox but accessible */
+    .day-card input {
+      display: none;
+    }
+
+    /* Bouton */
+    .btn-next {
+      margin-top: 35px;
+      display: block;
+      width: max-content;
+      margin-left: auto;
+      margin-right: auto;
+      background: var(--accent);
+      color: #0a0a0a;
+      padding: 16px 34px;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: not-allowed;
+      opacity: .4;
+      font-size: 1.1rem;
+      text-decoration: none;
+      box-shadow: 0 0 12px rgba(38,209,154,.4);
+      transition: .3s ease;
+    }
+
+    .btn-next.enabled {
+      cursor: pointer;
+      opacity: 1;
+    }
+
+    .btn-next.enabled:hover {
+      background: var(--accent-2);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 70px;
+      text-align: center;
+      color: #666;
+      font-size: .9rem;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      margin: 0 8px;
+      text-decoration: none;
+    }
+    .footer-links a:hover { text-decoration: underline; }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGO -->
+  <header>
+    <a href="index.html">
+      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+    </a>
+  </header>
+
+  <h1>Étape 2</h1>
+  <h2>Choisissez 3 jours de publication</h2>
+
+  <div class="days-container">
+
+    <!-- 7 DAYS -->
+    <label class="day-card">
+      <input type="checkbox" value="Lundi">
+      Lundi
+    </label>
+
+    <label class="day-card">
+      <input type="checkbox" value="Mardi">
+      Mardi
+    </label>
+
+    <label class="day-card">
+      <input type="checkbox" value="Mercredi">
+      Mercredi
+    </label>
+
+    <label class="day-card">
+      <input type="checkbox" value="Jeudi">
+      Jeudi
+    </label>
+
+    <label class="day-card">
+      <input type="checkbox" value="Vendredi">
+      Vendredi
+    </label>
+
+    <label class="day-card">
+      <input type="checkbox" value="Samedi">
+      Samedi
+    </label>
+
+    <label class="day-card">
+      <input type="checkbox" value="Dimanche">
+      Dimanche
+    </label>
+
+  </div>
+
+  <!-- BUTTON -->
+  <a id="nextBtn" class="btn-next">Suivant</a>
+
+  <footer>
+    © 2025 Noyer — Publication Automatique  
+    <div class="footer-links">
+      <a href="confidentialite.html">Politique de confidentialité</a> ·
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="conditions-utilisation.html">CGU</a> ·
+      <a href="conditions-vente.html">CGV</a>
+    </div>
+  </footer>
+
+  <script>
+    const cards = document.querySelectorAll('.day-card');
+    const nextBtn = document.getElementById('nextBtn');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('selected');
+        const checked = document.querySelectorAll('.day-card.selected').length;
+
+        // Must select EXACTLY 3 days
+        if (checked === 3) {
+          nextBtn.classList.add('enabled');
+          nextBtn.href = "premium2.html";
+          nextBtn.style.cursor = "pointer";
+        } else {
+          nextBtn.classList.remove('enabled');
+          nextBtn.removeAttribute('href');
+          nextBtn.style.cursor = "not-allowed";
+        }
+
+        // Prevent selecting more than 3
+        if (checked > 3) {
+          card.classList.remove('selected');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
