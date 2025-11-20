@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noyer — Plan Premium</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000;
+      --panel: #111;
+      --accent: #26d19a;
+      --accent-2: #1ea97b;
+      --muted: #bcbcbc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: #e5e5e5;
+      font-family: "JetBrains Mono", monospace;
+      padding: 40px 20px 80px;
+    }
+
+    /* HEADER / LOGO */
+    header {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: absolute;
+      top: 25px;
+      left: 40px;
+    }
+
+    header img {
+      height: 120px;
+      width: auto;
+      cursor: pointer;
+    }
+
+    h1 {
+      color: var(--accent);
+      text-align: center;
+      margin-top: 150px;
+      margin-bottom: 30px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 2.3rem;
+    }
+
+    .section {
+      background: var(--panel);
+      padding: 28px;
+      border-radius: 18px;
+      max-width: 900px;
+      margin: 0 auto 35px;
+      box-shadow: 0 0 25px rgba(38,209,154,.08);
+    }
+
+    .section h2 {
+      color: var(--accent);
+      margin-bottom: 15px;
+      font-size: 1.7rem;
+    }
+
+    .section p, .section li {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    ul {
+      margin-top: 10px;
+      list-style: none;
+    }
+
+    li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    /* Checkbox + bouton */
+    .confirm-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .btn-next {
+      margin-top: 25px;
+      background: var(--accent);
+      color: #0a0a0a;
+      padding: 16px 30px;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      cursor: not-allowed;
+      opacity: .4;
+      font-size: 1.1rem;
+      box-shadow: 0 0 12px rgba(38,209,154,.4);
+      text-decoration: none;
+      display: inline-block;
+      transition: .3s ease;
+    }
+
+    .btn-next.enabled {
+      cursor: pointer;
+      opacity: 1;
+    }
+
+    .btn-next.enabled:hover {
+      background: var(--accent-2);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #666;
+      font-size: .9rem;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      margin: 0 8px;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGO IDENTIQUE -->
+  <header>
+    <a href="index.html">
+      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+    </a>
+  </header>
+
+  <h1>Plan Noyer Premium</h1>
+
+  <!-- Présentation du plan -->
+  <div class="section">
+    <h2>Présentation du plan Premium</h2>
+    <p>
+      Le plan <strong>Noyer Premium</strong> est l’option idéale pour maximiser votre visibilité
+      sur les réseaux sociaux grâce à une présence renforcée sur
+      <strong>Facebook</strong> et <strong>Instagram</strong>, incluant également la publication du bien
+      en <strong>story</strong>.
+    </p>
+
+    <ul>
+      <li>Jusqu’à <strong>12 publications automatiques</strong> par mois.</li>
+      <li><strong>10 photos</strong> par annonce, parfaitement redimensionnées.</li>
+      <li>Publication sur <strong>Facebook & Instagram</strong>.</li>
+      <li>Ajout automatique en <strong>story Instagram & Facebook</strong>.</li>
+      <li>Descriptions longues, personnalisées et optimisées par IA.</li>
+      <li>Analyse automatique des meilleurs horaires de publication.</li>
+      <li>Inclut toutes les fonctionnalités du plan Basic.</li>
+    </ul>
+  </div>
+
+  <!-- Fonctionnement -->
+  <div class="section">
+    <h2>Comment ça marche ?</h2>
+    <p>
+      Grâce à son intelligence automatisée, Noyer surveille et traite les
+      nouvelles annonces immobilières publiées sur le site web de votre agence.
+    </p>
+
+    <ul>
+      <li>Détection automatique des nouveaux biens publiés.</li>
+      <li>Extraction des <strong>10 premières photos</strong> du bien.</li>
+      <li>Optimisation et redimensionnement des images.</li>
+      <li>Génération d'une <strong>description détaillée et attrayante</strong>.</li>
+      <li>Publication du bien sur <strong>Facebook & Instagram</strong>.</li>
+      <li>Création et envoi automatique de la <strong>story</strong>.</li>
+      <li>Programmation intelligente pour publier aux horaires les plus efficaces.</li>
+      <li>Un seul bien publié à la fois pour éviter la saturation des réseaux sociaux.</li>
+    </ul>
+
+    <!-- Confirmation obligatoire -->
+    <label class="confirm-box">
+      <input type="checkbox" id="confirm">
+      J’ai pris connaissance du fonctionnement de Noyer.
+    </label>
+
+    <!-- Bouton suivant -->
+    <a id="nextBtn" class="btn-next">Suivant</a>
+  </div>
+
+  <footer>
+    © 2025 Noyer — Publication Automatique
+    <div class="footer-links">
+      <a href="confidentialite.html">Politique de confidentialité</a> ·
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="conditions-utilisation.html">CGU</a> ·
+      <a href="conditions-vente.html">CGV</a>
+    </div>
+  </footer>
+
+  <script>
+    const checkbox = document.getElementById('confirm');
+    const nextBtn = document.getElementById('nextBtn');
+
+    checkbox.addEventListener('change', () => {
+      if (checkbox.checked) {
+        nextBtn.classList.add('enabled');
+        nextBtn.href = "premium1.html";
+        nextBtn.style.cursor = "pointer";
+      } else {
+        nextBtn.classList.remove('enabled');
+        nextBtn.removeAttribute('href');
+        nextBtn.style.cursor = "not-allowed";
+      }
+    });
+  </script>
+
+</body>
+</html>
