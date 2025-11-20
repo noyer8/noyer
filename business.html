@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Noyer — Plan Business</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000;
+      --panel: #111;
+      --accent: #26d19a;
+      --accent-2: #1ea97b;
+      --muted: #bcbcbc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: #e5e5e5;
+      font-family: "JetBrains Mono", monospace;
+      padding: 40px 20px 80px;
+    }
+
+    /* HEADER / LOGO IDENTIQUE */
+    header {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: absolute;
+      top: 25px;
+      left: 40px;
+    }
+
+    header img {
+      height: 120px;
+      width: auto;
+      cursor: pointer;
+    }
+
+    h1 {
+      color: var(--accent);
+      text-align: center;
+      margin-top: 150px;
+      margin-bottom: 30px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 2.4rem;
+    }
+
+    .section {
+      background: var(--panel);
+      padding: 28px;
+      border-radius: 18px;
+      max-width: 900px;
+      margin: 0 auto 35px;
+      box-shadow: 0 0 25px rgba(38,209,154,.08);
+    }
+
+    .section h2 {
+      color: var(--accent);
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    .section p, .section li {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    ul {
+      margin-top: 10px;
+      list-style: none;
+    }
+
+    li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #666;
+      font-size: .9rem;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      margin: 0 8px;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOGO -->
+  <header>
+    <a href="index.html">
+      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+    </a>
+  </header>
+
+  <h1>Noyer Business</h1>
+
+  <!-- Présentation du plan -->
+  <div class="section">
+    <h2>Présentation du plan Business</h2>
+
+    <p>
+      Le plan <strong>Noyer Business</strong> est notre solution la plus complète, conçue pour les agences qui veulent automatiser l’ensemble de leur communication immobilière sur les réseaux sociaux.
+    </p>
+
+    <ul>
+      <li><strong>Publications illimitées</strong> chaque mois.</li>
+      <li>Jusqu’à <strong>12 photos</strong> par post.</li>
+      <li>Publication automatique sur <strong>Facebook</strong> et <strong>Instagram</strong>.</li>
+      <li>Publication en <strong>story</strong> pour chaque bien.</li>
+      <li>Création automatique d’un <strong>Reel</strong> dynamique pour chaque publication.</li>
+      <li><strong>Ajout du logo de l’agence</strong> sur chaque photo (optionnel).</li>
+      <li>Tous les avantages du plan <strong>Premium</strong>.</li>
+    </ul>
+  </div>
+
+  <!-- Fonctionnement -->
+  <div class="section">
+    <h2>Comment ça marche ?</h2>
+
+    <p>
+      Noyer s’occupe de tout, de la détection du bien jusqu’à sa mise en ligne sur vos réseaux sociaux.  
+      Voici le processus complet :
+    </p>
+
+    <ul>
+      <li>Analyse automatique des nouveaux biens publiés sur votre site web.</li>
+      <li>Récupération des <strong>12 premières photos</strong> (ou moins si l’annonce en contient moins).</li>
+      <li>Redimensionnement professionnel de toutes les images.</li>
+      <li>Ajout automatique du <strong>logo de votre agence</strong> (si l’option est activée).</li>
+      <li>Génération d’une <strong>description attrayante optimisée</strong> pour Facebook et Instagram.</li>
+      <li>Création d’un <strong>Reel vidéo</strong> complet avec les photos du bien.</li>
+      <li>Publication sur Facebook, Instagram + story avec un timing optimal.</li>
+      <li>Les publications sont espacées pour éviter toute saturation.</li>
+    </ul>
+
+    <p style="margin-top:15px;">
+      Ce plan est idéal pour les agences actives, souhaitant maximiser leur visibilité avec un minimum d’efforts.
+    </p>
+  </div>
+
+  <footer>
+    © 2025 Noyer — Publication Automatique
+    <div class="footer-links">
+      <a href="confidentialite.html">Politique de confidentialité</a> ·
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="conditions-utilisation.html">CGU</a> ·
+      <a href="conditions-vente.html">CGV</a>
+    </div>
+  </footer>
+
+</body>
+</html>
