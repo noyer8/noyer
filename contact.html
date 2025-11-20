@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOYER — Contact</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #000000;
+      --panel: #111;
+      --accent: #26d19a;
+      --accent-2: #1ea97b;
+      --muted: #bcbcbc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: #e5e5e5;
+      font-family: 'JetBrains Mono', monospace;
+      min-height: 100vh;
+      padding: 30px 20px 80px;
+    }
+
+    /* Logo identique aux autres pages */
+    header {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: absolute;
+      top: 25px;
+      left: 40px;
+    }
+
+    header img {
+      height: 120px;
+      width: auto;
+      cursor: pointer;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      margin-top: 160px;
+    }
+
+    h1 {
+      color: var(--accent);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 2.3rem;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 40px;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 860px) {
+      .contact-wrapper {
+        grid-template-columns: 1.1fr 1.3fr;
+      }
+    }
+
+    .panel {
+      background: var(--panel);
+      border-radius: 18px;
+      padding: 24px 22px;
+      box-shadow: 0 0 25px rgba(38,209,154,.08);
+    }
+
+    .panel h2 {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-bottom: 14px;
+    }
+
+    .info-line {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .info-line span {
+      color: #fff;
+    }
+
+    .info-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .info-line a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      background: #050505;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: #e5e5e5;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border .2s, box-shadow .2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(38,209,154,.4);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .row > div {
+      flex: 1 1 160px;
+    }
+
+    .btn-submit {
+      margin-top: 10px;
+      background: var(--accent);
+      color: #0a0a0a;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 22px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 1rem;
+      align-self: flex-start;
+      box-shadow: 0 0 12px rgba(38,209,154,.4);
+      transition: background .3s, transform .2s;
+    }
+
+    .btn-submit:hover {
+      background: var(--accent-2);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      color: #666;
+      font-size: .9rem;
+    }
+
+    .footer-links {
+      margin-top: 12px;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      margin: 0 8px;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Logo -->
+  <header>
+    <a href="index.html">
+      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+    </a>
+  </header>
+
+  <main>
+    <h1>Contact</h1>
+    <p class="subtitle">Une question, un problème, une démo ? Dites-nous ce dont vous avez besoin.</p>
+
+    <div class="contact-wrapper">
+
+      <!-- Coordonnées -->
+      <div class="panel">
+        <h2>Nos coordonnées</h2>
+
+        <p class="info-line">
+          Téléphone : <span>+32 478 16 65 06</span>
+        </p>
+        <p class="info-line">
+          Email : <a href="mailto:contact@noyer.io">contact@noyer.io</a>
+        </p>
+        <p class="info-line">
+          Disponibilité : <span>du lundi au vendredi, 9h – 18h</span>
+        </p>
+        <p class="info-line">
+          Réponse moyenne : <span>sous 24h ouvrables</span>
+        </p>
+      </div>
+
+      <!-- Formulaire -->
+      <div class="panel">
+        <h2>Envoyer un message</h2>
+
+        <form action="#" method="post">
+          <div class="row">
+            <div>
+              <label for="nom">Nom complet</label>
+              <input type="text" id="nom" name="nom" required>
+            </div>
+            <div>
+              <label for="email">Adresse email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+
+          <div>
+            <label for="telephone">Numéro de téléphone (optionnel)</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="+32 ...">
+          </div>
+
+          <div>
+            <label for="raison">Raison de la demande</label>
+            <select id="raison" name="raison" required>
+              <option value="">-- Sélectionnez une raison --</option>
+              <option value="question">Question générale</option>
+              <option value="support">Support / Problème technique</option>
+              <option value="facturation">Facturation / Abonnement</option>
+              <option value="demo">Demande de démo</option>
+              <option value="autre">Autre demande</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message">Votre message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Envoyer</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Noyer — Publication Automatique
+
+    <div class="footer-links">
+      <a href="confidentialite.html">Politique de confidentialité</a> ·
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="conditions-utilisation.html">CGU</a> ·
+      <a href="conditions-vente.html">CGV</a>
+    </div>
+  </footer>
+
+</body>
+</html>
