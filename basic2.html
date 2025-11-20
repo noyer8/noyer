@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noyer — Style de Description</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Noyer — Étape 2</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
       padding: 40px 20px 80px;
     }
 
-    /* LOGO identique */
+    /* HEADER identique */
     header {
       width: 100%;
       display: flex;
@@ -40,95 +40,91 @@
 
     header img {
       height: 120px;
-      width: auto;
       cursor: pointer;
     }
 
     h1 {
-      color: var(--accent);
       text-align: center;
       margin-top: 150px;
-      margin-bottom: 35px;
+      color: var(--accent);
       font-size: 2.3rem;
       letter-spacing: 3px;
       text-transform: uppercase;
     }
 
-    .section {
+    h2 {
+      text-align: center;
+      margin-top: 10px;
+      color: #e5e5e5;
+      font-size: 1.4rem;
+      margin-bottom: 40px;
+    }
+
+    .styles-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
       background: var(--panel);
-      padding: 28px;
+      padding: 24px;
       border-radius: 18px;
-      max-width: 980px;
-      margin: 0 auto 35px;
-      box-shadow: 0 0 25px rgba(38,209,154,.08);
-    }
-
-    .section h2 {
-      color: var(--accent);
-      margin-bottom: 15px;
-      font-size: 1.6rem;
-    }
-
-    .style-card {
-      background: #0d0d0d;
-      border: 2px solid transparent;
-      border-radius: 14px;
-      padding: 22px;
-      margin-bottom: 22px;
-      cursor: pointer;
+      box-shadow: 0 0 20px rgba(38,209,154,.08);
       transition: .3s ease;
+      border: 2px solid transparent;
+      cursor: pointer;
+      white-space: pre-line;
     }
 
-    .style-card:hover {
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(38,209,154,.2);
+    }
+
+    .card.selected {
       border-color: var(--accent);
-      box-shadow: 0 0 18px rgba(38,209,154,.2);
+      box-shadow: 0 0 25px rgba(38,209,154,.4);
     }
 
-    .style-card.selected {
-      border-color: var(--accent);
-      background: #0f2a21;
-      box-shadow: 0 0 25px rgba(38,209,154,.35);
-    }
-
-    .style-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .style-text {
-      color: var(--muted);
+    .desc-text {
+      font-size: .95rem;
       line-height: 1.65;
-      font-size: 1rem;
+      color: var(--muted);
+      white-space: pre-line;
     }
 
+    /* Zone texte perso */
     textarea {
       width: 100%;
-      height: 140px;
-      background: #0b0b0b;
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 12px;
+      max-width: 900px;
+      margin: 40px auto 0;
+      display: block;
+      background: #0f0f0f;
+      border: 2px solid #333;
+      border-radius: 12px;
+      padding: 15px;
       color: #e5e5e5;
-      margin-top: 12px;
-      font-size: 0.95rem;
-      resize: none;
       font-family: "JetBrains Mono", monospace;
+      min-height: 120px;
     }
 
-    textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 15px rgba(38,209,154,.25);
+    label {
+      display: block;
+      text-align: center;
+      margin-bottom: 10px;
+      color: var(--accent);
+      font-size: 1.2rem;
     }
 
+    /* Bouton suivant */
     .btn-next {
-      margin-top: 25px;
+      margin-top: 35px;
       background: var(--accent);
       color: #0a0a0a;
       padding: 16px 30px;
-      border: none;
       border-radius: 12px;
       font-weight: bold;
       cursor: not-allowed;
@@ -136,7 +132,10 @@
       font-size: 1.1rem;
       box-shadow: 0 0 12px rgba(38,209,154,.4);
       text-decoration: none;
-      display: inline-block;
+      display: block;
+      width: max-content;
+      margin-left: auto;
+      margin-right: auto;
       transition: .3s ease;
     }
 
@@ -166,91 +165,111 @@
       margin: 0 8px;
       text-decoration: none;
     }
+
     .footer-links a:hover {
       text-decoration: underline;
     }
-
   </style>
 </head>
 
 <body>
 
-  <!-- LOGO IDENTIQUE -->
-  <header>
-    <a href="index.html">
-      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-    </a>
-  </header>
+<header>
+  <a href="index.html">
+    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+  </a>
+</header>
 
-  <h1>Choisissez le style de description</h1>
+<h1>Étape 2</h1>
+<h2>Choisissez le style</h2>
 
-  <div class="section">
-    <h2>Styles proposés</h2>
+<!-- 3 STYLES EN CARTES -->
+<div class="styles-container">
 
-    <!-- STYLE 1 -->
-    <div class="style-card" data-style="style1">
-      <div class="style-title">Style 1 — Court & percutant</div>
-      <div class="style-text">
-        Découvrez ce superbe appartement lumineux situé au cœur de la ville !  
-        2 chambres, un vaste séjour et une cuisine équipée : idéal pour un couple ou un jeune foyer.  
-        Contactez l’Agence Horizon Immo — 0472/12.34.56 — Rue des Lisières 24, 4500 Huy.
-      </div>
+  <!-- Style A -->
+  <div class="card" data-style="A">
+    <div class="desc-text">
+💎 **𝗡𝗢𝗨𝗩𝗘𝗔𝗨 𝗕𝗜𝗘𝗡 𝗗𝗜𝗦𝗣𝗢𝗡𝗜𝗕𝗟𝗘 !**  
+Découvrez cette magnifique maison nichée au cœur d’un quartier calme où lumière, espace et confort s’unissent au quotidien ✨  
+
+Cette superbe propriété vous offre :  
+✅ 150 m² habitables  
+✅ 3 chambres confortables  
+✅ Jardin verdoyant idéal pour la famille  
+🌿 Une atmosphère chaleureuse et un cadre paisible que vous allez adorer !  
+
+📞 **Agence Horizon Immo — 0472 11 22 33**  
+🖥️ www.horizon-immo.com
     </div>
-
-    <!-- STYLE 2 -->
-    <div class="style-card" data-style="style2">
-      <div class="style-title">Style 2 — Premium & détaillé</div>
-      <div class="style-text">
-        Situé dans un quartier recherché, ce magnifique appartement allie confort moderne et élégance.  
-        Profitez d’un espace de vie généreux baigné de lumière, de matériaux de qualité et d’un environnement calme.  
-        Pour une visite privée, contactez l’Agence Horizon Immo — 0472/12.34.56 — Rue des Lisières 24, 4500 Huy.
-      </div>
-    </div>
-
-    <!-- STYLE 3 -->
-    <div class="style-card" data-style="style3">
-      <div class="style-title">Style 3 — Storytelling émotionnel</div>
-      <div class="style-text">
-        Imaginez-vous rentrant chez vous dans cet espace chaleureux où chaque détail inspire le confort et la douceur de vivre.  
-        Un lieu pensé pour créer des souvenirs, partager des moments précieux et écrire la suite de votre histoire.  
-        Infos & visites : Horizon Immo — 0472/12.34.56 — Rue des Lisières 24, 4500 Huy.
-      </div>
-    </div>
-
-    <h2>Votre style personnel (optionnel)</h2>
-    <p style="color:var(--muted); margin-top:10px;">Vous pouvez coller ici la description d’un de vos posts pour analyse :</p>
-    <textarea placeholder="Collez ici une de vos descriptions…"></textarea>
-
-    <a id="nextBtn" class="btn-next">Suivant</a>
   </div>
 
-  <footer>
-    © 2025 Noyer — Publication Automatique
-    <div class="footer-links">
-      <a href="confidentialite.html">Politique de confidentialité</a> ·
-      <a href="mentions-legales.html">Mentions légales</a> ·
-      <a href="conditions-utilisation.html">CGU</a> ·
-      <a href="conditions-vente.html">CGV</a>
+  <!-- Style B -->
+  <div class="card" data-style="B">
+    <div class="desc-text">
+🏡 **𝗖𝗢𝗨𝗣 𝗗𝗘 𝗖𝗢𝗘𝗨𝗥 𝗘𝗡 𝗘𝗫𝗖𝗟𝗨 !**  
+Venez découvrir cette perle rare alliant modernité, luminosité et espaces ouverts 🤩  
+
+Ce bien exceptionnel comprend :  
+🔥 4 chambres spacieuses  
+🔥 Grande pièce de vie avec baies vitrées  
+🌞 Terrasse plein sud & jardin privatif  
+Un lieu parfait pour accueillir vos plus beaux moments en famille ❤️  
+
+📞 **Agence Horizon Immo — 0472 11 22 33**  
+🖥️ www.horizon-immo.com
     </div>
-  </footer>
+  </div>
 
-  <script>
-    const cards = document.querySelectorAll('.style-card');
-    const nextBtn = document.getElementById('nextBtn');
-    let selectedStyle = null;
+  <!-- Style C -->
+  <div class="card" data-style="C">
+    <div class="desc-text">
+✨ **𝗘𝗡 𝗩𝗘𝗡𝗧𝗘 : 𝗠𝗔𝗜𝗦𝗢𝗡 𝗗𝗘 𝗖𝗛𝗔𝗥𝗠𝗘 !**  
+Un cadre idyllique, une atmosphère chaleureuse et un confort absolu : tout y est pour tomber sous le charme 😍  
 
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        cards.forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-        selectedStyle = card.dataset.style;
+Détails du bien :  
+🌳 Terrain de 12 ares  
+🛏️ 2 chambres + bureau  
+🔥 Poêle à pellets & rénovation récente  
+Un cocon prêt à accueillir vos projets de vie !  
 
-        nextBtn.classList.add('enabled');
-        nextBtn.href = "basic3.html";
-        nextBtn.style.cursor = "pointer";
-      });
+📞 **Agence Horizon Immo — 0472 11 22 33**  
+🖥️ www.horizon-immo.com
+    </div>
+  </div>
+
+</div>
+
+<label for="userDesc">Ou collez une de vos descriptions :</label>
+<textarea id="userDesc" placeholder="Entrez ici l’une de vos descriptions… (optionnel)"></textarea>
+
+<a id="nextBtn" class="btn-next">Suivant</a>
+
+<footer>
+  © 2025 Noyer — Publication Automatique
+  <div class="footer-links">
+    <a href="confidentialite.html">Politique de confidentialité</a> ·
+    <a href="mentions-legales.html">Mentions légales</a> ·
+    <a href="conditions-utilisation.html">CGU</a> ·
+    <a href="conditions-vente.html">CGV</a>
+  </div>
+</footer>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+  const nextBtn = document.getElementById('nextBtn');
+  let selected = null;
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      selected = card.dataset.style;
+
+      nextBtn.classList.add('enabled');
+      nextBtn.href = "basic3.html";
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
