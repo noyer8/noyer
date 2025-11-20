@@ -15,6 +15,7 @@
       --accent: #26d19a;
       --accent-2: #1ea97b;
       --muted: #bcbcbc;
+      --red: #ff4e4e;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -126,6 +127,11 @@
       color: var(--accent);
     }
 
+    .not-included {
+      color: var(--red);
+      font-weight: bold;
+    }
+
     .btn {
       background: var(--accent);
       color: #0a0a0a;
@@ -186,22 +192,16 @@
         <h2>Noyer Basic</h2>
         <p class="price">49,99 € / mois</p>
         <ul>
-          <li>
-            Jusqu’à <strong>8 publications Facebook par mois</strong>, chacune optimisée
-            pour renforcer votre visibilité locale.
-          </li>
-          <li>
-            <strong>6 photos</strong> automatiquement redimensionnées pour un rendu
-            professionnel sur tous les écrans.
-          </li>
-          <li>
-            Des <strong>descriptions attractives et personnalisées</strong> rédigées par IA,
-            pensées pour capter l’attention des acheteurs.
-          </li>
-          <li>
-            Diffusion programmée aux <strong>meilleures heures</strong> d’engagement
-            pour maximiser la portée.
-          </li>
+          <li>8 publications par mois</li>
+          <li>6 photos par annonce</li>
+          <li>Images redimensionnées automatiquement</li>
+          <li>Descriptions IA simples et attractives</li>
+          <li>Publication sur Facebook uniquement</li>
+
+          <li class="not-included">❌ Pas d’Instagram</li>
+          <li class="not-included">❌ Pas de publication en Story</li>
+          <li class="not-included">❌ Pas de logo sur les photos</li>
+          <li class="not-included">❌ Pas de Reels</li>
         </ul>
         <a href="basic.html" class="btn">Choisir ce plan</a>
       </div>
@@ -214,20 +214,14 @@
         <h2>Noyer Premium</h2>
         <p class="price">109,99 € / mois</p>
         <ul>
-          <li>
-            <strong>12 publications par mois</strong> diffusées sur Facebook <em>et</em> Instagram,
-            pour toucher un public bien plus large.
-          </li>
-          <li>
-            Jusqu’à <strong>10 photos</strong> par publication, optimisées et mises en valeur.
-          </li>
-          <li>
-            Publication du bien en <strong>story</strong> pour booster l’engagement.
-          </li>
-          <li>
-            Toutes les fonctionnalités du plan Basic, avec un niveau supérieur
-            de visibilité et de professionnalisation.
-          </li>
+          <li>16 publications par mois</li>
+          <li>10 photos par annonce</li>
+          <li>Descriptions IA avancées</li>
+          <li>Publications sur Facebook & Instagram</li>
+          <li>Le bien publié aussi en Story</li>
+
+          <li class="not-included">❌ Pas de Reels</li>
+          <li class="not-included">❌ Pas de logo automatique sur photos</li>
         </ul>
         <a href="premium.html" class="btn">Choisir ce plan</a>
       </div>
@@ -240,22 +234,11 @@
         <h2>Noyer Business</h2>
         <p class="price">189,99 € / mois</p>
         <ul>
-          <li>
-            <strong>Publications illimitées</strong> pour un flux constant et automatisé
-            de contenus sur vos réseaux.
-          </li>
-          <li>
-            Jusqu’à <strong>12 photos</strong> par post avec possibilité d’ajouter le
-            <strong>logo de votre agence</strong> automatiquement.
-          </li>
-          <li>
-            Création automatique de <strong>Reels</strong> pour chaque bien, afin
-            d’augmenter massivement la portée organique.
-          </li>
-          <li>
-            Comprend toutes les fonctionnalités du plan Premium,
-            avec une dimension “full automation” complète.
-          </li>
+          <li>Publications illimitées</li>
+          <li>Jusqu’à 12 photos par annonce</li>
+          <li>Logo automatique (optionnel)</li>
+          <li>Reels créés pour chaque bien</li>
+          <li>Toutes les fonctionnalités Premium</li>
         </ul>
         <a href="business.html" class="btn">Choisir ce plan</a>
       </div>
