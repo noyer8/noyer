@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noyer — Premium | Étape 2</title>
+  <title>Noyer – Premium Étape 1</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,7 @@
 
   <style>
     :root {
-      --bg: #000000;
+      --bg: #000;
       --panel: #111;
       --accent: #26d19a;
       --accent-2: #1ea97b;
@@ -23,11 +23,11 @@
     body {
       background: var(--bg);
       color: #e5e5e5;
-      font-family: 'JetBrains Mono', monospace;
+      font-family: "JetBrains Mono", monospace;
       padding: 40px 20px 80px;
     }
 
-    /* LOGO */
+    /* HEADER */
     header {
       width: 100%;
       display: flex;
@@ -44,94 +44,85 @@
       cursor: pointer;
     }
 
+    /* TITRES */
     h1 {
-      margin-top: 150px;
       text-align: center;
-      font-size: 2.4rem;
       color: var(--accent);
-      text-transform: uppercase;
+      margin-top: 150px;
+      font-size: 2.3rem;
       letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
     h2 {
       text-align: center;
-      margin-top: 10px;
-      margin-bottom: 40px;
-      font-size: 1.3rem;
+      margin-top: 15px;
       color: var(--muted);
+      font-size: 1.2rem;
     }
 
+    /* DAYS GRID */
     .days-container {
       max-width: 900px;
-      margin: 0 auto;
+      margin: 40px auto;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
-    @media (min-width: 700px) {
-      .days-container { grid-template-columns: repeat(4, 1fr); }
-    }
-
-    .day-card {
+    .day {
       background: var(--panel);
-      padding: 18px;
-      border-radius: 14px;
+      padding: 25px;
+      border-radius: 16px;
       text-align: center;
-      cursor: pointer;
-      transition: .3s ease;
+      font-size: 1.2rem;
       border: 2px solid transparent;
+      cursor: pointer;
+      transition: 0.3s;
       user-select: none;
     }
 
-    .day-card.selected {
+    .day:hover {
       border-color: var(--accent);
-      box-shadow: 0 0 18px rgba(38,209,154,0.25);
-      background: #0f0f0f;
     }
 
-    .day-card:hover {
-      transform: translateY(-3px);
+    .day.selected {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      font-weight: bold;
+      box-shadow: 0 0 20px rgba(38,209,154,.4);
     }
 
-    /* Hidden checkbox but accessible */
-    .day-card input {
-      display: none;
-    }
-
-    /* Bouton */
+    /* BOUTON SUIVANT */
     .btn-next {
-      margin-top: 35px;
       display: block;
-      width: max-content;
-      margin-left: auto;
-      margin-right: auto;
+      width: fit-content;
+      margin: 40px auto 0;
       background: var(--accent);
       color: #0a0a0a;
-      padding: 16px 34px;
-      border: none;
+      padding: 16px 30px;
       border-radius: 12px;
       font-weight: bold;
-      cursor: not-allowed;
-      opacity: .4;
       font-size: 1.1rem;
       text-decoration: none;
-      box-shadow: 0 0 12px rgba(38,209,154,.4);
-      transition: .3s ease;
+      opacity: 0.4;
+      cursor: not-allowed;
+      transition: 0.3s;
     }
 
     .btn-next.enabled {
-      cursor: pointer;
       opacity: 1;
+      cursor: pointer;
     }
 
     .btn-next.enabled:hover {
       background: var(--accent-2);
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
     footer {
-      margin-top: 70px;
+      margin-top: 60px;
       text-align: center;
       color: #666;
       font-size: .9rem;
@@ -146,8 +137,16 @@
       margin: 0 8px;
       text-decoration: none;
     }
-    .footer-links a:hover { text-decoration: underline; }
 
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .days-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
   </style>
 </head>
 
@@ -160,54 +159,25 @@
     </a>
   </header>
 
-  <h1>Étape 2</h1>
-  <h2>Choisissez 3 jours de publication</h2>
+  <h1>Étape 1</h1>
+  <h2>Choisissez 3 jours de publication par semaine</h2>
 
+  <!-- DAYS -->
   <div class="days-container">
-
-    <!-- 7 DAYS -->
-    <label class="day-card">
-      <input type="checkbox" value="Lundi">
-      Lundi
-    </label>
-
-    <label class="day-card">
-      <input type="checkbox" value="Mardi">
-      Mardi
-    </label>
-
-    <label class="day-card">
-      <input type="checkbox" value="Mercredi">
-      Mercredi
-    </label>
-
-    <label class="day-card">
-      <input type="checkbox" value="Jeudi">
-      Jeudi
-    </label>
-
-    <label class="day-card">
-      <input type="checkbox" value="Vendredi">
-      Vendredi
-    </label>
-
-    <label class="day-card">
-      <input type="checkbox" value="Samedi">
-      Samedi
-    </label>
-
-    <label class="day-card">
-      <input type="checkbox" value="Dimanche">
-      Dimanche
-    </label>
-
+    <div class="day">Lundi</div>
+    <div class="day">Mardi</div>
+    <div class="day">Mercredi</div>
+    <div class="day">Jeudi</div>
+    <div class="day">Vendredi</div>
+    <div class="day">Samedi</div>
+    <div class="day">Dimanche</div>
   </div>
 
-  <!-- BUTTON -->
+  <!-- BOUTON -->
   <a id="nextBtn" class="btn-next">Suivant</a>
 
   <footer>
-    © 2025 Noyer — Publication Automatique  
+    © 2025 Noyer — Publication Automatique
     <div class="footer-links">
       <a href="confidentialite.html">Politique de confidentialité</a> ·
       <a href="mentions-legales.html">Mentions légales</a> ·
@@ -217,28 +187,34 @@
   </footer>
 
   <script>
-    const cards = document.querySelectorAll('.day-card');
-    const nextBtn = document.getElementById('nextBtn');
+    const days = document.querySelectorAll(".day");
+    const nextBtn = document.getElementById("nextBtn");
 
-    cards.forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('selected');
-        const checked = document.querySelectorAll('.day-card.selected').length;
+    let selectedDays = [];
 
-        // Must select EXACTLY 3 days
-        if (checked === 3) {
-          nextBtn.classList.add('enabled');
-          nextBtn.href = "premium2.html";
-          nextBtn.style.cursor = "pointer";
+    days.forEach(day => {
+      day.addEventListener("click", () => {
+        const dayName = day.textContent.trim();
+
+        if (day.classList.contains("selected")) {
+          // Remove
+          day.classList.remove("selected");
+          selectedDays = selectedDays.filter(d => d !== dayName);
         } else {
-          nextBtn.classList.remove('enabled');
-          nextBtn.removeAttribute('href');
-          nextBtn.style.cursor = "not-allowed";
+          // Add only if < 3 selected
+          if (selectedDays.length < 3) {
+            day.classList.add("selected");
+            selectedDays.push(dayName);
+          }
         }
 
-        // Prevent selecting more than 3
-        if (checked > 3) {
-          card.classList.remove('selected');
+        // Enable / disable button
+        if (selectedDays.length === 3) {
+          nextBtn.classList.add("enabled");
+          nextBtn.href = "premium2.html";
+        } else {
+          nextBtn.classList.remove("enabled");
+          nextBtn.removeAttribute("href");
         }
       });
     });
