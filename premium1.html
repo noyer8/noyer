@@ -27,7 +27,6 @@
       padding: 40px 20px 80px;
     }
 
-    /* HEADER */
     header {
       width: 100%;
       display: flex;
@@ -40,11 +39,9 @@
 
     header img {
       height: 120px;
-      width: auto;
       cursor: pointer;
     }
 
-    /* TITRES */
     h1 {
       text-align: center;
       color: var(--accent);
@@ -61,7 +58,6 @@
       font-size: 1.2rem;
     }
 
-    /* DAYS GRID */
     .days-container {
       max-width: 900px;
       margin: 40px auto;
@@ -94,7 +90,6 @@
       box-shadow: 0 0 20px rgba(38,209,154,.4);
     }
 
-    /* BOUTON SUIVANT */
     .btn-next {
       display: block;
       width: fit-content;
@@ -152,73 +147,73 @@
 
 <body>
 
-  <!-- LOGO -->
-  <header>
-    <a href="index.html">
-      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-    </a>
-  </header>
+<header>
+  <a href="index.html">
+    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+  </a>
+</header>
 
-  <h1>Étape 1</h1>
-  <h2>Choisissez 3 jours de publication par semaine</h2>
+<h1>Étape 1</h1>
+<h2>Choisissez 3 jours de publication par semaine</h2>
 
-  <!-- DAYS -->
-  <div class="days-container">
-    <div class="day">Lundi</div>
-    <div class="day">Mardi</div>
-    <div class="day">Mercredi</div>
-    <div class="day">Jeudi</div>
-    <div class="day">Vendredi</div>
-    <div class="day">Samedi</div>
-    <div class="day">Dimanche</div>
+<div class="days-container">
+  <div class="day">Lundi</div>
+  <div class="day">Mardi</div>
+  <div class="day">Mercredi</div>
+  <div class="day">Jeudi</div>
+  <div class="day">Vendredi</div>
+  <div class="day">Samedi</div>
+  <div class="day">Dimanche</div>
+</div>
+
+<a id="nextBtn" class="btn-next">Suivant</a>
+
+<footer>
+  © 2025 Noyer — Publication Automatique
+  <div class="footer-links">
+    <a href="confidentialite.html">Politique de confidentialité</a> ·
+    <a href="mentions-legales.html">Mentions légales</a> ·
+    <a href="conditions-utilisation.html">CGU</a> ·
+    <a href="conditions-vente.html">CGV</a>
   </div>
+</footer>
 
-  <!-- BOUTON -->
-  <a id="nextBtn" class="btn-next">Suivant</a>
+<script>
+  const days = document.querySelectorAll(".day");
+  const nextBtn = document.getElementById("nextBtn");
 
-  <footer>
-    © 2025 Noyer — Publication Automatique
-    <div class="footer-links">
-      <a href="confidentialite.html">Politique de confidentialité</a> ·
-      <a href="mentions-legales.html">Mentions légales</a> ·
-      <a href="conditions-utilisation.html">CGU</a> ·
-      <a href="conditions-vente.html">CGV</a>
-    </div>
-  </footer>
+  let selectedDays = [];
 
-  <script>
-    const days = document.querySelectorAll(".day");
-    const nextBtn = document.getElementById("nextBtn");
+  days.forEach(day => {
+    day.addEventListener("click", () => {
 
-    let selectedDays = [];
+      const dayName = day.textContent.trim();
 
-    days.forEach(day => {
-      day.addEventListener("click", () => {
-        const dayName = day.textContent.trim();
-
-        if (day.classList.contains("selected")) {
-          // Remove
-          day.classList.remove("selected");
-          selectedDays = selectedDays.filter(d => d !== dayName);
-        } else {
-          // Add only if < 3 selected
-          if (selectedDays.length < 3) {
-            day.classList.add("selected");
-            selectedDays.push(dayName);
-          }
+      if (day.classList.contains("selected")) {
+        day.classList.remove("selected");
+        selectedDays = selectedDays.filter(d => d !== dayName);
+      } else {
+        if (selectedDays.length < 3) {
+          day.classList.add("selected");
+          selectedDays.push(dayName);
         }
+      }
 
-        // Enable / disable button
-        if (selectedDays.length === 3) {
-          nextBtn.classList.add("enabled");
-          nextBtn.href = "premium2.html";
-        } else {
-          nextBtn.classList.remove("enabled");
-          nextBtn.removeAttribute("href");
-        }
-      });
+      if (selectedDays.length === 3) {
+        nextBtn.classList.add("enabled");
+        nextBtn.href = "premium2.html";
+
+        // 🔥 Enregistrer les jours premium
+        localStorage.setItem("premiumDays", JSON.stringify(selectedDays));
+        
+      } else {
+        nextBtn.classList.remove("enabled");
+        nextBtn.removeAttribute("href");
+        localStorage.removeItem("premiumDays");
+      }
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
