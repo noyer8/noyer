@@ -27,7 +27,6 @@
       padding: 40px 20px 80px;
     }
 
-    /* HEADER IDENTIQUE */
     header {
       width: 100%;
       display: flex;
@@ -89,7 +88,6 @@
       box-shadow: 0 0 15px rgba(38,209,154,.5);
     }
 
-    /* Bouton suivant */
     .btn-next {
       margin-top: 30px;
       background: var(--accent);
@@ -142,7 +140,6 @@
 
 <body>
 
-  <!-- LOGO IDENTIQUE -->
   <header>
     <a href="index.html">
       <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
@@ -192,23 +189,24 @@
 
         const day = btn.dataset.day;
 
-        // Already selected → unselect
         if (selectedDays.includes(day)) {
           selectedDays = selectedDays.filter(d => d !== day);
           btn.classList.remove("selected");
         } 
         else {
-          // Max 2 days only
           if (selectedDays.length < 2) {
             selectedDays.push(day);
             btn.classList.add("selected");
           }
         }
 
-        // Enable button only if exactly 2 days selected
         if (selectedDays.length === 2) {
           nextBtn.classList.add("enabled");
           nextBtn.href = "basic2.html";
+
+          // ⬅️ AJOUT — Sauvegarde les 2 jours dans localStorage
+          localStorage.setItem("selectedDays", JSON.stringify(selectedDays));
+
         } else {
           nextBtn.classList.remove("enabled");
           nextBtn.removeAttribute("href");
