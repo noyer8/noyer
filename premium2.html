@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Noyer — Étape 2</title>
+  <title>Noyer — Premium Étape 2</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,6 @@
       padding: 40px 20px 80px;
     }
 
-    /* HEADER identique */
     header {
       width: 100%;
       display: flex;
@@ -96,7 +95,6 @@
       white-space: pre-line;
     }
 
-    /* Zone texte perso */
     textarea {
       width: 100%;
       max-width: 900px;
@@ -119,7 +117,6 @@
       font-size: 1.2rem;
     }
 
-    /* Bouton suivant */
     .btn-next {
       margin-top: 35px;
       background: var(--accent);
@@ -148,27 +145,6 @@
       background: var(--accent-2);
       transform: translateY(-2px);
     }
-
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      color: #666;
-      font-size: .9rem;
-    }
-
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    .footer-links a {
-      color: var(--accent);
-      margin: 0 8px;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 
@@ -180,10 +156,9 @@
   </a>
 </header>
 
-<h1>Étape 2</h1>
+<h1>Étape 2 — Premium</h1>
 <h2>Choisissez le style de description</h2>
 
-<!-- 3 STYLES EN CARTES -->
 <div class="styles-container">
 
   <!-- Style A -->
@@ -244,30 +219,45 @@ Un cocon prêt à accueillir vos projets de vie !
 
 <a id="nextBtn" class="btn-next">Suivant</a>
 
-<footer>
-  © 2025 Noyer — Publication Automatique
-  <div class="footer-links">
-    <a href="confidentialite.html">Politique de confidentialité</a> ·
-    <a href="mentions-legales.html">Mentions légales</a> ·
-    <a href="conditions-utilisation.html">CGU</a> ·
-    <a href="conditions-vente.html">CGV</a>
-  </div>
-</footer>
-
 <script>
   const cards = document.querySelectorAll('.card');
   const nextBtn = document.getElementById('nextBtn');
+  const userDesc = document.getElementById('userDesc');
+
   let selected = null;
 
+  // 📌 Sélection d’un style
   cards.forEach(card => {
     card.addEventListener('click', () => {
+
       cards.forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
       selected = card.dataset.style;
 
       nextBtn.classList.add('enabled');
       nextBtn.href = "premium3.html";
+
+      const styleNumber = selected === "A" ? 1 : selected === "B" ? 2 : 3;
+      localStorage.setItem("premiumStyle", styleNumber);
+
+      localStorage.removeItem("premiumCustomDescription");
+      userDesc.value = "";
     });
+  });
+
+  // 📌 Description personnalisée
+  userDesc.addEventListener("input", () => {
+    if (userDesc.value.trim().length > 5) {
+
+      cards.forEach(c => c.classList.remove("selected"));
+      selected = null;
+
+      nextBtn.classList.add("enabled");
+      nextBtn.href = "premium3.html";
+
+      localStorage.setItem("premiumCustomDescription", userDesc.value.trim());
+      localStorage.removeItem("premiumStyle");
+    }
   });
 </script>
 
