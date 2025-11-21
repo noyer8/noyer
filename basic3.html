@@ -176,20 +176,30 @@
   </footer>
 
   <script>
-    const fields = [
-      document.getElementById('agence'),
-      document.getElementById('email'),
-      document.getElementById('telephone'),
-      document.getElementById('responsable')
-    ];
+    const agence = document.getElementById('agence');
+    const email = document.getElementById('email');
+    const telephone = document.getElementById('telephone');
+    const responsable = document.getElementById('responsable');
 
+    const fields = [agence, email, telephone, responsable];
     const nextBtn = document.getElementById('nextBtn');
 
     function checkForm() {
       const allFilled = fields.every(f => f.value.trim() !== "");
+
       if (allFilled) {
+
+        // 🔥 AJOUT — Sauvegarde des coordonnées
+        localStorage.setItem("agencyInfo", JSON.stringify({
+          agence: agence.value.trim(),
+          email: email.value.trim(),
+          telephone: telephone.value.trim(),
+          responsable: responsable.value.trim()
+        }));
+
         nextBtn.classList.add('enabled');
         nextBtn.href = "basic-connect-facebook.html";
+
       } else {
         nextBtn.classList.remove('enabled');
         nextBtn.removeAttribute('href');
