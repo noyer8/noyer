@@ -18,8 +18,6 @@
       --muted: #bcbcbc;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       background: var(--bg);
       color: #e5e5e5;
@@ -39,7 +37,6 @@
 
     header img {
       height: 120px;
-      width: auto;
       cursor: pointer;
     }
 
@@ -48,16 +45,16 @@
       text-align: center;
       margin-top: 150px;
       margin-bottom: 10px;
+      font-size: 2.3rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      font-size: 2.3rem;
     }
 
     h2 {
       text-align: center;
       color: var(--muted);
-      margin-bottom: 40px;
       font-size: 1.2rem;
+      margin-bottom: 40px;
     }
 
     .section {
@@ -65,7 +62,7 @@
       padding: 30px;
       border-radius: 18px;
       max-width: 900px;
-      margin: 0 auto 35px;
+      margin: 0 auto;
       box-shadow: 0 0 25px rgba(38,209,154,.08);
     }
 
@@ -84,7 +81,6 @@
       border: 1px solid #333;
       background: #0a0a0a;
       color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
       font-size: 1rem;
     }
 
@@ -97,8 +93,6 @@
       border-radius: 12px;
       font-weight: bold;
       font-size: 1.1rem;
-      text-decoration: none;
-      display: inline-block;
       opacity: .4;
       cursor: not-allowed;
       transition: .3s ease;
@@ -110,29 +104,12 @@
       cursor: pointer;
     }
 
-    .btn-next.enabled:hover {
-      background: var(--accent-2);
-      transform: translateY(-2px);
-    }
-
     footer {
       margin-top: 60px;
       text-align: center;
       color: #666;
       font-size: .9rem;
     }
-
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    .footer-links a {
-      color: var(--accent);
-      margin: 0 8px;
-      text-decoration: none;
-    }
-    .footer-links a:hover { text-decoration: underline; }
-
   </style>
 </head>
 
@@ -160,17 +137,11 @@
   <label>Nom & prénom du responsable :</label>
   <input type="text" id="responsable">
 
-  <a id="nextBtn" class="btn-next">Suivant</a>
+  <button id="nextBtn" class="btn-next">Suivant</button>
 </div>
 
 <footer>
   © 2025 Noyer — Publication Automatique
-  <div class="footer-links">
-    <a href="confidentialite.html">Politique de confidentialité</a> ·
-    <a href="mentions-legales.html">Mentions légales</a> ·
-    <a href="conditions-utilisation.html">CGU</a> ·
-    <a href="conditions-vente.html">CGV</a>
-  </div>
 </footer>
 
 <script>
@@ -179,45 +150,33 @@
   const telephone = document.getElementById('telephone');
   const responsable = document.getElementById('responsable');
 
-  const fields = [agence, email, telephone, responsable];
   const nextBtn = document.getElementById('nextBtn');
-
-  // 🟢 AUTO-REMPLISSAGE si l’utilisateur revient sur la page
-  const saved = JSON.parse(localStorage.getItem("agencyInfo") || "{}");
-
-  if (saved.agence) agence.value = saved.agence;
-  if (saved.email) email.value = saved.email;
-  if (saved.telephone) telephone.value = saved.telephone;
-  if (saved.responsable) responsable.value = saved.responsable;
-
-  // Si déjà rempli → activer bouton
-  if (saved.agence && saved.email && saved.telephone && saved.responsable) {
-    nextBtn.classList.add("enabled");
-    nextBtn.href = "basic-connect-facebook.html";
-  }
+  const fields = [agence, email, telephone, responsable];
 
   function checkForm() {
     const allFilled = fields.every(f => f.value.trim() !== "");
-
     if (allFilled) {
-      // 🔥 SAUVEGARDE
-      localStorage.setItem("agencyInfo", JSON.stringify({
-        agence: agence.value.trim(),
-        email: email.value.trim(),
-        telephone: telephone.value.trim(),
-        responsable: responsable.value.trim()
-      }));
-
-      nextBtn.classList.add('enabled');
-      nextBtn.href = "basic-connect-facebook.html";
-
+      nextBtn.classList.add("enabled");
     } else {
-      nextBtn.classList.remove('enabled');
-      nextBtn.removeAttribute('href');
+      nextBtn.classList.remove("enabled");
     }
   }
 
-  fields.forEach(f => f.addEventListener('input', checkForm));
+  fields.forEach(f => f.addEventListener("input", checkForm));
+
+  // 🔥 Sauvegarde + navigation
+  nextBtn.onclick = function () {
+    if (!nextBtn.classList.contains("enabled")) return;
+
+    localStorage.setItem("agencyInfo", JSON.stringify({
+      agence: agence.value.trim(),
+      email: email.value.trim(),
+      telephone: telephone.value.trim(),
+      responsable: responsable.value.trim()
+    }));
+
+    window.location.href = "basic-connect-facebook.html";
+  };
 </script>
 
 </body>
