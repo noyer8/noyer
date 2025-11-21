@@ -204,9 +204,9 @@
   }
 
 
-  // ---------------------------------------------
-  //  ACTIVER BOUTON SUIVANT + ENVOI DES DONNÉES
-  // ---------------------------------------------
+  // ------------------------------------------------------------------
+  //     BOUTON SUIVANT → ENVOI INFOS + STRIPE
+  // ------------------------------------------------------------------
   const params = new URLSearchParams(window.location.search);
   const nextBtn = document.getElementById("next-btn");
 
@@ -215,20 +215,24 @@
 
     nextBtn.onclick = async function () {
 
-      // 1️⃣ Récupérer toutes les infos stockées
+      // 🔥 CHARGER les infos coordonnées de basic3
+      const agencyInfo = JSON.parse(localStorage.getItem("agencyInfo") || "{}");
+
+      // 📦 Construction du payload COMPLET
       const payload = {
         days: JSON.parse(localStorage.getItem("selectedDays") || "[]"),
         style: localStorage.getItem("selectedStyle") || null,
         customDescription: localStorage.getItem("customDescription") || null,
-        agence: localStorage.getItem("agence") || "",
-        email: localStorage.getItem("email") || "",
-        telephone: localStorage.getItem("telephone") || "",
-        responsable: localStorage.getItem("responsable") || ""
+
+        agence: agencyInfo.agence || "",
+        email: agencyInfo.email || "",
+        telephone: agencyInfo.telephone || "",
+        responsable: agencyInfo.responsable || ""
       };
 
       console.log("📦 Payload envoyé :", payload);
 
-      // 2️⃣ ENVOI AU BACKEND → ensuite webhook n8n
+      // 1️⃣ ENVOI AU BACKEND
       await fetch("https://noyer-facebook-backend.onrender.com/send-infos-to-webhook", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -237,8 +241,7 @@
 
       console.log("📤 Infos envoyées au backend → webhook n8n");
 
-
-      // 3️⃣ CRÉATION SESSION STRIPE
+      // 2️⃣ CRÉATION SESSION STRIPE
       const response = await fetch("https://noyer-facebook-backend.onrender.com/create-checkout-session", {
         method: "POST",
         headers: { "Content-Type": "application/json" }
