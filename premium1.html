@@ -203,13 +203,13 @@
         nextBtn.classList.add("enabled");
         nextBtn.href = "premium2.html";
 
-        // 🔥 Enregistrer les jours premium
-        localStorage.setItem("premiumDays", JSON.stringify(selectedDays));
-        
+        // 🔥 ENREGISTREMENT CORRIGÉ
+        localStorage.setItem("selectedPremiumDays", JSON.stringify(selectedDays));
+
       } else {
         nextBtn.classList.remove("enabled");
         nextBtn.removeAttribute("href");
-        localStorage.removeItem("premiumDays");
+        localStorage.removeItem("selectedPremiumDays");
       }
     });
   });
