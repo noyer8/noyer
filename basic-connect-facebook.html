@@ -204,14 +204,28 @@
     window.location.href = oauthUrl;
   }
 
-  // Activation automatique du bouton "Suivant" si connected=true
+  // -------------------------------
+  //   BOUTON SUIVANT → STRIPE
+  // -------------------------------
   const params = new URLSearchParams(window.location.search);
   const nextBtn = document.getElementById("next-btn");
 
   if (params.get("connected") === "true") {
     nextBtn.classList.add("enabled");
-    nextBtn.onclick = function () {
-      window.location.href = "https://checkout.stripe.com/c/pay/#PRICE_ID#".replace("#PRICE_ID#", "price_1SVXTtIYNz8atWR79lh2FQiU"); // Modifie ici si tu veux une autre page
+
+    nextBtn.onclick = async function () {
+      const response = await fetch("https://noyer-facebook-backend.onrender.com/create-checkout-session", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" }
+      });
+
+      const data = await response.json();
+
+      if (data.url) {
+        window.location.href = data.url; // redirection vers Stripe Checkout
+      } else {
+        alert("Erreur Stripe : impossible de créer la session.");
+      }
     };
   }
 </script>
