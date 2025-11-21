@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noyer — Étape 3</title>
+  <title>Noyer — Premium Étape 3</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,6 @@
       padding: 40px 20px 80px;
     }
 
-    /* HEADER */
     header {
       width: 100%;
       display: flex;
@@ -132,72 +131,85 @@
       margin: 0 8px;
       text-decoration: none;
     }
-    .footer-links a:hover { text-decoration: underline; }
 
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- LOGO -->
-  <header>
-    <a href="index.html">
-      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-    </a>
-  </header>
+<header>
+  <a href="index.html">
+    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+  </a>
+</header>
 
-  <h1>Étape 3</h1>
-  <h2>Vos coordonnées</h2>
+<h1>Étape 3 — Premium</h1>
+<h2>Vos coordonnées</h2>
 
-  <div class="section">
-    <label>Nom de l’agence :</label>
-    <input type="text" id="agence">
+<div class="section">
+  <label>Nom de l’agence :</label>
+  <input type="text" id="agence">
 
-    <label>Adresse email :</label>
-    <input type="email" id="email">
+  <label>Adresse email :</label>
+  <input type="email" id="email">
 
-    <label>Numéro de téléphone :</label>
-    <input type="text" id="telephone">
+  <label>Numéro de téléphone :</label>
+  <input type="text" id="telephone">
 
-    <label>Nom & prénom du responsable :</label>
-    <input type="text" id="responsable">
+  <label>Nom & prénom du responsable :</label>
+  <input type="text" id="responsable">
 
-    <a id="nextBtn" class="btn-next">Suivant</a>
+  <a id="nextBtn" class="btn-next">Suivant</a>
+</div>
+
+<footer>
+  © 2025 Noyer — Publication Automatique
+  <div class="footer-links">
+    <a href="confidentialite.html">Politique de confidentialité</a> ·
+    <a href="mentions-legales.html">Mentions légales</a> ·
+    <a href="conditions-utilisation.html">CGU</a> ·
+    <a href="conditions-vente.html">CGV</a>
   </div>
+</footer>
 
-  <footer>
-    © 2025 Noyer — Publication Automatique
-    <div class="footer-links">
-      <a href="confidentialite.html">Politique de confidentialité</a> ·
-      <a href="mentions-legales.html">Mentions légales</a> ·
-      <a href="conditions-utilisation.html">CGU</a> ·
-      <a href="conditions-vente.html">CGV</a>
-    </div>
-  </footer>
+<script>
+  const agence = document.getElementById('agence');
+  const email = document.getElementById('email');
+  const telephone = document.getElementById('telephone');
+  const responsable = document.getElementById('responsable');
 
-  <script>
-    const fields = [
-      document.getElementById('agence'),
-      document.getElementById('email'),
-      document.getElementById('telephone'),
-      document.getElementById('responsable')
-    ];
+  const fields = [agence, email, telephone, responsable];
+  const nextBtn = document.getElementById('nextBtn');
 
-    const nextBtn = document.getElementById('nextBtn');
+  function checkForm() {
+    const allFilled = fields.every(f => f.value.trim() !== "");
 
-    function checkForm() {
-      const allFilled = fields.every(f => f.value.trim() !== "");
-      if (allFilled) {
-        nextBtn.classList.add('enabled');
-        nextBtn.href = "premium-connect-facebook.html";
-      } else {
-        nextBtn.classList.remove('enabled');
-        nextBtn.removeAttribute('href');
-      }
+    if (allFilled) {
+      nextBtn.classList.add("enabled");
+    } else {
+      nextBtn.classList.remove("enabled");
     }
+  }
 
-    fields.forEach(f => f.addEventListener('input', checkForm));
-  </script>
+  fields.forEach(f => f.addEventListener("input", checkForm));
+
+  // 🔥 Sauvegarde Premium + redirection
+  nextBtn.onclick = function () {
+    if (!nextBtn.classList.contains("enabled")) return;
+
+    localStorage.setItem("premiumAgencyInfo", JSON.stringify({
+      agence: agence.value.trim(),
+      email: email.value.trim(),
+      telephone: telephone.value.trim(),
+      responsable: responsable.value.trim()
+    }));
+
+    window.location.href = "premium-connect-facebook.html";
+  };
+</script>
 
 </body>
 </html>
