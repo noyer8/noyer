@@ -257,17 +257,49 @@ Un cocon prêt à accueillir vos projets de vie !
 <script>
   const cards = document.querySelectorAll('.card');
   const nextBtn = document.getElementById('nextBtn');
+  const userDesc = document.getElementById('userDesc');
+
   let selected = null;
 
   cards.forEach(card => {
     card.addEventListener('click', () => {
+
       cards.forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
+
       selected = card.dataset.style;
 
       nextBtn.classList.add('enabled');
       nextBtn.href = "basic3.html";
+
+      // ⬅️ AJOUT — Sauvegarde du choix du style (1,2,3)
+      const styleNumber = selected === "A" ? 1 : selected === "B" ? 2 : 3;
+      localStorage.setItem("selectedStyle", styleNumber);
+
+      // Si un style est choisi → on vide la description perso
+      localStorage.removeItem("customDescription");
+      userDesc.value = "";
     });
+  });
+
+  // ⬅️ AJOUT — Si l’utilisateur écrit sa propre description
+  userDesc.addEventListener("input", () => {
+    if (userDesc.value.trim().length > 5) {
+
+      // On désélectionne les styles
+      cards.forEach(c => c.classList.remove("selected"));
+      selected = null;
+
+      // On valide le bouton “Suivant”
+      nextBtn.classList.add("enabled");
+      nextBtn.href = "basic3.html";
+
+      // Sauvegarde de la description perso
+      localStorage.setItem("customDescription", userDesc.value.trim());
+
+      // Suppression du style choisi
+      localStorage.removeItem("selectedStyle");
+    }
   });
 </script>
 
