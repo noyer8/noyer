@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noyer — Configuration Instagram</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#000;
+      --panel:#111;
+      --accent:#26d19a;
+      --text:#e5e5e5;
+      --muted:#bbbbbb;
+      --red:#ff3b3b;
+    }
+
+    body {
+      margin: 0;
+      padding: 40px 20px 80px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    header {
+      position: absolute;
+      top: 25px;
+      left: 40px;
+    }
+
+    header img {
+      height: 120px;
+      width: auto;
+      cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--accent);
+      font-size: 2rem;
+      margin-top: 150px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      max-width: 850px;
+      margin: 15px auto;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    .section {
+      background: var(--panel);
+      padding: 25px;
+      margin: 30px auto;
+      border-radius: 18px;
+      max-width: 900px;
+      box-shadow: 0 0 25px rgba(38,209,154,0.08);
+    }
+
+    a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .btn-main {
+      margin: 40px auto;
+      display: block;
+      width: fit-content;
+      background: var(--accent);
+      color: #000;
+      padding: 16px 30px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 0 12px rgba(38,209,154,0.4);
+      transition: 0.3s ease;
+    }
+
+    .btn-main:hover {
+      background: #1ea97b;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      font-size: .85rem;
+      margin-top: 60px;
+    }
+
+    .footer-links a {
+      color: var(--accent);
+      margin: 0 8px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="index.html">
+      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+    </a>
+  </header>
+
+  <h1>Configuration Instagram — Important</h1>
+
+  <p style="text-align:center;">
+    Pour pouvoir publier automatiquement sur Instagram via Noyer Premium,  
+    votre compte Instagram doit remplir deux conditions essentielles.
+  </p>
+
+  <div class="section">
+    <h2 style="color:var(--accent);">1️⃣ Votre compte Instagram doit être professionnel</h2>
+    <p>
+      Noyer utilise les API officielles Meta, qui ne permettent la publication
+      que sur les <strong>comptes professionnels Instagram</strong>.
+    </p>
+    <p>
+      👉 Guide officiel pour transformer votre compte Instagram en compte professionnel :  
+      <a href="https://help.instagram.com/502981923235522?locale=fr_FR" target="_blank">
+        Passer son Instagram en compte professionnel
+      </a>
+    </p>
+  </div>
+
+  <div class="section">
+    <h2 style="color:var(--accent);">2️⃣ Votre Instagram doit être connecté à une Page Facebook</h2>
+    <p>
+      Instagram Business doit obligatoirement être lié à une <strong>Page Facebook professionnelle</strong>.
+      Cela permet à Noyer d’utiliser les API de Meta pour publier automatiquement.
+    </p>
+
+    <p>
+      👉 Guide officiel pour connecter Instagram à une Page Facebook :  
+      <a href="https://www.facebook.com/business/help/connect-instagram-to-page" target="_blank">
+        Connecter Instagram à une Page Facebook
+      </a>
+    </p>
+  </div>
+
+  <a class="btn-main" href="business-connect-facebook.html">Aller à la connexion Facebook</a>
+
+  <footer>
+    © 2025 Noyer — Publication Automatique
+    <div class="footer-links">
+      <a href="confidentialite.html">Politique de confidentialité</a> ·
+      <a href="mentions-legales.html">Mentions légales</a> ·
+      <a href="conditions-utilisation.html">CGU</a> ·
+      <a href="conditions-vente.html">CGV</a>
+    </div>
+  </footer>
+
+</body>
+</html>
