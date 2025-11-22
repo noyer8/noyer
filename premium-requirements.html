@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connexion Instagram — Informations importantes</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#000;
+      --panel:#111;
+      --accent:#26d19a;
+      --accent-2:#1ea97b;
+      --text:#e5e5e5;
+      --muted:#bbbbbb;
+    }
+
+    body {
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"JetBrains Mono", monospace;
+      line-height:1.65;
+      padding:40px 20px 80px;
+    }
+
+    /* Header */
+    header {
+      position:absolute;
+      top:25px;
+      left:40px;
+    }
+
+    header img {
+      height:120px;
+      cursor:pointer;
+    }
+
+    h1 {
+      margin-top:160px;
+      text-align:center;
+      font-size:2rem;
+      color:var(--accent);
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:25px;
+    }
+
+    p {
+      color:var(--muted);
+      font-size:1rem;
+      margin-bottom:18px;
+    }
+
+    h2 {
+      color:var(--accent);
+      margin-top:40px;
+      margin-bottom:12px;
+      font-size:1.4rem;
+    }
+
+    .section {
+      background:var(--panel);
+      border:1px solid #222;
+      padding:25px;
+      border-radius:16px;
+      margin-bottom:35px;
+      max-width:900px;
+      margin-left:auto;
+      margin-right:auto;
+      box-shadow:0 0 22px rgba(38,209,154,0.08);
+    }
+
+    .btn {
+      display:block;
+      width:max-content;
+      margin:40px auto 0;
+      padding:16px 30px;
+      background:var(--accent);
+      color:#000;
+      font-weight:bold;
+      font-size:1.1rem;
+      border-radius:12px;
+      text-decoration:none;
+      transition:0.3s ease;
+      box-shadow:0 0 14px rgba(38,209,154,.3);
+    }
+
+    .btn:hover {
+      background:var(--accent-2);
+      transform:translateY(-3px);
+    }
+
+    footer {
+      margin-top:60px;
+      text-align:center;
+      color:#666;
+      font-size:.85rem;
+    }
+
+    .footer-links {
+      margin-top:12px;
+    }
+
+    .footer-links a {
+      color:var(--accent);
+      margin:0 8px;
+      text-decoration:none;
+    }
+
+    .footer-links a:hover {
+      text-decoration:underline;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html">
+    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+  </a>
+</header>
+
+<h1>Connexion Instagram — Avant de continuer</h1>
+
+<div class="section">
+  <h2>📌 Votre compte Instagram doit répondre à 2 conditions</h2>
+
+  <p>
+    Pour permettre à Noyer de publier automatiquement sur votre Instagram via l’API Meta,
+    votre compte doit respecter **deux exigences officielles imposées par Meta** :
+  </p>
+
+  <ul style="color:var(--muted); margin-left:25px; line-height:1.7;">
+    <li>✔️ Votre compte Instagram doit être un **compte professionnel** (Business ou Creator)</li>
+    <li>✔️ Ce compte Instagram doit être **connecté à une Page Facebook**</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>1️⃣ Transformer votre compte Instagram en compte professionnel</h2>
+
+  <p>Meta explique ici comment passer simplement à un compte Business/Creator :</p>
+
+  <p>
+    👉 <a href="https://help.instagram.com/502981923235522" target="_blank">Guide officiel Instagram</a><br>
+    (<em>“Passer à un compte professionnel Instagram”</em>)
+  </p>
+
+  <p>Cela prend environ **10 secondes**.</p>
+</div>
+
+<div class="section">
+  <h2>2️⃣ Connecter Instagram à votre Page Facebook</h2>
+
+  <p>
+    Pour que Meta autorise la publication automatisée, Instagram doit être relié à une Page Facebook dont vous êtes **administrateur**.
+  </p>
+
+  <p>
+    👉 Guide officiel : 
+    <a href="https://www.facebook.com/help/570785306433644" target="_blank">
+      Connecter Instagram à une Page Facebook
+    </a>
+  </p>
+
+  <p>Cette étape est essentielle : sans ça, Meta ne donne pas les permissions nécessaires.</p>
+</div>
+
+<div class="section">
+  <h2>3️⃣ Lorsque tout est prêt</h2>
+  <p>
+    Une fois ces deux étapes effectuées, vous pouvez continuer la configuration.
+  </p>
+
+  <a href="premium-connect-facebook.html" class="btn">Continuer vers la connexion Facebook →</a>
+</div>
+
+
+<footer>
+  © 2025 Noyer — Publication Automatique
+  <div class="footer-links">
+    <a href="confidentialite.html">Politique de confidentialité</a> ·
+    <a href="mentions-legales.html">Mentions légales</a> ·
+    <a href="conditions-utilisation.html">CGU</a> ·
+    <a href="conditions-vente.html">CGV</a>
+  </div>
+</footer>
+
+</body>
+</html>
