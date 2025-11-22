@@ -3,134 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noyer — Business — Étape 1</title>
+  <title>Noyer — Plan Business</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #000;
-      --panel: #111;
-      --accent: #26d19a;
-      --accent-2: #1ea97b;
-      --muted: #bcbcbc;
+      --bg:#000;
+      --panel:#111;
+      --accent:#26d19a;
+      --accent2:#1ea97b;
+      --text:#e5e5e5;
+      --muted:#bcbcbc;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {margin:0; padding:0; box-sizing:border-box;}
 
     body {
-      background: var(--bg);
-      color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
-      padding: 40px 20px 100px;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"JetBrains Mono", monospace;
+      padding:40px 20px 120px;
     }
 
-    /* LOGO */
     header {
-      width: 100%;
-      position: absolute;
-      top: 25px;
-      left: 40px;
+      position:absolute;
+      top:25px;
+      left:40px;
     }
 
     header img {
-      height: 120px;
-      width: auto;
-      cursor: pointer;
+      height:120px;
+      cursor:pointer;
     }
 
     h1 {
-      text-align: center;
-      margin-top: 150px;
-      font-size: 2.3rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--accent);
+      text-align:center;
+      color:var(--accent);
+      margin-top:160px;
+      font-size:2.6rem;
+      letter-spacing:3px;
+      text-transform:uppercase;
     }
 
     h2 {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 1.3rem;
-      color: var(--muted);
+      text-align:center;
+      color:var(--muted);
+      margin-top:10px;
+      font-size:1.3rem;
+      margin-bottom:40px;
     }
 
-    .container {
-      margin: 40px auto;
-      max-width: 1200px;
-      display: flex;
-      gap: 25px;
+    .card {
+      max-width:900px;
+      background:var(--panel);
+      margin:0 auto;
+      padding:35px;
+      border-radius:18px;
+      box-shadow:0 0 25px rgba(38,209,154,.08);
+      line-height:1.6;
     }
 
-    .desc-box {
-      background: var(--panel);
-      padding: 25px;
-      border-radius: 18px;
-      flex: 1;
-      box-shadow: 0 0 25px rgba(38,209,154,.08);
-      overflow-y: auto;
-      max-height: 650px;
-      white-space: pre-line;
+    .feature {
+      margin-bottom:18px;
+      font-size:1.05rem;
+      color:var(--muted);
     }
 
-    .desc-box:hover {
-      box-shadow: 0 0 30px rgba(38,209,154,.25);
+    .feature strong {
+      color:var(--accent);
     }
 
-    /* Checkbox + bouton */
-    .confirm-box {
-      margin: 40px auto 0;
-      max-width: 900px;
-      font-size: 1rem;
-      display: flex;
-      gap: 12px;
-      color: var(--muted);
-      align-items: center;
+    .big-number {
+      text-align:center;
+      font-size:2.8rem;
+      font-weight:600;
+      margin:25px 0;
+      color:var(--accent);
     }
 
-    .btn-next {
-      margin: 30px auto 0;
-      display: block;
-      background: var(--accent);
-      color: #0a0a0a;
-      padding: 16px 30px;
-      border-radius: 12px;
-      font-weight: bold;
-      cursor: not-allowed;
-      opacity: .4;
-      font-size: 1.1rem;
-      width: fit-content;
-      text-decoration: none;
-      box-shadow: 0 0 12px rgba(38,209,154,.4);
-      transition: .3s ease;
+    .btn-start {
+      display:block;
+      width:max-content;
+      margin:40px auto 0;
+      padding:16px 35px;
+      background:var(--accent);
+      color:#000;
+      border-radius:14px;
+      font-size:1.2rem;
+      font-weight:bold;
+      text-decoration:none;
+      box-shadow:0 0 15px rgba(38,209,154,.4);
+      transition:.25s;
     }
 
-    .btn-next.enabled {
-      cursor: pointer;
-      opacity: 1;
-    }
-
-    .btn-next.enabled:hover {
-      background: var(--accent-2);
-      transform: translateY(-2px);
+    .btn-start:hover {
+      background:var(--accent2);
+      transform:translateY(-3px);
     }
 
     footer {
-      margin-top: 60px;
-      text-align: center;
-      color: #666;
-      font-size: .9rem;
+      margin-top:80px;
+      text-align:center;
+      color:#777;
+      font-size:.9rem;
+    }
+
+    .footer-links {
+      margin-top:12px;
     }
 
     .footer-links a {
-      color: var(--accent);
-      margin: 0 8px;
-      text-decoration: none;
+      color:var(--accent);
+      text-decoration:none;
+      margin:0 6px;
     }
+
     .footer-links a:hover {
-      text-decoration: underline;
+      text-decoration:underline;
     }
   </style>
 </head>
@@ -143,37 +133,34 @@
   </a>
 </header>
 
-<h1>Étape 1</h1>
-<h2>Choisissez votre style de description</h2>
+<h1>Plan Business</h1>
+<h2>La solution la plus complète pour vos réseaux sociaux</h2>
 
-<!-- TES 3 DESCRIPTIONS ICI, INTACTES -->
-<div class="container">
+<div class="card">
 
-  <div class="desc-box">
-    <!-- Description 1 que tu avais mise -->
-    <p>MET ICI TA DESCRIPTION 1</p>
-  </div>
+  <p class="feature">Avec le plan <strong>Business</strong>, votre agence obtient une automatisation complète, prête pour un niveau professionnel.</p>
 
-  <div class="desc-box">
-    <!-- Description 2 -->
-    <p>MET ICI TA DESCRIPTION 2</p>
-  </div>
+  <div class="big-number">189,99 €/mois</div>
 
-  <div class="desc-box">
-    <!-- Description 3 -->
-    <p>MET ICI TA DESCRIPTION 3</p>
-  </div>
+  <p class="feature"><strong>∞ Publications illimitées</strong> — chaque nouveau bien publié sur votre site est automatiquement relayé.</p>
+
+  <p class="feature"><strong>12 photos par publication</strong> pour des posts plus riches et plus engageants.</p>
+
+  <p class="feature"><strong>Facebook + Instagram</strong> : synchronisation complète des deux plateformes.</p>
+
+  <p class="feature"><strong>Stories automatiques</strong> publiées avec vos couleurs de marque.</p>
+
+  <p class="feature"><strong>Reels vidéo</strong> générés automatiquement pour chaque bien (photos, transitions, couleurs, musique tendance).</p>
+
+  <p class="feature"><strong>Ajout automatique de votre logo</strong> sur les visuels.</p>
+
+  <p class="feature"><strong>Priorité & rapidité maximales</strong> dans la génération et la publication.</p>
+
+  <p class="feature"><strong>+ Toutes les fonctionnalités Premium</strong>.</p>
+
+  <a href="business1.html" class="btn-start">Activer le plan Business</a>
 
 </div>
-
-<!-- Case obligatoire -->
-<label class="confirm-box">
-  <input type="checkbox" id="confirm">
-  J’ai pris connaissance du fonctionnement et je choisis ce style de description.
-</label>
-
-<!-- Bouton Suivant -->
-<a id="nextBtn" class="btn-next">Suivant</a>
 
 <footer>
   © 2025 Noyer — Publication Automatique
@@ -184,21 +171,6 @@
     <a href="conditions-vente.html">CGV</a>
   </div>
 </footer>
-
-<script>
-  const checkbox = document.getElementById('confirm');
-  const nextBtn = document.getElementById('nextBtn');
-
-  checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-      nextBtn.classList.add('enabled');
-      nextBtn.href = "business2.html";
-    } else {
-      nextBtn.classList.remove('enabled');
-      nextBtn.removeAttribute("href");
-    }
-  });
-</script>
 
 </body>
 </html>
