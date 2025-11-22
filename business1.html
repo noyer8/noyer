@@ -96,7 +96,6 @@
       white-space: pre-line;
     }
 
-    /* Zone texte perso */
     textarea {
       width: 100%;
       max-width: 900px;
@@ -119,7 +118,6 @@
       font-size: 1.2rem;
     }
 
-    /* Bouton suivant */
     .btn-next {
       margin-top: 35px;
       background: var(--accent);
@@ -183,10 +181,8 @@
 <h1>Étape 1</h1>
 <h2>Choisissez le style de description</h2>
 
-<!-- 3 STYLES EN CARTES -->
 <div class="styles-container">
 
-  <!-- Style A -->
   <div class="card" data-style="A">
     <div class="desc-text">
 💎 **𝗡𝗢𝗨𝗩𝗘𝗔𝗨 𝗕𝗜𝗘𝗡 𝗗𝗜𝗦𝗣𝗢𝗡𝗜𝗕𝗟𝗘 !**  
@@ -203,7 +199,6 @@ Cette superbe propriété vous offre :
     </div>
   </div>
 
-  <!-- Style B -->
   <div class="card" data-style="B">
     <div class="desc-text">
 🏡 **𝗖𝗢𝗨𝗣 𝗗𝗘 𝗖𝗢𝗘𝗨𝗥 𝗘𝗡 𝗘𝗫𝗖𝗟𝗨 !**  
@@ -220,7 +215,6 @@ Un lieu parfait pour accueillir vos plus beaux moments en famille ❤️
     </div>
   </div>
 
-  <!-- Style C -->
   <div class="card" data-style="C">
     <div class="desc-text">
 ✨ **𝗘𝗡 𝗩𝗘𝗡𝗧𝗘 : 𝗠𝗔𝗜𝗦𝗢𝗡 𝗗𝗘 𝗖𝗛𝗔𝗥𝗠𝗘 !**  
@@ -257,17 +251,34 @@ Un cocon prêt à accueillir vos projets de vie !
 <script>
   const cards = document.querySelectorAll('.card');
   const nextBtn = document.getElementById('nextBtn');
+  const userDesc = document.getElementById('userDesc');
+
   let selected = null;
 
+  // 🟢 Sélection d'un style
   cards.forEach(card => {
     card.addEventListener('click', () => {
       cards.forEach(c => c.classList.remove('selected'));
       card.classList.add('selected');
+
       selected = card.dataset.style;
+
+      localStorage.setItem("businessSelectedStyle", selected);
 
       nextBtn.classList.add('enabled');
       nextBtn.href = "business2.html";
     });
+  });
+
+  // 🟢 Description personnalisée → stockage
+  userDesc.addEventListener("input", () => {
+    localStorage.setItem("businessCustomDescription", userDesc.value);
+
+    // si aucune carte sélectionnée, on active quand même le bouton
+    if (userDesc.value.trim().length > 0) {
+      nextBtn.classList.add("enabled");
+      nextBtn.href = "business2.html";
+    }
   });
 </script>
 
