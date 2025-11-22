@@ -31,6 +31,7 @@
       width: 100%;
       display: flex;
       align-items: flex-start;
+      justify-content: flex-start;
       position: absolute;
       top: 25px;
       left: 40px;
@@ -38,94 +39,104 @@
 
     header img {
       height: 120px;
+      width: auto;
       cursor: pointer;
     }
 
     h1 {
+      color: var(--accent);
       text-align: center;
       margin-top: 150px;
-      margin-bottom: 10px;
-      font-size: 2.4rem;
-      text-transform: uppercase;
-      color: var(--accent);
+      margin-bottom: 15px;
       letter-spacing: 3px;
+      text-transform: uppercase;
+      font-size: 2.4rem;
     }
 
     h2 {
       text-align: center;
       color: var(--muted);
-      font-size: 1.3rem;
       margin-bottom: 40px;
+      font-size: 1.35rem;
     }
 
     .section {
       background: var(--panel);
-      padding: 28px;
+      padding: 35px;
       border-radius: 18px;
       max-width: 900px;
       margin: 0 auto 35px;
       box-shadow: 0 0 25px rgba(38,209,154,.08);
     }
 
-    label {
+    .intro {
+      color: #d2d2d2;
       font-size: 1rem;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 10px;
-      margin-top: 20px;
+      line-height: 1.7;
+      margin-bottom: 35px;
     }
 
-    input, textarea, select {
+    label {
+      display: block;
+      margin-top: 22px;
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+
+    textarea, select {
       width: 100%;
       padding: 12px;
       border-radius: 10px;
       border: none;
       background: #1a1a1a;
       color: #e5e5e5;
-      margin-bottom: 12px;
       font-family: "JetBrains Mono", monospace;
+      margin-bottom: 12px;
     }
 
-    textarea { height: 130px; resize: none; }
+    textarea {
+      height: 130px;
+      resize: none;
+    }
 
-    /* 🎨 Bloc couleurs */
+    /* —— RECTANGLES DE COULEURS —— */
+    .color-box {
+      width: 100%;
+      height: 48px;
+      border-radius: 10px;
+      cursor: pointer;
+      border: 2px solid #333;
+      transition: 0.2s;
+      margin-bottom: 10px;
+    }
+
+    .color-box:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 10px rgba(38,209,154,.4);
+    }
+
     .color-row {
-      display: flex;
-      gap: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
       margin-bottom: 20px;
     }
 
-    .color-block {
-      flex: 1;
-    }
-
-    .color-preview {
-      width: 100%;
-      height: 50px;
-      border-radius: 10px;
-      border: 2px solid #333;
-      margin-top: 8px;
-    }
-
-    .note {
-      color: #888;
-      font-size: 0.85rem;
-      margin-top: -5px;
-      margin-bottom: 15px;
-    }
-
     .btn-next {
-      margin-top: 25px;
+      margin-top: 30px;
       background: var(--accent);
       color: #0a0a0a;
       padding: 16px 30px;
+      border: none;
       border-radius: 12px;
       font-weight: bold;
-      font-size: 1.1rem;
+      cursor: pointer;
+      font-size: 1.15rem;
       display: inline-block;
       text-decoration: none;
-      transition: .3s;
       box-shadow: 0 0 12px rgba(38,209,154,.4);
+      transition: .3s;
     }
 
     .btn-next:hover {
@@ -140,9 +151,14 @@
       font-size: .9rem;
     }
 
+    .footer-links {
+      margin-top: 12px;
+    }
+
     .footer-links a {
       color: var(--accent);
       margin: 0 8px;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -151,7 +167,7 @@
 
 <header>
   <a href="index.html">
-    <img src="https://i.imgur.com/3V2jomn.png">
+    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
   </a>
 </header>
 
@@ -160,46 +176,45 @@
 
 <div class="section">
 
-  <p style="color:#bcbcbc; margin-bottom: 25px;">
+  <p class="intro">
     Merci de compléter ces informations. Elles permettront au système de générer des Reels cohérents 
     avec votre identité visuelle 📱✨  
-    Les couleurs ci-dessous seront utilisées dans l’animation et le style global des contenus vidéo.
+    Les couleurs ci-dessous seront utilisées dans l’animation et le style global de vos contenus vidéo.
   </p>
 
-  <!-- 🎨 COULEURS -->
   <label>Couleurs de votre agence (branding)</label>
-  <p class="note">Ces couleurs seront utilisées pour les titres, accents visuels et éléments graphiques de vos Reels.</p>
+  <p style="color:#bcbcbc; font-size:0.9rem; margin-bottom:20px;">
+    Ces couleurs seront utilisées pour les titres, accents visuels et éléments graphiques de vos Reels.
+  </p>
 
   <div class="color-row">
-    <div class="color-block">
+    <div>
       <label>Couleur primaire</label>
-      <input type="color" id="primaryColor" value="#26d19a">
-      <div class="color-preview" id="primaryPreview"></div>
+      <div id="primaryPreview" class="color-box" style="background:#26d19a;"></div>
+      <input type="color" id="primaryColor" style="display:none;">
     </div>
 
-    <div class="color-block">
+    <div>
       <label>Couleur secondaire</label>
-      <input type="color" id="secondaryColor" value="#1ea97b">
-      <div class="color-preview" id="secondaryPreview"></div>
+      <div id="secondaryPreview" class="color-box" style="background:#0f7d5a;"></div>
+      <input type="color" id="secondaryColor" style="display:none;">
     </div>
   </div>
 
-  <!-- 🎵 MUSIQUE -->
   <label>Préférence musicale</label>
   <select id="music">
-    <option disabled selected>Choisir…</option>
+    <option value="" disabled selected>Choisir…</option>
     <option>Calme 🎧</option>
     <option>Dynamique ⚡</option>
     <option>Tendance TikTok 🔥</option>
-    <option>Aucune — Je préfère ajouter la musique après</option>
+    <option>Pas de musique / j’ajouterai moi-même 🎵</option>
   </select>
 
-  <p class="note">
+  <p style="color:#888; font-size:0.85rem; margin-top:-5px;">
     Les musiques proposées sont automatiquement sélectionnées parmi les sons les plus tendances.
   </p>
 
-  <!-- ⏱ DURÉE -->
-  <label>Durée idéale du Reel</label>
+  <label>Durée idéale du Reel :</label>
   <select id="duration">
     <option disabled selected>Choisir…</option>
     <option>5–8 secondes</option>
@@ -207,12 +222,10 @@
     <option>15–18 secondes</option>
   </select>
 
-  <!-- 📝 REMARQUES -->
   <label>Remarques supplémentaires</label>
   <textarea id="notes" placeholder="Optionnel — précisions sur le ton, les transitions, les couleurs, etc."></textarea>
 
-  <a class="btn-next" id="nextBtn">Suivant</a>
-
+  <a id="nextBtn" class="btn-next" href="business4.html">Suivant</a>
 </div>
 
 <footer>
@@ -225,46 +238,54 @@
   </div>
 </footer>
 
+
 <script>
-  const pColor = document.getElementById("primaryColor");
-  const sColor = document.getElementById("secondaryColor");
+  const primaryPreview = document.getElementById("primaryPreview");
+  const secondaryPreview = document.getElementById("secondaryPreview");
+  const primaryPicker = document.getElementById("primaryColor");
+  const secondaryPicker = document.getElementById("secondaryColor");
 
-  const pPreview = document.getElementById("primaryPreview");
-  const sPreview = document.getElementById("secondaryPreview");
+  // ——— OUVRIR LE PICKER LORS DU CLICK SUR LE RECTANGLE ———
+  primaryPreview.onclick = () => primaryPicker.click();
+  secondaryPreview.onclick = () => secondaryPicker.click();
 
+  // ——— METTRE À JOUR LA COULEUR VISUELLE ET STOCKER ———
+  primaryPicker.oninput = () => {
+    primaryPreview.style.background = primaryPicker.value;
+    localStorage.setItem("businessPrimaryColor", primaryPicker.value);
+  };
+
+  secondaryPicker.oninput = () => {
+    secondaryPreview.style.background = secondaryPicker.value;
+    localStorage.setItem("businessSecondaryColor", secondaryPicker.value);
+  };
+
+  // ——— CHARGER SI DEJA ENREGISTRÉ ———
+  const savedPrimary = localStorage.getItem("businessPrimaryColor");
+  if (savedPrimary) {
+    primaryPreview.style.background = savedPrimary;
+    primaryPicker.value = savedPrimary;
+  }
+
+  const savedSecondary = localStorage.getItem("businessSecondaryColor");
+  if (savedSecondary) {
+    secondaryPreview.style.background = savedSecondary;
+    secondaryPicker.value = savedSecondary;
+  }
+
+  // ——— AUTRES VARIABLES ———
   const music = document.getElementById("music");
   const duration = document.getElementById("duration");
   const notes = document.getElementById("notes");
 
-  const nextBtn = document.getElementById("nextBtn");
+  music.onchange = () => localStorage.setItem("businessMusic", music.value);
+  duration.onchange = () => localStorage.setItem("businessDuration", duration.value);
+  notes.oninput = () => localStorage.setItem("businessNotes", notes.value);
 
-  function save() {
-    const data = {
-      primaryColor: pColor.value,
-      secondaryColor: sColor.value,
-      music: music.value,
-      duration: duration.value,
-      notes: notes.value
-    };
-
-    localStorage.setItem("businessReelsInfo", JSON.stringify(data));
-  }
-
-  // aperçu en direct
-  pColor.oninput = () => { pPreview.style.background = pColor.value; save(); };
-  sColor.oninput = () => { sPreview.style.background = sColor.value; save(); };
-
-  music.onchange = save;
-  duration.onchange = save;
-  notes.oninput = save;
-
-  nextBtn.onclick = () => {
-    save();
-    window.location.href = "business4.html";
-  };
-
-  pPreview.style.background = pColor.value;
-  sPreview.style.background = sColor.value;
+  // ——— RECHARGE LES CHAMPS SI SAUVEGARDÉS ———
+  if (localStorage.getItem("businessMusic")) music.value = localStorage.getItem("businessMusic");
+  if (localStorage.getItem("businessDuration")) duration.value = localStorage.getItem("businessDuration");
+  if (localStorage.getItem("businessNotes")) notes.value = localStorage.getItem("businessNotes");
 </script>
 
 </body>
