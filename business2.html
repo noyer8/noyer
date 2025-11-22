@@ -27,7 +27,6 @@
       padding: 40px 20px 80px;
     }
 
-    /* HEADER / LOGO IDENTIQUE */
     header {
       width: 100%;
       display: flex;
@@ -103,7 +102,6 @@
       color: var(--muted);
     }
 
-    /* Bouton suivant */
     .btn-next {
       margin-top: 25px;
       background: var(--accent);
@@ -179,11 +177,9 @@
       👉 Si vous ne souhaitez pas intégrer de logo, cochez simplement l’option prévue à cet effet.
     </p>
 
-    <!-- Upload du logo -->
     <label for="logo">Téléverser votre logo (PNG ou JPG) :</label>
     <input type="file" id="logo" accept="image/png, image/jpeg">
 
-    <!-- Checkbox choix sans logo -->
     <label class="checkbox-line">
       <input type="checkbox" id="skipLogo">
       Je ne souhaite pas ajouter le logo de l’agence sur les photos.
@@ -221,6 +217,23 @@
 
     logoInput.addEventListener('change', updateState);
     skipCheckbox.addEventListener('change', updateState);
+
+    // -------------------
+    // 🟩 STOCKAGE LOGO
+    // -------------------
+    logoInput.addEventListener("change", () => {
+      const file = logoInput.files[0];
+      if (file) {
+        const blobURL = URL.createObjectURL(file);
+        localStorage.setItem("businessLogoURL", blobURL);
+      }
+    });
+
+    skipCheckbox.addEventListener("change", () => {
+      if (skipCheckbox.checked) {
+        localStorage.setItem("businessLogoURL", null);
+      }
+    });
   </script>
 
 </body>
