@@ -29,6 +29,8 @@
 
     header {
       width: 100%;
+      display: flex;
+      align-items: flex-start;
       position: absolute;
       top: 25px;
       left: 40px;
@@ -40,20 +42,20 @@
     }
 
     h1 {
-      color: var(--accent);
       text-align: center;
       margin-top: 150px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      font-size: 2.4rem;
       text-transform: uppercase;
-      font-size: 2.3rem;
+      color: var(--accent);
       letter-spacing: 3px;
     }
 
     h2 {
       text-align: center;
       color: var(--muted);
-      margin-bottom: 35px;
       font-size: 1.3rem;
+      margin-bottom: 40px;
     }
 
     .section {
@@ -66,11 +68,11 @@
     }
 
     label {
-      display: block;
-      margin-top: 18px;
-      margin-bottom: 8px;
-      color: var(--accent);
       font-size: 1rem;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 10px;
+      margin-top: 20px;
     }
 
     input, textarea, select {
@@ -80,23 +82,36 @@
       border: none;
       background: #1a1a1a;
       color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
       margin-bottom: 12px;
+      font-family: "JetBrains Mono", monospace;
     }
 
-    textarea {
-      height: 130px;
-      resize: none;
-    }
+    textarea { height: 130px; resize: none; }
 
+    /* 🎨 Bloc couleurs */
     .color-row {
       display: flex;
       gap: 20px;
       margin-bottom: 20px;
     }
 
-    .color-box {
+    .color-block {
       flex: 1;
+    }
+
+    .color-preview {
+      width: 100%;
+      height: 50px;
+      border-radius: 10px;
+      border: 2px solid #333;
+      margin-top: 8px;
+    }
+
+    .note {
+      color: #888;
+      font-size: 0.85rem;
+      margin-top: -5px;
+      margin-bottom: 15px;
     }
 
     .btn-next {
@@ -106,11 +121,11 @@
       padding: 16px 30px;
       border-radius: 12px;
       font-weight: bold;
-      cursor: pointer;
       font-size: 1.1rem;
-      text-decoration: none;
       display: inline-block;
-      transition: .3s ease;
+      text-decoration: none;
+      transition: .3s;
+      box-shadow: 0 0 12px rgba(38,209,154,.4);
     }
 
     .btn-next:hover {
@@ -124,6 +139,11 @@
       color: #666;
       font-size: .9rem;
     }
+
+    .footer-links a {
+      color: var(--accent);
+      margin: 0 8px;
+    }
   </style>
 </head>
 
@@ -131,7 +151,7 @@
 
 <header>
   <a href="index.html">
-    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
+    <img src="https://i.imgur.com/3V2jomn.png">
   </a>
 </header>
 
@@ -140,50 +160,48 @@
 
 <div class="section">
 
-  <p style="color:#bcbcbc; margin-bottom: 20px;">
-    Merci de compléter ces informations. Elles permettent au système de générer des Reels cohérents
-    avec votre image de marque 🎥✨<br>
-    Les musiques proposées sont automatiquement choisies parmi les <strong>sons les plus tendances</strong>.
+  <p style="color:#bcbcbc; margin-bottom: 25px;">
+    Merci de compléter ces informations. Elles permettront au système de générer des Reels cohérents 
+    avec votre identité visuelle 📱✨  
+    Les couleurs ci-dessous seront utilisées dans l’animation et le style global des contenus vidéo.
   </p>
 
   <!-- 🎨 COULEURS -->
   <label>Couleurs de votre agence (branding)</label>
+  <p class="note">Ces couleurs seront utilisées pour les titres, accents visuels et éléments graphiques de vos Reels.</p>
+
   <div class="color-row">
-    <div class="color-box">
+    <div class="color-block">
       <label>Couleur primaire</label>
-      <input type="color" id="colorPrimary" value="#26d19a">
+      <input type="color" id="primaryColor" value="#26d19a">
+      <div class="color-preview" id="primaryPreview"></div>
     </div>
-    <div class="color-box">
+
+    <div class="color-block">
       <label>Couleur secondaire</label>
-      <input type="color" id="colorSecondary" value="#1ea97b">
+      <input type="color" id="secondaryColor" value="#1ea97b">
+      <div class="color-preview" id="secondaryPreview"></div>
     </div>
   </div>
-
-  <!-- 🎬 AMBIANCE -->
-  <label>Ambiance souhaitée pour vos Reels</label>
-  <select id="ambiance">
-    <option value="" disabled selected>Choisir une ambiance…</option>
-    <option>Moderne & dynamique ⚡</option>
-    <option>Chaleureuse & conviviale 🏡</option>
-    <option>Luxe & prestige ✨</option>
-    <option>Nature & calme 🌿</option>
-  </select>
 
   <!-- 🎵 MUSIQUE -->
   <label>Préférence musicale</label>
   <select id="music">
-    <option value="" disabled selected>Choisir…</option>
+    <option disabled selected>Choisir…</option>
     <option>Calme 🎧</option>
     <option>Dynamique ⚡</option>
     <option>Tendance TikTok 🔥</option>
-    <option>Pas de musique ❌</option>
-    <option>J’ajouterai la musique après la publication 🎶</option>
+    <option>Aucune — Je préfère ajouter la musique après</option>
   </select>
 
-  <!-- ⏱️ DURÉE -->
-  <label>Durée idéale du Reel :</label>
+  <p class="note">
+    Les musiques proposées sont automatiquement sélectionnées parmi les sons les plus tendances.
+  </p>
+
+  <!-- ⏱ DURÉE -->
+  <label>Durée idéale du Reel</label>
   <select id="duration">
-    <option value="" disabled selected>Choisir…</option>
+    <option disabled selected>Choisir…</option>
     <option>5–8 secondes</option>
     <option>10–12 secondes</option>
     <option>15–18 secondes</option>
@@ -191,62 +209,62 @@
 
   <!-- 📝 REMARQUES -->
   <label>Remarques supplémentaires</label>
-  <textarea id="extraNotes" placeholder="Optionnel — précisions sur le ton, les transitions, les couleurs, etc."></textarea>
+  <textarea id="notes" placeholder="Optionnel — précisions sur le ton, les transitions, les couleurs, etc."></textarea>
 
-  <a href="business4.html" class="btn-next">Suivant</a>
+  <a class="btn-next" id="nextBtn">Suivant</a>
+
 </div>
 
 <footer>
   © 2025 Noyer — Publication Automatique
+  <div class="footer-links">
+    <a href="confidentialite.html">Politique de confidentialité</a> ·
+    <a href="mentions-legales.html">Mentions légales</a> ·
+    <a href="conditions-utilisation.html">CGU</a> ·
+    <a href="conditions-vente.html">CGV</a>
+  </div>
 </footer>
 
 <script>
-  // Références
-  const colorPrimary = document.getElementById("colorPrimary");
-  const colorSecondary = document.getElementById("colorSecondary");
-  const ambiance = document.getElementById("ambiance");
+  const pColor = document.getElementById("primaryColor");
+  const sColor = document.getElementById("secondaryColor");
+
+  const pPreview = document.getElementById("primaryPreview");
+  const sPreview = document.getElementById("secondaryPreview");
+
   const music = document.getElementById("music");
   const duration = document.getElementById("duration");
-  const extraNotes = document.getElementById("extraNotes");
+  const notes = document.getElementById("notes");
 
-  // Fonction de sauvegarde automatique
-  function saveAll() {
-    localStorage.setItem("businessColorPrimary", colorPrimary.value);
-    localStorage.setItem("businessColorSecondary", colorSecondary.value);
-    localStorage.setItem("businessAmbiance", ambiance.value);
-    localStorage.setItem("businessMusic", music.value);
-    localStorage.setItem("businessDuration", duration.value);
-    localStorage.setItem("businessNotes", extraNotes.value);
+  const nextBtn = document.getElementById("nextBtn");
+
+  function save() {
+    const data = {
+      primaryColor: pColor.value,
+      secondaryColor: sColor.value,
+      music: music.value,
+      duration: duration.value,
+      notes: notes.value
+    };
+
+    localStorage.setItem("businessReelsInfo", JSON.stringify(data));
   }
 
-  // Sauvegarde dès qu'il change quelque chose
-  colorPrimary.addEventListener("input", saveAll);
-  colorSecondary.addEventListener("input", saveAll);
-  ambiance.addEventListener("change", saveAll);
-  music.addEventListener("change", saveAll);
-  duration.addEventListener("change", saveAll);
-  extraNotes.addEventListener("input", saveAll);
+  // aperçu en direct
+  pColor.oninput = () => { pPreview.style.background = pColor.value; save(); };
+  sColor.oninput = () => { sPreview.style.background = sColor.value; save(); };
 
-  // Recharge si l'utilisateur revient en arrière
-  window.onload = () => {
-    if (localStorage.getItem("businessColorPrimary"))
-      colorPrimary.value = localStorage.getItem("businessColorPrimary");
+  music.onchange = save;
+  duration.onchange = save;
+  notes.oninput = save;
 
-    if (localStorage.getItem("businessColorSecondary"))
-      colorSecondary.value = localStorage.getItem("businessColorSecondary");
-
-    if (localStorage.getItem("businessAmbiance"))
-      ambiance.value = localStorage.getItem("businessAmbiance");
-
-    if (localStorage.getItem("businessMusic"))
-      music.value = localStorage.getItem("businessMusic");
-
-    if (localStorage.getItem("businessDuration"))
-      duration.value = localStorage.getItem("businessDuration");
-
-    if (localStorage.getItem("businessNotes"))
-      extraNotes.value = localStorage.getItem("businessNotes");
+  nextBtn.onclick = () => {
+    save();
+    window.location.href = "business4.html";
   };
+
+  pPreview.style.background = pColor.value;
+  sPreview.style.background = sColor.value;
 </script>
 
 </body>
