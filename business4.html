@@ -176,20 +176,39 @@
   </footer>
 
   <script>
-    const fields = [
-      document.getElementById('agence'),
-      document.getElementById('email'),
-      document.getElementById('telephone'),
-      document.getElementById('responsable')
-    ];
+    // Champs
+    const agence = document.getElementById('agence');
+    const email = document.getElementById('email');
+    const telephone = document.getElementById('telephone');
+    const responsable = document.getElementById('responsable');
 
+    const fields = [agence, email, telephone, responsable];
     const nextBtn = document.getElementById('nextBtn');
 
+    // -----------------------------
+    // 🔥 Sauvegarde automatique dans localStorage
+    // -----------------------------
+    agence.addEventListener("input", () => localStorage.setItem("agence", agence.value));
+    email.addEventListener("input", () => localStorage.setItem("email", email.value));
+    telephone.addEventListener("input", () => localStorage.setItem("telephone", telephone.value));
+    responsable.addEventListener("input", () => localStorage.setItem("responsable", responsable.value));
+
+    // -----------------------------
+    // 🔄 Pré-remplir si déjà enregistré
+    // -----------------------------
+    if (localStorage.getItem("agence")) agence.value = localStorage.getItem("agence");
+    if (localStorage.getItem("email")) email.value = localStorage.getItem("email");
+    if (localStorage.getItem("telephone")) telephone.value = localStorage.getItem("telephone");
+    if (localStorage.getItem("responsable")) responsable.value = localStorage.getItem("responsable");
+
+    // -----------------------------
+    // ✔️ Activer le bouton si tout est rempli
+    // -----------------------------
     function checkForm() {
-      const allFilled = fields.every(f => f.value.trim() !== "");
-      if (allFilled) {
+      const filled = fields.every(f => f.value.trim() !== "");
+      if (filled) {
         nextBtn.classList.add('enabled');
-        nextBtn.href = "business-requirements.html";
+        nextBtn.href = "business-facebook-connect.html";
       } else {
         nextBtn.classList.remove('enabled');
         nextBtn.removeAttribute('href');
@@ -197,6 +216,9 @@
     }
 
     fields.forEach(f => f.addEventListener('input', checkForm));
+
+    // Vérification initiale (si pré-rempli)
+    checkForm();
   </script>
 
 </body>
