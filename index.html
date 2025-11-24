@@ -32,7 +32,7 @@
       overflow-x: hidden;
     }
 
-    /* ✅ LOGO IDENTIQUE AUX AUTRES PAGES */
+    /* LOGO */
     header {
       width: 100%;
       display: flex;
@@ -48,7 +48,6 @@
       width: auto;
       cursor: pointer;
     }
-    /* FIN LOGO */
 
     main {
       text-align: center;
@@ -122,60 +121,6 @@
       transform: translateY(-3px);
     }
 
-    .carousel-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-top: 60px;
-      padding: 0 15px;
-    }
-
-    .carousel {
-      max-width: 480px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .slide {
-      display: none;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .slide.active {
-      display: flex;
-    }
-
-    iframe {
-      width: 100%;
-      max-width: 450px;
-      height: 650px;
-      border-radius: 12px;
-      background: #fff;
-    }
-
-    .dots {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #333;
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    .dot.active {
-      background: var(--accent);
-    }
-
     footer {
       margin-top: 80px;
       text-align: center;
@@ -225,33 +170,6 @@
   </section>
 </main>
 
-<div class="carousel-wrapper">
-  <section class="carousel">
-
-    <div class="slide active">
-      <blockquote class="instagram-media"
-        data-instgrm-permalink="https://www.instagram.com/p/DRNvpNJjMgz/?utm_source=ig_embed&amp;utm_campaign=loading"
-        data-instgrm-version="14"
-        style="background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px rgba(0,0,0,.5),0 1px 10px rgba(0,0,0,.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:100%;">
-      </blockquote>
-      <script async src="//www.instagram.com/embed.js"></script>
-    </div>
-
-    <div class="slide">
-      <iframe 
-        src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0NXq89ETzduhSzcUUhYo34ij2d3pj2W6ikXpHkjdJaygv4Aqoj3FxK55gXCYA1dPNl%26id%3D61583421766843&show_text=true&width=500"
-        scrolling="no" frameborder="0" allowfullscreen="true">
-      </iframe>
-    </div>
-
-    <div class="dots">
-      <div class="dot active" onclick="showSlide(0)"></div>
-      <div class="dot" onclick="showSlide(1)"></div>
-    </div>
-
-  </section>
-</div>
-
 <footer>
   © 2025 Noyer — Publication Automatique<br>
   <a href="confidentialite.html">Politique de confidentialité</a> ·
@@ -259,25 +177,6 @@
   <a href="conditions-utilisation.html">CGU</a> ·
   <a href="conditions-vente.html">CGV</a>
 </footer>
-
-<script>
-let index = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-
-function showSlide(n) {
-  slides.forEach(s => s.classList.remove('active'));
-  dots.forEach(d => d.classList.remove('active'));
-  slides[n].classList.add('active');
-  dots[n].classList.add('active');
-  index = n;
-}
-
-setInterval(() => {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}, 3000);
-</script>
 
 </body>
 </html>
