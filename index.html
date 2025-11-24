@@ -29,19 +29,19 @@
       color: var(--text);
       min-height: 100vh;
       padding: 30px 10px 80px;
-      overflow-x: hidden;
+      overflow-x: hidden; /* empêche tout scroll horizontal */
     }
 
-    /* LOGO + CONTACT */
+    /* HEADER FIXÉ PROPREMENT */
     header {
       width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      position: absolute;
-      top: 25px;
-      left: 40px;
-      padding-right: 40px; /* Fix overflow */
+      margin-top: 10px;
     }
 
     header img {
@@ -50,7 +50,6 @@
       cursor: pointer;
     }
 
-    /* Bouton Contact */
     .contact-btn {
       background: var(--panel);
       border: 1px solid rgba(38,209,154,0.3);
@@ -60,8 +59,6 @@
       color: var(--accent);
       font-size: .95rem;
       transition: .25s;
-      height: fit-content;
-      margin-top: 15px;
       white-space: nowrap;
     }
 
@@ -75,7 +72,7 @@
       text-align: center;
       max-width: 720px;
       margin: 0 auto;
-      margin-top: 150px;
+      margin-top: 140px;
       padding: 0 10px;
     }
 
@@ -163,8 +160,6 @@
 
 <header>
   <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-
-  <!-- Bouton Contact -->
   <a href="contact.html" class="contact-btn">Contact</a>
 </header>
 
