@@ -3,198 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noyer — Business – Étape 2</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #000;
-      --panel: #111;
-      --accent: #26d19a;
-      --accent-2: #1ea97b;
-      --muted: #bcbcbc;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: var(--bg);
-      color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
-      padding: 40px 20px 80px;
-    }
-
-    header {
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      position: absolute;
-      top: 25px;
-      left: 40px;
-    }
-
-    header img {
-      height: 120px;
-      width: auto;
-      cursor: pointer;
-    }
-
-    h1 {
-      color: var(--accent);
-      text-align: center;
-      margin-top: 150px;
-      margin-bottom: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 2.3rem;
-    }
-
-    h2.sub {
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 40px;
-      font-size: 1.2rem;
-    }
-
-    .section {
-      background: var(--panel);
-      padding: 30px;
-      border-radius: 18px;
-      max-width: 900px;
-      margin: 0 auto 35px;
-      box-shadow: 0 0 25px rgba(38,209,154,.08);
-    }
-
-    .section h3 {
-      color: var(--accent);
-      margin-bottom: 15px;
-      font-size: 1.6rem;
-    }
-
-    .section p {
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
-
-    input[type="file"] {
-      margin-top: 10px;
-      padding: 10px;
-      background: #0d0d0d;
-      border-radius: 10px;
-      border: 1px solid #222;
-      color: var(--muted);
-      width: 100%;
-      cursor: pointer;
-    }
-
-    .checkbox-line {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 15px;
-      font-size: 1rem;
-      color: var(--muted);
-    }
-
-    .btn-next {
-      margin-top: 25px;
-      background: var(--accent);
-      color: #0a0a0a;
-      padding: 16px 30px;
-      border: none;
-      border-radius: 12px;
-      font-weight: bold;
-      cursor: not-allowed;
-      opacity: .4;
-      font-size: 1.1rem;
-      box-shadow: 0 0 12px rgba(38,209,154,.4);
-      text-decoration: none;
-      display: inline-block;
-      transition: .3s ease;
-    }
-
-    .btn-next.enabled {
-      cursor: pointer;
-      opacity: 1;
-    }
-
-    .btn-next.enabled:hover {
-      background: var(--accent-2);
-      transform: translateY(-2px);
-    }
-
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      color: #666;
-      font-size: .9rem;
-    }
-
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    .footer-links a {
-      color: var(--accent);
-      margin: 0 8px;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
-  </style>
+  <title>NOYER — Business Étape 2 : Logo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- LOGO -->
-  <header>
-    <a href="index.html">
-      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-    </a>
-  </header>
+  <div class="page-wrapper">
+    <div class="page-header">
+      <h1 class="page-title">
+        Étape 2 — <span class="gradient-text">Logo sur les photos</span>
+      </h1>
+      <p class="page-subtitle">
+        Ajoutez automatiquement votre logo sur chaque photo publiée (facultatif).
+      </p>
+    </div>
 
-  <h1>Étape 2</h1>
-  <h2 class="sub">Ajout du logo sur les photos (facultatif)</h2>
+    <div class="steps">
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator active"></div>
+      <div class="step-indicator"></div>
+      <div class="step-indicator"></div>
+    </div>
 
-  <div class="section">
-    <h3>Souhaitez-vous ajouter votre logo sur chaque photo ?</h3>
+    <div class="container container-sm">
+      <div class="card animate-fadeInUp">
 
-    <p>
-      Dans le plan <strong>Noyer Business</strong>, vous avez la possibilité d’ajouter automatiquement
-      le logo de votre agence sur chaque photo publiée.  
-      <br><br>
-      👉 Cette étape est <strong>entièrement facultative</strong>.  
-      <br>
-      👉 Si vous ne souhaitez pas intégrer de logo, cochez simplement l’option prévue à cet effet.
-    </p>
+        <div class="feature-icon" style="margin: 0 auto var(--space-lg);">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 24px; height: 24px; color: white;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+        </div>
 
-    <label for="logo">Téléverser votre logo (PNG ou JPG) :</label>
-    <input type="file" id="logo" accept="image/png, image/jpeg">
+        <h3 class="text-center mb-md">Souhaitez-vous ajouter votre logo ?</h3>
 
-    <label class="checkbox-line">
-      <input type="checkbox" id="skipLogo">
-      Je ne souhaite pas ajouter le logo de l’agence sur les photos.
-    </label>
+        <p class="text-center mb-lg" style="color: var(--text-secondary);">
+          Dans le plan <strong>Noyer Business</strong>, vous pouvez ajouter automatiquement le logo de votre agence sur chaque photo publiée. Cette étape est entièrement facultative.
+        </p>
 
-    <a id="nextBtn" class="btn-next">Suivant</a>
+        <div class="form-group">
+          <label class="form-label">Téléverser votre logo (PNG ou JPG)</label>
+          <input type="file" id="logo" class="form-input" accept="image/png, image/jpeg" style="padding: 12px;">
+        </div>
+
+        <div class="form-checkbox mt-md">
+          <input type="checkbox" id="skipLogo">
+          <label for="skipLogo">Je ne souhaite pas ajouter de logo sur les photos</label>
+        </div>
+
+        <div class="mt-xl">
+          <a id="nextBtn" class="btn btn-primary disabled" href="#" style="width: 100%;">
+            Suivant
+            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
   </div>
 
-  <footer>
-    © 2025 Noyer — Publication Automatique
-    <div class="footer-links">
-      <a href="confidentialite.html">Politique de confidentialité</a> ·
-      <a href="mentions-legales.html">Mentions légales</a> ·
-      <a href="conditions-utilisation.html">CGU</a> ·
-      <a href="conditions-vente.html">CGV</a>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Politique de confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer — Publication Automatique</p>
     </div>
   </footer>
 
@@ -205,22 +101,17 @@
 
     function updateState() {
       if (logoInput.files.length > 0 || skipCheckbox.checked) {
-        nextBtn.classList.add('enabled');
+        nextBtn.classList.remove('disabled');
         nextBtn.href = "business3.html";
-        nextBtn.style.cursor = "pointer";
       } else {
-        nextBtn.classList.remove('enabled');
+        nextBtn.classList.add('disabled');
         nextBtn.removeAttribute('href');
-        nextBtn.style.cursor = "not-allowed";
       }
     }
 
     logoInput.addEventListener('change', updateState);
     skipCheckbox.addEventListener('change', updateState);
 
-    // -------------------
-    // 🟩 STOCKAGE LOGO
-    // -------------------
     logoInput.addEventListener("change", () => {
       const file = logoInput.files[0];
       if (file) {

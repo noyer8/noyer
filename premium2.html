@@ -1,265 +1,159 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Noyer — Premium Étape 2</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #000;
-      --panel: #111;
-      --accent: #26d19a;
-      --accent-2: #1ea97b;
-      --muted: #bcbcbc;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: var(--bg);
-      color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
-      padding: 40px 20px 80px;
-    }
-
-    header {
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      position: absolute;
-      top: 25px;
-      left: 40px;
-    }
-
-    header img {
-      height: 120px;
-      cursor: pointer;
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 150px;
-      color: var(--accent);
-      font-size: 2.3rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      text-align: center;
-      margin-top: 10px;
-      color: #e5e5e5;
-      font-size: 1.4rem;
-      margin-bottom: 40px;
-    }
-
-    .styles-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .card {
-      background: var(--panel);
-      padding: 24px;
-      border-radius: 18px;
-      box-shadow: 0 0 20px rgba(38,209,154,.08);
-      transition: .3s ease;
-      border: 2px solid transparent;
-      cursor: pointer;
-      white-space: pre-line;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 0 25px rgba(38,209,154,.2);
-    }
-
-    .card.selected {
-      border-color: var(--accent);
-      box-shadow: 0 0 25px rgba(38,209,154,.4);
-    }
-
-    .desc-text {
-      font-size: .95rem;
-      line-height: 1.65;
-      color: var(--muted);
-      white-space: pre-line;
-    }
-
-    textarea {
-      width: 100%;
-      max-width: 900px;
-      margin: 40px auto 0;
-      display: block;
-      background: #0f0f0f;
-      border: 2px solid #333;
-      border-radius: 12px;
-      padding: 15px;
-      color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
-      min-height: 120px;
-    }
-
-    label {
-      display: block;
-      text-align: center;
-      margin-bottom: 10px;
-      color: var(--accent);
-      font-size: 1.2rem;
-    }
-
-    .btn-next {
-      margin-top: 35px;
-      background: var(--accent);
-      color: #0a0a0a;
-      padding: 16px 30px;
-      border-radius: 12px;
-      font-weight: bold;
-      cursor: not-allowed;
-      opacity: .4;
-      font-size: 1.1rem;
-      box-shadow: 0 0 12px rgba(38,209,154,.4);
-      text-decoration: none;
-      display: block;
-      width: max-content;
-      margin-left: auto;
-      margin-right: auto;
-      transition: .3s ease;
-    }
-
-    .btn-next.enabled {
-      cursor: pointer;
-      opacity: 1;
-    }
-
-    .btn-next.enabled:hover {
-      background: var(--accent-2);
-      transform: translateY(-2px);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOYER — Premium Étape 2 : Style de description</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-<header>
-  <a href="index.html">
-    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-  </a>
-</header>
+  <div class="page-wrapper">
+    <div class="page-header">
+      <h1 class="page-title">
+        Étape 2 — <span class="gradient-text">Style de description</span>
+      </h1>
+      <p class="page-subtitle">
+        Choisissez le ton qui correspond le mieux à votre agence.
+      </p>
+    </div>
 
-<h1>Étape 2 — Premium</h1>
-<h2>Choisissez le style de description</h2>
+    <div class="steps">
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator active"></div>
+      <div class="step-indicator"></div>
+    </div>
 
-<div class="styles-container">
+    <div class="container">
+      <div class="style-grid" style="max-width: 1100px; margin: 0 auto;">
 
-  <!-- Style A -->
-  <div class="card" data-style="A">
-    <div class="desc-text">
-💎 **𝗡𝗢𝗨𝗩𝗘𝗔𝗨 𝗕𝗜𝗘𝗡 𝗗𝗜𝗦𝗣𝗢𝗡𝗜𝗕𝗟𝗘 !**  
-Découvrez cette magnifique maison nichée au cœur d’un quartier calme où lumière, espace et confort s’unissent au quotidien ✨  
+        <div class="style-card animate-fadeInUp animate-delay-1" data-style="A">
+          <h3>Style Dynamique</h3>
+          <p style="white-space: pre-line; font-size: 0.85rem; line-height: 1.6;">
+💎 **NOUVEAU BIEN DISPONIBLE !**
+Découvrez cette magnifique maison nichée au cœur d'un quartier calme où lumière, espace et confort s'unissent au quotidien ✨
 
-Cette superbe propriété vous offre :  
-✅ 150 m² habitables  
-✅ 3 chambres confortables  
-✅ Jardin verdoyant idéal pour la famille  
-🌿 Une atmosphère chaleureuse et un cadre paisible que vous allez adorer !  
+Cette superbe propriété vous offre :
+✅ 150 m² habitables
+✅ 3 chambres confortables
+✅ Jardin verdoyant idéal pour la famille
+          </p>
+        </div>
 
-📞 **Agence Horizon Immo — 0472 11 22 33**  
-🖥️ www.horizon-immo.com
+        <div class="style-card animate-fadeInUp animate-delay-2" data-style="B">
+          <h3>Style Chaleureux</h3>
+          <p style="white-space: pre-line; font-size: 0.85rem; line-height: 1.6;">
+🏡 **COUP DE CŒUR EN EXCLU !**
+Venez découvrir cette perle rare alliant modernité, luminosité et espaces ouverts 🤩
+
+Ce bien exceptionnel comprend :
+🔥 4 chambres spacieuses
+🔥 Grande pièce de vie avec baies vitrées
+🌞 Terrasse plein sud & jardin privatif
+          </p>
+        </div>
+
+        <div class="style-card animate-fadeInUp animate-delay-3" data-style="C">
+          <h3>Style Élégant</h3>
+          <p style="white-space: pre-line; font-size: 0.85rem; line-height: 1.6;">
+✨ **EN VENTE : MAISON DE CHARME !**
+Un cadre idyllique, une atmosphère chaleureuse et un confort absolu : tout y est pour tomber sous le charme 😍
+
+Détails du bien :
+🌳 Terrain de 12 ares
+🛏️ 2 chambres + bureau
+🔥 Poêle à pellets & rénovation récente
+          </p>
+        </div>
+
+      </div>
+
+      <div class="container container-md mt-xl">
+        <div class="form-group">
+          <label class="form-label text-center" style="display: block;">Ou collez une de vos descriptions :</label>
+          <textarea id="userDesc" class="form-input" placeholder="Entrez ici l'une de vos descriptions… (optionnel)"></textarea>
+        </div>
+
+        <div class="text-center mt-lg">
+          <a id="nextBtn" class="btn btn-primary disabled" href="#">
+            Suivant
+            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Style B -->
-  <div class="card" data-style="B">
-    <div class="desc-text">
-🏡 **𝗖𝗢𝗨𝗣 𝗗𝗘 𝗖𝗢𝗘𝗨𝗥 𝗘𝗡 𝗘𝗫𝗖𝗟𝗨 !**  
-Venez découvrir cette perle rare alliant modernité, luminosité et espaces ouverts 🤩  
-
-Ce bien exceptionnel comprend :  
-🔥 4 chambres spacieuses  
-🔥 Grande pièce de vie avec baies vitrées  
-🌞 Terrasse plein sud & jardin privatif  
-Un lieu parfait pour accueillir vos plus beaux moments en famille ❤️  
-
-📞 **Agence Horizon Immo — 0472 11 22 33**  
-🖥️ www.horizon-immo.com
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Politique de confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer — Publication Automatique</p>
     </div>
-  </div>
+  </footer>
 
-  <!-- Style C -->
-  <div class="card" data-style="C">
-    <div class="desc-text">
-✨ **𝗘𝗡 𝗩𝗘𝗡𝗧𝗘 : 𝗠𝗔𝗜𝗦𝗢𝗡 𝗗𝗘 𝗖𝗛𝗔𝗥𝗠𝗘 !**  
-Un cadre idyllique, une atmosphère chaleureuse et un confort absolu : tout y est pour tomber sous le charme 😍  
+  <script>
+    const cards = document.querySelectorAll('.style-card');
+    const nextBtn = document.getElementById('nextBtn');
+    const userDesc = document.getElementById('userDesc');
 
-Détails du bien :  
-🌳 Terrain de 12 ares  
-🛏️ 2 chambres + bureau  
-🔥 Poêle à pellets & rénovation récente  
-Un cocon prêt à accueillir vos projets de vie !  
+    let selected = null;
 
-📞 **Agence Horizon Immo — 0472 11 22 33**  
-🖥️ www.horizon-immo.com
-    </div>
-  </div>
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        cards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
 
-</div>
+        selected = card.dataset.style;
 
-<label for="userDesc">Ou collez une de vos descriptions :</label>
-<textarea id="userDesc" placeholder="Entrez ici l’une de vos descriptions… (optionnel)"></textarea>
+        nextBtn.classList.remove('disabled');
+        nextBtn.href = "premium3.html";
 
-<a id="nextBtn" class="btn-next">Suivant</a>
-
-<script>
-  const cards = document.querySelectorAll('.card');
-  const nextBtn = document.getElementById('nextBtn');
-  const userDesc = document.getElementById('userDesc');
-
-  let selected = null;
-
-  // 📌 Sélection d’un style
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-
-      cards.forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      selected = card.dataset.style;
-
-      nextBtn.classList.add('enabled');
-      nextBtn.href = "premium3.html";
-
-      const styleNumber = selected === "A" ? 1 : selected === "B" ? 2 : 3;
-      localStorage.setItem("premiumStyle", styleNumber);
-
-      localStorage.removeItem("premiumCustomDescription");
-      userDesc.value = "";
+        const styleNumber = selected === "A" ? 1 : selected === "B" ? 2 : 3;
+        localStorage.setItem("premiumStyle", styleNumber);
+        localStorage.removeItem("premiumCustomDescription");
+        userDesc.value = "";
+      });
     });
-  });
 
-  // 📌 Description personnalisée
-  userDesc.addEventListener("input", () => {
-    if (userDesc.value.trim().length > 5) {
+    userDesc.addEventListener("input", () => {
+      if (userDesc.value.trim().length > 5) {
+        cards.forEach(c => c.classList.remove("selected"));
+        selected = null;
 
-      cards.forEach(c => c.classList.remove("selected"));
-      selected = null;
+        nextBtn.classList.remove("disabled");
+        nextBtn.href = "premium3.html";
 
-      nextBtn.classList.add("enabled");
-      nextBtn.href = "premium3.html";
-
-      localStorage.setItem("premiumCustomDescription", userDesc.value.trim());
-      localStorage.removeItem("premiumStyle");
-    }
-  });
-</script>
+        localStorage.setItem("premiumCustomDescription", userDesc.value.trim());
+        localStorage.removeItem("premiumStyle");
+      }
+    });
+  </script>
 
 </body>
 </html>

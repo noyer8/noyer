@@ -1,310 +1,192 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Connexion Facebook — Noyer Business</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg: #000;
-      --text: #e7e7e7;
-      --muted: #8f8f8f;
-      --panel: #111;
-      --accent: #26d19a;
-      --accent-dark: #1ea97b;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "JetBrains Mono", monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    header {
-      width: 100%;
-      padding: 30px 40px;
-      display: flex;
-      align-items: center;
-    }
-
-    header img {
-      height: 100px;
-      cursor: pointer;
-    }
-
-    .container {
-      max-width: 650px;
-      text-align: center;
-      margin-top: 40px;
-      padding: 30px;
-      background: var(--panel);
-      border-radius: 16px;
-      border: 1px solid rgba(38,209,154,0.15);
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-
-    h1 {
-      color: var(--accent);
-      font-size: 2rem;
-      margin-bottom: 10px;
-      letter-spacing: .1em;
-    }
-
-    p {
-      line-height: 1.6;
-      color: var(--muted);
-      margin-bottom: 22px;
-      font-size: .95rem;
-    }
-
-    .steps {
-      text-align: left;
-      background: #0c0c0c;
-      padding: 18px 20px;
-      border-radius: 10px;
-      border: 1px solid rgba(38,209,154,0.15);
-      margin-bottom: 30px;
-    }
-
-    .steps h3 {
-      font-size: 1rem;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-
-    .steps li {
-      margin-bottom: 10px;
-      color: var(--text);
-      font-size: .9rem;
-    }
-
-    #fb-btn {
-      margin-top: 25px;
-      padding: 14px 26px;
-      background: var(--accent);
-      border: none;
-      border-radius: 10px;
-      color: #08241a;
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    #fb-btn:hover {
-      background: var(--accent-dark);
-      transform: translateY(-2px);
-    }
-
-    #next-btn {
-      margin-top: 20px;
-      padding: 14px 26px;
-      background: #444;
-      opacity: 0.4;
-      border: none;
-      border-radius: 10px;
-      color: #fff;
-      font-weight: bold;
-      cursor: not-allowed;
-      transition: .2s;
-    }
-
-    #next-btn.enabled {
-      background: var(--accent);
-      opacity: 1;
-      cursor: pointer;
-    }
-
-    footer {
-      margin-top: 60px;
-      color: var(--muted);
-      font-size: .85rem;
-      text-align: center;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOYER — Connexion Facebook Business</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-<header>
-  <a href="index.html">
-    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-  </a>
-</header>
+  <div class="page-wrapper">
+    <div class="page-header">
+      <h1 class="page-title">
+        Connexion <span class="gradient-text">Facebook Business</span>
+      </h1>
+      <p class="page-subtitle">
+        Connectez votre Page Facebook et Instagram pour activer toutes les fonctionnalités Business.
+      </p>
+    </div>
 
-<div class="container">
+    <div class="container container-sm">
+      <div class="card animate-fadeInUp text-center">
 
-  <h1>Connexion Facebook — Business</h1>
-  <p>
-    Pour activer la publication automatique de votre plan <strong>Noyer Business</strong>,
-    vous devez connecter votre Page Facebook professionnelle.
-  </p>
+        <div class="feature-icon" style="margin: 0 auto var(--space-lg); background: linear-gradient(135deg, #1877F2 0%, #42A5F5 100%);">
+          <svg fill="currentColor" viewBox="0 0 24 24" style="width: 24px; height: 24px; color: white;">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </div>
 
-  <div class="steps">
-    <h3>🔐 Pourquoi cette connexion est nécessaire ?</h3>
-    <ul>
-      <li>✓ Publication automatique de vos biens sur Facebook & Instagram</li>
-      <li>✓ Reels générés automatiquement pour chaque nouveau bien</li>
-      <li>✓ Ajout de votre logo sur les photos (si configuré)</li>
-      <li>✓ Utilisation de vos couleurs de marque dans les visuels</li>
-    </ul>
+        <h3 class="mb-md">Pourquoi cette connexion ?</h3>
+
+        <div class="text-left mb-lg" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: var(--space-md);">
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Publication automatique sur Facebook & Instagram</span>
+          </div>
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Reels automatiques pour chaque nouveau bien</span>
+          </div>
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Ajout de votre logo sur les photos</span>
+          </div>
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Vos couleurs de marque dans tous les visuels</span>
+          </div>
+        </div>
+
+        <p class="mb-lg" style="font-size: 0.9rem; color: var(--text-muted);">
+          En cliquant sur « Se connecter avec Facebook », vous acceptez de donner les permissions nécessaires.
+        </p>
+
+        <button id="fb-btn" class="btn btn-primary btn-lg" style="width: 100%; background: linear-gradient(135deg, #1877F2 0%, #42A5F5 100%);" onclick="loginWithFacebook()">
+          Se connecter avec Facebook
+        </button>
+
+        <button id="next-btn" class="btn btn-secondary mt-md disabled" style="width: 100%;">
+          Finaliser l'inscription Business
+          <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </button>
+
+      </div>
+    </div>
   </div>
 
-  <p>En cliquant sur « Se connecter avec Facebook », vous acceptez de donner les permissions nécessaires.</p>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Politique de confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer — Publication Automatique</p>
+    </div>
+  </footer>
 
-  <button id="fb-btn" onclick="loginWithFacebook()">Se connecter avec Facebook</button>
+  <script>
+    function loginWithFacebook() {
+      const appId = "2451194691945458";
+      const redirectUri = "https://noyer-facebook-backend.onrender.com/auth/facebook/callback";
 
-  <button id="next-btn">Suivant</button>
+      const scopes = [
+        "pages_manage_posts",
+        "pages_read_engagement",
+        "pages_show_list",
+        "instagram_basic",
+        "instagram_content_publish"
+      ].join(",");
 
-</div>
+      const oauthUrl =
+        "https://www.facebook.com/v19.0/dialog/oauth" +
+        "?client_id=" + appId +
+        "&redirect_uri=" + encodeURIComponent(redirectUri) +
+        "&response_type=code" +
+        "&scope=" + encodeURIComponent(scopes) +
+        "&state=business_secure_789";
 
-<footer>
-  © 2025 Noyer — Publication Automatique<br>
-  <a href="confidentialite.html">Politique de confidentialité</a> ·
-  <a href="mentions-legales.html">Mentions légales</a>
-</footer>
+      window.location.href = oauthUrl;
+    }
 
-<script>
-  // -----------------------------
-  // 1️⃣ Connexion Facebook
-  // -----------------------------
-  function loginWithFacebook() {
-    const appId = "2451194691945458";
-    const redirectUri = "https://noyer-facebook-backend.onrender.com/auth/facebook/callback";
+    const params = new URLSearchParams(window.location.search);
+    const nextBtn = document.getElementById("next-btn");
 
-    const scopes = [
-      "pages_manage_posts",
-      "pages_read_engagement",
-      "pages_show_list",
-      "instagram_basic",
-      "instagram_content_publish"
-    ].join(",");
+    if (params.get("connected") === "true") {
+      nextBtn.classList.remove("disabled");
+      document.getElementById("fb-btn").style.display = "none";
 
-    const oauthUrl =
-      "https://www.facebook.com/v19.0/dialog/oauth" +
-      "?client_id=" + appId +
-      "&redirect_uri=" + encodeURIComponent(redirectUri) +
-      "&response_type=code" +
-      "&scope=" + encodeURIComponent(scopes) +
-      "&state=business_secure_789";
+      nextBtn.onclick = async function () {
+        const agencyInfo = JSON.parse(localStorage.getItem("businessAgencyInfo") || "{}");
 
-    window.location.href = oauthUrl;
-  }
+        const payload = {
+          plan: "BUSINESS",
+          style: localStorage.getItem("businessSelectedStyle") || null,
+          customDescription: localStorage.getItem("businessCustomDescription") || null,
+          logoURL: localStorage.getItem("businessLogoURL") || null,
+          color1: localStorage.getItem("businessPrimaryColor") || null,
+          color2: localStorage.getItem("businessSecondaryColor") || null,
+          music: localStorage.getItem("businessMusic") || null,
+          duration: localStorage.getItem("businessDuration") || null,
+          notes: localStorage.getItem("businessNotes") || null,
+          agence: agencyInfo.agence || "",
+          email: agencyInfo.email || "",
+          telephone: agencyInfo.telephone || "",
+          responsable: agencyInfo.responsable || ""
+        };
 
-  // --------------------------------------------------
-  // 2️⃣ Activer le bouton "Suivant" après connexion FB
-  // --------------------------------------------------
-  const params = new URLSearchParams(window.location.search);
-  const nextBtn = document.getElementById("next-btn");
+        try {
+          await fetch("https://noyer-facebook-backend.onrender.com/send-infos-to-webhook", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+        } catch (e) {
+          console.error("Erreur lors de l'envoi au webhook:", e);
+          alert("Une erreur est survenue. Veuillez réessayer.");
+          return;
+        }
 
-  if (params.get("connected") === "true") {
-    nextBtn.classList.add("enabled");
+        try {
+          const response = await fetch("https://noyer-facebook-backend.onrender.com/create-checkout-session-business", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" }
+          });
 
-    nextBtn.onclick = async function () {
-      // -------------------------------
-      // 3️⃣ Récupérer les données Business dans localStorage
-      // -------------------------------
+          const data = await response.json();
 
-      // 🎯 Description (Étape 1)
-      const style = localStorage.getItem("businessSelectedStyle") || null;
-      const customDescription = localStorage.getItem("businessCustomDescription") || null;
-
-      // 🎯 Logo (Étape 2)
-      const logoURL = localStorage.getItem("businessLogoURL") || null;
-
-      // 🎯 Reels / Branding (Étape 3 - Reels)
-      const color1 = localStorage.getItem("businessPrimaryColor") || null;
-      const color2 = localStorage.getItem("businessSecondaryColor") || null;
-      const music = localStorage.getItem("businessMusic") || null;
-      const duration = localStorage.getItem("businessDuration") || null;
-      const notes = localStorage.getItem("businessNotes") || null;
-
-      // 🎯 Coordonnées (Étape coordonnées)
-      const agence = localStorage.getItem("agence") || "";
-      const email = localStorage.getItem("email") || "";
-      const telephone = localStorage.getItem("telephone") || "";
-      const responsable = localStorage.getItem("responsable") || "";
-
-      // -------------------------------
-      // 4️⃣ Construire le payload pour n8n
-      // -------------------------------
-      const payload = {
-        plan: "BUSINESS",
-        style,
-        customDescription,
-        logoURL,
-        color1,
-        color2,
-        music,
-        duration,
-        notes,
-        agence,
-        email,
-        telephone,
-        responsable
-      };
-
-      console.log("📦 Payload Business envoyé :", payload);
-
-      // -------------------------------
-      // 5️⃣ Envoi au backend → webhook n8n
-      // -------------------------------
-      try {
-        await fetch("https://noyer-facebook-backend.onrender.com/send-infos-to-webhook", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload)
-        });
-
-        console.log("📤 Données Business envoyées au backend → webhook n8n");
-      } catch (e) {
-        console.error("❌ Erreur lors de l’envoi au webhook :", e);
-        alert("Une erreur est survenue lors de l’envoi des informations. Vous pouvez réessayer.");
-        return;
-      }
-
-      // -------------------------------
-      // 6️⃣ Création de la session STRIPE — BUSINESS
-      // -------------------------------
-      try {
-        const response = await fetch("https://noyer-facebook-backend.onrender.com/create-checkout-session-business", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" }
-        });
-
-        const data = await response.json();
-
-        if (data.url) {
-          window.location.href = data.url;
-        } else {
-          console.error("❌ Réponse Stripe invalide :", data);
+          if (data.url) {
+            window.location.href = data.url;
+          } else {
+            alert("Erreur Stripe : impossible de créer la session Business.");
+          }
+        } catch (e) {
+          console.error("Erreur Stripe Business:", e);
           alert("Erreur Stripe : impossible de créer la session Business.");
         }
-      } catch (e) {
-        console.error("❌ Erreur Stripe Business :", e);
-        alert("Erreur Stripe : impossible de créer la session Business.");
-      }
-    };
-  }
-</script>
+      };
+    }
+  </script>
 
 </body>
 </html>

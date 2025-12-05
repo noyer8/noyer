@@ -3,290 +3,190 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noyer — Business (Étape 3)</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
+  <title>NOYER — Business Étape 3 : Configuration Reels</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
   <style>
-    :root {
-      --bg: #000;
-      --panel: #111;
-      --accent: #26d19a;
-      --accent-2: #1ea97b;
-      --muted: #bcbcbc;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: var(--bg);
-      color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
-      padding: 40px 20px 80px;
-    }
-
-    header {
-      width: 100%;
+    .color-picker-wrapper {
       display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      position: absolute;
-      top: 25px;
-      left: 40px;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
     }
-
-    header img {
-      height: 120px;
-      width: auto;
-      cursor: pointer;
+    .color-picker-box {
+      flex: 1;
     }
-
-    h1 {
-      color: var(--accent);
-      text-align: center;
-      margin-top: 150px;
-      margin-bottom: 15px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 2.4rem;
-    }
-
-    h2 {
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 40px;
-      font-size: 1.35rem;
-    }
-
-    .section {
-      background: var(--panel);
-      padding: 35px;
-      border-radius: 18px;
-      max-width: 900px;
-      margin: 0 auto 35px;
-      box-shadow: 0 0 25px rgba(38,209,154,.08);
-    }
-
-    .intro {
-      color: #d2d2d2;
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 35px;
-    }
-
-    label {
-      display: block;
-      margin-top: 22px;
-      margin-bottom: 8px;
-      color: var(--accent);
-      font-size: 1.05rem;
-    }
-
-    textarea, select {
+    .color-preview {
       width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      background: #1a1a1a;
-      color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
-      margin-bottom: 12px;
-    }
-
-    textarea {
-      height: 130px;
-      resize: none;
-    }
-
-    /* —— RECTANGLES DE COULEURS —— */
-    .color-box {
-      width: 100%;
-      height: 48px;
-      border-radius: 10px;
+      height: 50px;
+      border-radius: var(--radius-md);
       cursor: pointer;
-      border: 2px solid #333;
-      transition: 0.2s;
-      margin-bottom: 10px;
+      border: 2px solid var(--border-color);
+      transition: var(--transition-fast);
     }
-
-    .color-box:hover {
-      border-color: var(--accent);
-      box-shadow: 0 0 10px rgba(38,209,154,.4);
-    }
-
-    .color-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      margin-bottom: 20px;
-    }
-
-    .btn-next {
-      margin-top: 30px;
-      background: var(--accent);
-      color: #0a0a0a;
-      padding: 16px 30px;
-      border: none;
-      border-radius: 12px;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 1.15rem;
-      display: inline-block;
-      text-decoration: none;
-      box-shadow: 0 0 12px rgba(38,209,154,.4);
-      transition: .3s;
-    }
-
-    .btn-next:hover {
-      background: var(--accent-2);
-      transform: translateY(-2px);
-    }
-
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      color: #666;
-      font-size: .9rem;
-    }
-
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    .footer-links a {
-      color: var(--accent);
-      margin: 0 8px;
-      text-decoration: none;
+    .color-preview:hover {
+      border-color: var(--accent-start);
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
     }
   </style>
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-<header>
-  <a href="index.html">
-    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-  </a>
-</header>
-
-<h1>Étape 3</h1>
-<h2>Informations pour la création des Reels</h2>
-
-<div class="section">
-
-  <p class="intro">
-    Merci de compléter ces informations. Elles permettront au système de générer des Reels cohérents 
-    avec votre identité visuelle 📱✨  
-    Les couleurs ci-dessous seront utilisées dans l’animation et le style global de vos contenus vidéo.
-  </p>
-
-  <label>Couleurs de votre agence (branding)</label>
-  <p style="color:#bcbcbc; font-size:0.9rem; margin-bottom:20px;">
-    Ces couleurs seront utilisées pour les titres, accents visuels et éléments graphiques de vos Reels.
-  </p>
-
-  <div class="color-row">
-    <div>
-      <label>Couleur primaire</label>
-      <div id="primaryPreview" class="color-box" style="background:#26d19a;"></div>
-      <input type="color" id="primaryColor" style="display:none;">
+  <div class="page-wrapper">
+    <div class="page-header">
+      <h1 class="page-title">
+        Étape 3 — <span class="gradient-text">Configuration Reels</span>
+      </h1>
+      <p class="page-subtitle">
+        Personnalisez vos Reels automatiques avec vos couleurs et préférences.
+      </p>
     </div>
 
-    <div>
-      <label>Couleur secondaire</label>
-      <div id="secondaryPreview" class="color-box" style="background:#0f7d5a;"></div>
-      <input type="color" id="secondaryColor" style="display:none;">
+    <div class="steps">
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator active"></div>
+      <div class="step-indicator"></div>
+    </div>
+
+    <div class="container container-md">
+      <div class="card animate-fadeInUp">
+
+        <p class="mb-lg" style="color: var(--text-secondary);">
+          Ces informations permettront de générer des Reels cohérents avec votre identité visuelle. Les couleurs seront utilisées pour les titres, accents visuels et éléments graphiques.
+        </p>
+
+        <div class="form-group">
+          <label class="form-label">Couleurs de votre agence (branding)</label>
+        </div>
+
+        <div class="color-picker-wrapper">
+          <div class="color-picker-box">
+            <label class="form-label" style="font-size: 0.85rem;">Couleur primaire</label>
+            <div id="primaryPreview" class="color-preview" style="background: #10b981;"></div>
+            <input type="color" id="primaryColor" value="#10b981" style="display: none;">
+          </div>
+          <div class="color-picker-box">
+            <label class="form-label" style="font-size: 0.85rem;">Couleur secondaire</label>
+            <div id="secondaryPreview" class="color-preview" style="background: #059669;"></div>
+            <input type="color" id="secondaryColor" value="#059669" style="display: none;">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Préférence musicale</label>
+          <select id="music" class="form-input">
+            <option value="" disabled selected>Choisir...</option>
+            <option value="calme">Calme</option>
+            <option value="dynamique">Dynamique</option>
+            <option value="tendance">Tendance TikTok</option>
+            <option value="aucune">Pas de musique / j'ajouterai moi-même</option>
+          </select>
+          <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem;">
+            Les musiques sont automatiquement sélectionnées parmi les sons les plus tendances.
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Durée idéale du Reel</label>
+          <select id="duration" class="form-input">
+            <option value="" disabled selected>Choisir...</option>
+            <option value="5-8">5–8 secondes</option>
+            <option value="10-12">10–12 secondes</option>
+            <option value="15-18">15–18 secondes</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Remarques supplémentaires (optionnel)</label>
+          <textarea id="notes" class="form-input" placeholder="Précisions sur le ton, les transitions, les couleurs, etc."></textarea>
+        </div>
+
+        <div class="mt-xl">
+          <a id="nextBtn" class="btn btn-primary" href="business4.html" style="width: 100%;">
+            Suivant
+            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+
+      </div>
     </div>
   </div>
 
-  <label>Préférence musicale</label>
-  <select id="music">
-    <option value="" disabled selected>Choisir…</option>
-    <option>Calme 🎧</option>
-    <option>Dynamique ⚡</option>
-    <option>Tendance TikTok 🔥</option>
-    <option>Pas de musique / j’ajouterai moi-même 🎵</option>
-  </select>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Politique de confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer — Publication Automatique</p>
+    </div>
+  </footer>
 
-  <p style="color:#888; font-size:0.85rem; margin-top:-5px;">
-    Les musiques proposées sont automatiquement sélectionnées parmi les sons les plus tendances.
-  </p>
+  <script>
+    const primaryPreview = document.getElementById("primaryPreview");
+    const secondaryPreview = document.getElementById("secondaryPreview");
+    const primaryPicker = document.getElementById("primaryColor");
+    const secondaryPicker = document.getElementById("secondaryColor");
 
-  <label>Durée idéale du Reel :</label>
-  <select id="duration">
-    <option disabled selected>Choisir…</option>
-    <option>5–8 secondes</option>
-    <option>10–12 secondes</option>
-    <option>15–18 secondes</option>
-  </select>
+    primaryPreview.onclick = () => primaryPicker.click();
+    secondaryPreview.onclick = () => secondaryPicker.click();
 
-  <label>Remarques supplémentaires</label>
-  <textarea id="notes" placeholder="Optionnel — précisions sur le ton, les transitions, les couleurs, etc."></textarea>
+    primaryPicker.oninput = () => {
+      primaryPreview.style.background = primaryPicker.value;
+      localStorage.setItem("businessPrimaryColor", primaryPicker.value);
+    };
 
-  <a id="nextBtn" class="btn-next" href="business4.html">Suivant</a>
-</div>
+    secondaryPicker.oninput = () => {
+      secondaryPreview.style.background = secondaryPicker.value;
+      localStorage.setItem("businessSecondaryColor", secondaryPicker.value);
+    };
 
-<footer>
-  © 2025 Noyer — Publication Automatique
-  <div class="footer-links">
-    <a href="confidentialite.html">Politique de confidentialité</a> ·
-    <a href="mentions-legales.html">Mentions légales</a> ·
-    <a href="conditions-utilisation.html">CGU</a> ·
-    <a href="conditions-vente.html">CGV</a>
-  </div>
-</footer>
+    const savedPrimary = localStorage.getItem("businessPrimaryColor");
+    if (savedPrimary) {
+      primaryPreview.style.background = savedPrimary;
+      primaryPicker.value = savedPrimary;
+    }
 
+    const savedSecondary = localStorage.getItem("businessSecondaryColor");
+    if (savedSecondary) {
+      secondaryPreview.style.background = savedSecondary;
+      secondaryPicker.value = savedSecondary;
+    }
 
-<script>
-  const primaryPreview = document.getElementById("primaryPreview");
-  const secondaryPreview = document.getElementById("secondaryPreview");
-  const primaryPicker = document.getElementById("primaryColor");
-  const secondaryPicker = document.getElementById("secondaryColor");
+    const music = document.getElementById("music");
+    const duration = document.getElementById("duration");
+    const notes = document.getElementById("notes");
 
-  // ——— OUVRIR LE PICKER LORS DU CLICK SUR LE RECTANGLE ———
-  primaryPreview.onclick = () => primaryPicker.click();
-  secondaryPreview.onclick = () => secondaryPicker.click();
+    music.onchange = () => localStorage.setItem("businessMusic", music.value);
+    duration.onchange = () => localStorage.setItem("businessDuration", duration.value);
+    notes.oninput = () => localStorage.setItem("businessNotes", notes.value);
 
-  // ——— METTRE À JOUR LA COULEUR VISUELLE ET STOCKER ———
-  primaryPicker.oninput = () => {
-    primaryPreview.style.background = primaryPicker.value;
-    localStorage.setItem("businessPrimaryColor", primaryPicker.value);
-  };
-
-  secondaryPicker.oninput = () => {
-    secondaryPreview.style.background = secondaryPicker.value;
-    localStorage.setItem("businessSecondaryColor", secondaryPicker.value);
-  };
-
-  // ——— CHARGER SI DEJA ENREGISTRÉ ———
-  const savedPrimary = localStorage.getItem("businessPrimaryColor");
-  if (savedPrimary) {
-    primaryPreview.style.background = savedPrimary;
-    primaryPicker.value = savedPrimary;
-  }
-
-  const savedSecondary = localStorage.getItem("businessSecondaryColor");
-  if (savedSecondary) {
-    secondaryPreview.style.background = savedSecondary;
-    secondaryPicker.value = savedSecondary;
-  }
-
-  // ——— AUTRES VARIABLES ———
-  const music = document.getElementById("music");
-  const duration = document.getElementById("duration");
-  const notes = document.getElementById("notes");
-
-  music.onchange = () => localStorage.setItem("businessMusic", music.value);
-  duration.onchange = () => localStorage.setItem("businessDuration", duration.value);
-  notes.oninput = () => localStorage.setItem("businessNotes", notes.value);
-
-  // ——— RECHARGE LES CHAMPS SI SAUVEGARDÉS ———
-  if (localStorage.getItem("businessMusic")) music.value = localStorage.getItem("businessMusic");
-  if (localStorage.getItem("businessDuration")) duration.value = localStorage.getItem("businessDuration");
-  if (localStorage.getItem("businessNotes")) notes.value = localStorage.getItem("businessNotes");
-</script>
+    if (localStorage.getItem("businessMusic")) music.value = localStorage.getItem("businessMusic");
+    if (localStorage.getItem("businessDuration")) duration.value = localStorage.getItem("businessDuration");
+    if (localStorage.getItem("businessNotes")) notes.value = localStorage.getItem("businessNotes");
+  </script>
 
 </body>
 </html>

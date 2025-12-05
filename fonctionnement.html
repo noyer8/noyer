@@ -20,6 +20,7 @@
       <div class="nav-links">
         <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
         <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
         <a href="contact.html" class="nav-link">Contact</a>
         <a href="verifier.html" class="nav-cta">Commencer</a>
       </div>
@@ -98,7 +99,7 @@
 
         <div class="mt-lg">
           <a id="continueBtn" class="btn btn-primary disabled" href="#">
-            Continuer vers les abonnements
+            Vérifier mon éligibilité
             <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
             </svg>
@@ -130,7 +131,7 @@
     checkbox.addEventListener("change", () => {
       if (checkbox.checked) {
         btn.classList.remove("disabled");
-        btn.href = "plans.html";
+        btn.href = "verifier.html";
       } else {
         btn.classList.add("disabled");
         btn.href = "#";

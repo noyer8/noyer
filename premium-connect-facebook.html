@@ -1,258 +1,176 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Connexion Facebook — Noyer Premium</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --bg: #000;
-      --text: #e7e7e7;
-      --muted: #8f8f8f;
-      --panel: #111;
-      --accent: #26d19a;
-      --accent-dark: #1ea97b;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "JetBrains Mono", monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
-
-    header {
-      width: 100%;
-      padding: 30px 40px;
-      display: flex;
-      align-items: center;
-    }
-
-    header img {
-      height: 100px;
-      cursor: pointer;
-    }
-
-    .container {
-      max-width: 650px;
-      text-align: center;
-      margin-top: 40px;
-      padding: 30px;
-      background: var(--panel);
-      border-radius: 16px;
-      border: 1px solid rgba(38,209,154,0.15);
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-
-    h1 {
-      color: var(--accent);
-      font-size: 2rem;
-      margin-bottom: 10px;
-      letter-spacing: .1em;
-    }
-
-    p {
-      line-height: 1.6;
-      color: var(--muted);
-      margin-bottom: 22px;
-      font-size: .95rem;
-    }
-
-    .steps {
-      text-align: left;
-      background: #0c0c0c;
-      padding: 18px 20px;
-      border-radius: 10px;
-      border: 1px solid rgba(38,209,154,0.15);
-      margin-bottom: 30px;
-    }
-
-    .steps h3 {
-      font-size: 1rem;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-
-    .steps li {
-      margin-bottom: 10px;
-      color: var(--text);
-      font-size: .9rem;
-    }
-
-    #fb-btn {
-      margin-top: 25px;
-      padding: 14px 26px;
-      background: var(--accent);
-      border: none;
-      border-radius: 10px;
-      color: #08241a;
-      font-weight: bold;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    #fb-btn:hover {
-      background: var(--accent-dark);
-      transform: translateY(-2px);
-    }
-
-    #next-btn {
-      margin-top: 20px;
-      padding: 14px 26px;
-      background: #444;
-      opacity: 0.4;
-      border: none;
-      border-radius: 10px;
-      color: #fff;
-      font-weight: bold;
-      cursor: not-allowed;
-      transition: .2s;
-    }
-
-    #next-btn.enabled {
-      background: var(--accent);
-      opacity: 1;
-      cursor: pointer;
-    }
-
-    footer {
-      margin-top: 60px;
-      color: var(--muted);
-      font-size: .85rem;
-      text-align: center;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOYER — Connexion Facebook Premium</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-<header>
-  <a href="index.html">
-    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-  </a>
-</header>
+  <div class="page-wrapper">
+    <div class="page-header">
+      <h1 class="page-title">
+        Connexion <span class="gradient-text">Facebook Premium</span>
+      </h1>
+      <p class="page-subtitle">
+        Connectez votre Page Facebook et Instagram pour activer la publication automatique premium.
+      </p>
+    </div>
 
-<div class="container">
+    <div class="container container-sm">
+      <div class="card animate-fadeInUp text-center">
 
-  <h1>Connexion Facebook — Premium</h1>
-  <p>
-    Pour activer la publication automatique premium, vous devez connecter votre Page Facebook professionnelle.
-  </p>
+        <div class="feature-icon" style="margin: 0 auto var(--space-lg); background: linear-gradient(135deg, #1877F2 0%, #42A5F5 100%);">
+          <svg fill="currentColor" viewBox="0 0 24 24" style="width: 24px; height: 24px; color: white;">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </div>
 
-  <div class="steps">
-    <h3>🔐 Pourquoi cette connexion est nécessaire ?</h3>
-    <ul>
-      <li>✓ Publier automatiquement vos annonces 3 fois par semaine</li>
-      <li>✓ Sélection intelligente des heures les plus performantes</li>
-      <li>✓ Descriptions premium réécrites avec IA</li>
-      <li>✓ Suivi avancé des performances</li>
-    </ul>
+        <h3 class="mb-md">Pourquoi cette connexion ?</h3>
+
+        <div class="text-left mb-lg" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: var(--space-md);">
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Publier 3 fois par semaine sur Facebook + Instagram</span>
+          </div>
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Stories automatiques pour chaque bien</span>
+          </div>
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Descriptions premium optimisées par IA</span>
+          </div>
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Horaires optimaux pour maximiser l'engagement</span>
+          </div>
+        </div>
+
+        <p class="mb-lg" style="font-size: 0.9rem; color: var(--text-muted);">
+          En cliquant sur « Se connecter avec Facebook », vous acceptez de donner les permissions nécessaires.
+        </p>
+
+        <button id="fb-btn" class="btn btn-primary btn-lg" style="width: 100%; background: linear-gradient(135deg, #1877F2 0%, #42A5F5 100%);" onclick="loginWithFacebook()">
+          Se connecter avec Facebook
+        </button>
+
+        <button id="next-btn" class="btn btn-secondary mt-md disabled" style="width: 100%;">
+          Finaliser l'inscription Premium
+          <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </button>
+
+      </div>
+    </div>
   </div>
 
-  <p>En cliquant sur « Se connecter avec Facebook », vous acceptez de donner les permissions nécessaires.</p>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Politique de confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer — Publication Automatique</p>
+    </div>
+  </footer>
 
-  <button id="fb-btn" onclick="loginWithFacebook()">Se connecter avec Facebook</button>
+  <script>
+    function loginWithFacebook() {
+      const appId = "2451194691945458";
+      const redirectUri = "https://noyer-facebook-backend.onrender.com/auth/facebook/callback";
 
-  <button id="next-btn">Suivant</button>
+      const scopes = [
+        "pages_manage_posts",
+        "pages_read_engagement",
+        "pages_show_list",
+        "instagram_basic",
+        "instagram_content_publish"
+      ].join(",");
 
-</div>
+      const oauthUrl =
+        "https://www.facebook.com/v19.0/dialog/oauth" +
+        "?client_id=" + appId +
+        "&redirect_uri=" + encodeURIComponent(redirectUri) +
+        "&response_type=code" +
+        "&scope=" + encodeURIComponent(scopes) +
+        "&state=premium_secure_456";
 
-<footer>
-  © 2025 Noyer — Publication Automatique<br>
-  <a href="confidentialite.html">Politique de confidentialité</a> ·
-  <a href="mentions-legales.html">Mentions légales</a>
-</footer>
+      window.location.href = oauthUrl;
+    }
 
-<script>
-  function loginWithFacebook() {
-    const appId = "2451194691945458";
-    const redirectUri = "https://noyer-facebook-backend.onrender.com/auth/facebook/callback";
+    const params = new URLSearchParams(window.location.search);
+    const nextBtn = document.getElementById("next-btn");
 
-    const scopes = [
-      "pages_manage_posts",
-      "pages_read_engagement",
-      "pages_show_list",
-      "instagram_basic",
-      "instagram_content_publish"
-    ].join(",");
+    if (params.get("connected") === "true") {
+      nextBtn.classList.remove("disabled");
+      document.getElementById("fb-btn").style.display = "none";
 
-    const oauthUrl =
-      "https://www.facebook.com/v19.0/dialog/oauth" +
-      "?client_id=" + appId +
-      "&redirect_uri=" + encodeURIComponent(redirectUri) +
-      "&response_type=code" +
-      "&scope=" + encodeURIComponent(scopes) +
-      "&state=premium_secure_456";
+      nextBtn.onclick = async function () {
+        const agencyInfo = JSON.parse(localStorage.getItem("premiumAgencyInfo") || "{}");
 
-    window.location.href = oauthUrl;
-  }
+        const payload = {
+          days: JSON.parse(localStorage.getItem("selectedPremiumDays") || "[]"),
+          style: localStorage.getItem("premiumStyle") || null,
+          customDescription: localStorage.getItem("premiumCustomDescription") || null,
+          agence: agencyInfo.agence || "",
+          email: agencyInfo.email || "",
+          telephone: agencyInfo.telephone || "",
+          responsable: agencyInfo.responsable || "",
+          plan: "PREMIUM"
+        };
 
-  // --------------------------------------------------
-  //  ACTIVER BOUTON SUIVANT APRÈS CONNEXION FB
-  // --------------------------------------------------
-  const params = new URLSearchParams(window.location.search);
-  const nextBtn = document.getElementById("next-btn");
+        await fetch("https://noyer-facebook-backend.onrender.com/send-infos-to-webhook", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
 
-  if (params.get("connected") === "true") {
-    nextBtn.classList.add("enabled");
+        const response = await fetch("https://noyer-facebook-backend.onrender.com/create-checkout-session-premium", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" }
+        });
 
-    nextBtn.onclick = async function () {
+        const data = await response.json();
 
-      // 1️⃣ Récupération des données PREMIUM
-      const agency = JSON.parse(localStorage.getItem("agencyInfo") || "{}");
-
-      const payload = {
-        days: JSON.parse(localStorage.getItem("selectedPremiumDays") || "[]"),
-        style: localStorage.getItem("selectedStyle") || null,
-        customDescription: localStorage.getItem("customDescription") || null,
-        agence: agency.agence || "",
-        email: agency.email || "",
-        telephone: agency.telephone || "",
-        responsable: agency.responsable || "",
-        plan: "PREMIUM"
+        if (data.url) {
+          window.location.href = data.url;
+        } else {
+          alert("Erreur Stripe : impossible de créer la session premium.");
+        }
       };
-
-      console.log("📦 Payload Premium envoyé :", payload);
-
-      // 2️⃣ Envoi au backend → webhook n8n
-      await fetch("https://noyer-facebook-backend.onrender.com/send-infos-to-webhook", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-      });
-
-      console.log("📤 Données premium envoyées au webhook");
-
-      // 3️⃣ STRIPE — PREMIUM
-      const response = await fetch("https://noyer-facebook-backend.onrender.com/create-checkout-session-premium", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" }
-      });
-
-      const data = await response.json();
-
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert("Erreur Stripe : impossible de créer la session premium.");
-      }
-    };
-  }
-</script>
+    }
+  </script>
 
 </body>
 </html>

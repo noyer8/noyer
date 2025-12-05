@@ -3,222 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noyer — Étape 4</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #000;
-      --panel: #111;
-      --accent: #26d19a;
-      --accent-2: #1ea97b;
-      --muted: #bcbcbc;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: var(--bg);
-      color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
-      padding: 40px 20px 80px;
-    }
-
-    /* HEADER */
-    header {
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      position: absolute;
-      top: 25px;
-      left: 40px;
-    }
-
-    header img {
-      height: 120px;
-      width: auto;
-      cursor: pointer;
-    }
-
-    h1 {
-      color: var(--accent);
-      text-align: center;
-      margin-top: 150px;
-      margin-bottom: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 2.3rem;
-    }
-
-    h2 {
-      text-align: center;
-      color: var(--muted);
-      margin-bottom: 40px;
-      font-size: 1.2rem;
-    }
-
-    .section {
-      background: var(--panel);
-      padding: 30px;
-      border-radius: 18px;
-      max-width: 900px;
-      margin: 0 auto 35px;
-      box-shadow: 0 0 25px rgba(38,209,154,.08);
-    }
-
-    label {
-      display: block;
-      margin-top: 18px;
-      font-size: 1rem;
-      color: var(--muted);
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      margin-top: 8px;
-      border-radius: 10px;
-      border: 1px solid #333;
-      background: #0a0a0a;
-      color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
-      font-size: 1rem;
-    }
-
-    .btn-next {
-      margin-top: 30px;
-      background: var(--accent);
-      color: #0a0a0a;
-      padding: 16px 30px;
-      border: none;
-      border-radius: 12px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      text-decoration: none;
-      display: inline-block;
-      opacity: .4;
-      cursor: not-allowed;
-      transition: .3s ease;
-      box-shadow: 0 0 12px rgba(38,209,154,.4);
-    }
-
-    .btn-next.enabled {
-      opacity: 1;
-      cursor: pointer;
-    }
-
-    .btn-next.enabled:hover {
-      background: var(--accent-2);
-      transform: translateY(-2px);
-    }
-
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      color: #666;
-      font-size: .9rem;
-    }
-
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    .footer-links a {
-      color: var(--accent);
-      margin: 0 8px;
-      text-decoration: none;
-    }
-    .footer-links a:hover { text-decoration: underline; }
-
-  </style>
+  <title>NOYER — Business Étape 4 : Vos coordonnées</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- LOGO -->
-  <header>
-    <a href="index.html">
-      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-    </a>
-  </header>
+  <div class="page-wrapper">
+    <div class="page-header">
+      <h1 class="page-title">
+        Étape 4 — <span class="gradient-text">Vos coordonnées</span>
+      </h1>
+      <p class="page-subtitle">
+        Ces informations nous permettent de personnaliser vos publications.
+      </p>
+    </div>
 
-  <h1>Étape 4</h1>
-  <h2>Vos coordonnées</h2>
+    <div class="steps">
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator active"></div>
+    </div>
 
-  <div class="section">
-    <label>Nom de l’agence :</label>
-    <input type="text" id="agence">
+    <div class="container container-sm">
+      <div class="card animate-fadeInUp">
 
-    <label>Adresse email :</label>
-    <input type="email" id="email">
+        <div class="form-group">
+          <label class="form-label">Nom de l'agence</label>
+          <input type="text" id="agence" class="form-input" placeholder="Mon Agence Immobilière">
+        </div>
 
-    <label>Numéro de téléphone :</label>
-    <input type="text" id="telephone">
+        <div class="form-group">
+          <label class="form-label">Adresse email</label>
+          <input type="email" id="email" class="form-input" placeholder="contact@agence.fr">
+        </div>
 
-    <label>Nom & prénom du responsable :</label>
-    <input type="text" id="responsable">
+        <div class="form-group">
+          <label class="form-label">Numéro de téléphone</label>
+          <input type="text" id="telephone" class="form-input" placeholder="06 12 34 56 78">
+        </div>
 
-    <a id="nextBtn" class="btn-next">Suivant</a>
+        <div class="form-group">
+          <label class="form-label">Nom & prénom du responsable</label>
+          <input type="text" id="responsable" class="form-input" placeholder="Jean Dupont">
+        </div>
+
+        <div class="mt-xl">
+          <button id="nextBtn" class="btn btn-primary disabled" style="width: 100%;">
+            Suivant
+            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
   </div>
 
-  <footer>
-    © 2025 Noyer — Publication Automatique
-    <div class="footer-links">
-      <a href="confidentialite.html">Politique de confidentialité</a> ·
-      <a href="mentions-legales.html">Mentions légales</a> ·
-      <a href="conditions-utilisation.html">CGU</a> ·
-      <a href="conditions-vente.html">CGV</a>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Politique de confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer — Publication Automatique</p>
     </div>
   </footer>
 
   <script>
-    // Champs
     const agence = document.getElementById('agence');
     const email = document.getElementById('email');
     const telephone = document.getElementById('telephone');
     const responsable = document.getElementById('responsable');
 
-    const fields = [agence, email, telephone, responsable];
     const nextBtn = document.getElementById('nextBtn');
+    const fields = [agence, email, telephone, responsable];
 
-    // -----------------------------
-    // 🔥 Sauvegarde automatique dans localStorage
-    // -----------------------------
-    agence.addEventListener("input", () => localStorage.setItem("agence", agence.value));
-    email.addEventListener("input", () => localStorage.setItem("email", email.value));
-    telephone.addEventListener("input", () => localStorage.setItem("telephone", telephone.value));
-    responsable.addEventListener("input", () => localStorage.setItem("responsable", responsable.value));
+    agence.addEventListener("input", () => localStorage.setItem("businessAgence", agence.value));
+    email.addEventListener("input", () => localStorage.setItem("businessEmail", email.value));
+    telephone.addEventListener("input", () => localStorage.setItem("businessTelephone", telephone.value));
+    responsable.addEventListener("input", () => localStorage.setItem("businessResponsable", responsable.value));
 
-    // -----------------------------
-    // 🔄 Pré-remplir si déjà enregistré
-    // -----------------------------
-    if (localStorage.getItem("agence")) agence.value = localStorage.getItem("agence");
-    if (localStorage.getItem("email")) email.value = localStorage.getItem("email");
-    if (localStorage.getItem("telephone")) telephone.value = localStorage.getItem("telephone");
-    if (localStorage.getItem("responsable")) responsable.value = localStorage.getItem("responsable");
+    if (localStorage.getItem("businessAgence")) agence.value = localStorage.getItem("businessAgence");
+    if (localStorage.getItem("businessEmail")) email.value = localStorage.getItem("businessEmail");
+    if (localStorage.getItem("businessTelephone")) telephone.value = localStorage.getItem("businessTelephone");
+    if (localStorage.getItem("businessResponsable")) responsable.value = localStorage.getItem("businessResponsable");
 
-    // -----------------------------
-    // ✔️ Activer le bouton si tout est rempli
-    // -----------------------------
     function checkForm() {
-      const filled = fields.every(f => f.value.trim() !== "");
-      if (filled) {
-        nextBtn.classList.add('enabled');
-        nextBtn.href = "business-requirements.html";
+      const allFilled = fields.every(f => f.value.trim() !== "");
+      if (allFilled) {
+        nextBtn.classList.remove("disabled");
       } else {
-        nextBtn.classList.remove('enabled');
-        nextBtn.removeAttribute('href');
+        nextBtn.classList.add("disabled");
       }
     }
 
-    fields.forEach(f => f.addEventListener('input', checkForm));
-
-    // Vérification initiale (si pré-rempli)
+    fields.forEach(f => f.addEventListener("input", checkForm));
     checkForm();
+
+    nextBtn.onclick = function () {
+      if (nextBtn.classList.contains("disabled")) return;
+
+      localStorage.setItem("businessAgencyInfo", JSON.stringify({
+        agence: agence.value.trim(),
+        email: email.value.trim(),
+        telephone: telephone.value.trim(),
+        responsable: responsable.value.trim()
+      }));
+
+      window.location.href = "business-connect-facebook.html";
+    };
   </script>
 
 </body>
