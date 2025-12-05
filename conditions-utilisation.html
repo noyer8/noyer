@@ -1,202 +1,92 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>⚙️ Conditions Générales d’Utilisation — Noyer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg:#000;
-      --panel:#111;
-      --accent:#26d19a;
-      --text:#e5e5e5;
-      --muted:#bbbbbb;
-    }
-
-    * { box-sizing:border-box; margin:0; padding:0; }
-
-    body {
-      background:var(--bg);
-      color:var(--text);
-      font-family:'JetBrains Mono', monospace;
-      line-height:1.6;
-      padding:40px 20px 80px;
-      max-width:900px;
-      margin:0 auto;
-    }
-
-    header {
-      position: absolute;
-      top: 25px;
-      left: 40px;
-    }
-
-    header img {
-      height: 120px;
-      width: auto;
-      cursor: pointer;
-    }
-
-    h1, h2 {
-      color:var(--accent);
-      margin-top:32px;
-      margin-bottom:14px;
-    }
-
-    h1 {
-      font-size:1.8rem;
-      text-align:center;
-      margin-top:150px;
-      margin-bottom:22px;
-    }
-
-    p, li {
-      color:var(--muted);
-      margin-bottom:10px;
-      font-size:.95rem;
-    }
-
-    ul { margin:8px 0 18px 22px; }
-
-    a { color:var(--accent); text-decoration:none; }
-    a:hover { text-decoration:underline; }
-
-    .block {
-      background:#111;
-      border:1px solid #1f1f1f;
-      border-radius:12px;
-      padding:18px;
-      margin:14px 0;
-    }
-
-    footer {
-      margin-top:60px;
-      text-align:center;
-      color:#666;
-      font-size:.85rem;
-    }
-
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    .footer-links a {
-      color: var(--accent);
-      margin: 0 8px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOYER — Conditions Générales d'Utilisation</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-<header>
-  <a href="index.html">
-    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-  </a>
-</header>
+  <div class="page-wrapper">
+    <div class="legal-content animate-fadeIn">
+      <h1>Conditions Générales d'Utilisation</h1>
+      <p style="text-align: center; margin-bottom: 2rem;">Dernière mise à jour : <strong>22 novembre 2025</strong></p>
 
-<h1>⚙️ Conditions Générales d’Utilisation — Noyer</h1>
-<p>Dernière mise à jour : <strong>22 novembre 2025</strong></p>
+      <h2>1. Objet</h2>
+      <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès au service <strong>Noyer</strong>, exploité par <strong>Pierre Evrard</strong>, destiné aux professionnels de l'immobilier.</p>
+      <p>Noyer permet l'automatisation de publications immobilières sur les réseaux sociaux (Facebook, Instagram) à partir de données présentes sur le site web ou le flux du client.</p>
 
-<!-- ------------------------------ -->
-<!--            CGU                -->
-<!-- ------------------------------ -->
+      <h2>2. Public concerné</h2>
+      <p>Noyer est strictement réservé aux professionnels : agences immobilières, indépendants et sociétés enregistrées. Les particuliers ne peuvent pas utiliser le service.</p>
 
-<h2>1. Objet</h2>
-<div class="block">
-  <p>Les présentes Conditions Générales d’Utilisation (CGU) régissent l’accès au service <strong>Noyer</strong>, exploité par <strong>Pierre Evrard</strong>, destiné aux professionnels de l’immobilier.</p>
-  <p>Noyer permet l'automatisation de publications immobilières sur les réseaux sociaux (Facebook, Instagram) à partir de données présentes sur le site web ou le flux du client.</p>
-  <p>L'utilisation du service implique l'acceptation intégrale des présentes CGU.</p>
-</div>
+      <h2>3. Fonctionnement du service</h2>
+      <p>Le service Noyer fonctionne de manière entièrement automatisée :</p>
+      <ul>
+        <li>Le client choisit des jours fixes de publication (ex. mardi/jeudi/samedi).</li>
+        <li>Aux jours choisis, Noyer vérifie automatiquement si un nouveau bien immobilier est apparu.</li>
+        <li>Si un nouveau bien est détecté → une publication est automatiquement générée et publiée.</li>
+        <li>Si aucun nouveau bien n'est détecté → aucune publication n'est réalisée.</li>
+      </ul>
 
-<h2>2. Public concerné</h2>
-<div class="block">
-  <p>Noyer est strictement réservé aux professionnels : agences immobilières, indépendants et sociétés enregistrées.</p>
-  <p>Les particuliers ne peuvent pas utiliser le service.</p>
-</div>
+      <h2>4. Publications et médias</h2>
+      <p>Le client garantit disposer des droits nécessaires sur les photos, textes et contenus présents sur son site.</p>
+      <p>Noyer ne peut être tenu responsable en cas de violation de copyright ou de litige lié au contenu fourni par le client.</p>
+      <p><strong>Qualité des photos :</strong> Le rendu dépend directement de la qualité du site source.</p>
+      <p><strong>Reels :</strong> La vidéo est générée automatiquement à partir des photos du bien.</p>
+      <p><strong>Logo :</strong> Le client doit fournir un logo en PNG. Si aucun logo n'est fourni, les visuels seront générés sans.</p>
 
-<h2>3. Fonctionnement du service</h2>
-<div class="block">
-  <p>Le service Noyer fonctionne de manière entièrement automatisée.</p>
-  <ul>
-    <li>Le client choisit des jours fixes de publication (ex. mardi/jeudi/samedi).</li>
-    <li>Aux jours choisis, Noyer vérifie automatiquement si un <strong>nouveau bien immobilier</strong> est apparu sur le site ou le flux fourni.</li>
-    <li>Si un nouveau bien est détecté → une publication est automatiquement générée et publiée.</li>
-    <li>Si aucun nouveau bien n’est détecté → aucune publication n’est réalisée.</li>
-  </ul>
-  <p>Les descriptions sont générées automatiquement à partir des informations présentes sur le site web du client.</p>
-</div>
+      <h2>5. Connexion Meta (Facebook / Instagram)</h2>
+      <p>Le client connecte lui-même ses comptes Meta via OAuth, de manière sécurisée. Noyer n'a jamais accès aux mots de passe.</p>
+      <p>Les tokens sont fournis par Meta et stockés uniquement dans le but d'assurer les automatisations.</p>
 
-<h2>4. Publications et médias</h2>
-<div class="block">
-  <p>Le client garantit disposer des droits nécessaires sur les photos, textes et contenus présents sur son site.</p>
-  <p>Noyer ne peut être tenu responsable en cas de violation de copyright ou de litige lié au contenu fourni par le client.</p>
+      <h2>6. Limites d'utilisation</h2>
+      <p>Chaque abonnement permet la gestion d'un seul compte Facebook et/ou Instagram. Le client ne peut pas utiliser un abonnement pour plusieurs agences ou pages Meta.</p>
 
-  <p><strong>Qualité des photos :</strong> Le rendu dépend directement de la qualité du site source. Si les photos sont floues, petites, compressées ou mal cadrées, Noyer ne garantit pas un résultat optimal.</p>
+      <h2>7. Disponibilité et maintenance</h2>
+      <p>Le service peut être interrompu temporairement pour maintenance, mise à jour ou incident technique. Noyer mettra tout en œuvre pour réduire la durée des interruptions.</p>
 
-  <p><strong>Reels :</strong> Pour les offres incluant des Reels, la vidéo est générée automatiquement à partir des photos du bien. La qualité dépend entièrement des médias fournis par le site du client.</p>
+      <h2>8. Responsabilités</h2>
+      <p>Le client reste responsable du contenu publié via Noyer. Noyer ne peut être tenu responsable des erreurs provenant du site source.</p>
 
-  <p><strong>Logo :</strong> Lorsque le plan l’inclut, le client doit fournir un logo en PNG. Si aucun logo n’est fourni, les visuels seront générés sans.</p>
-</div>
+      <h2>9. Données personnelles</h2>
+      <p>Les données sont traitées conformément à la <a href="confidentialite.html">Politique de confidentialité</a>.</p>
 
-<h2>5. Connexion Meta (Facebook / Instagram)</h2>
-<div class="block">
-  <p>Le client connecte lui-même ses comptes Meta via OAuth, de manière entièrement sécurisée.</p>
-  <p>Noyer n’a jamais accès aux mots de passe.</p>
-  <p>Les tokens sont fournis par Meta et stockés uniquement dans le but d’assurer les automatisations.</p>
-  <p>Si Meta révoque un token, suspend une page ou modifie une permission, Noyer ne peut être tenu responsable. Le client doit reconnecter Facebook lorsqu’un message de reconnexion lui est envoyé.</p>
-</div>
+      <h2>10. Droit applicable</h2>
+      <p>Les CGU sont soumises au <strong>droit belge</strong>.</p>
 
-<h2>6. Limites d’utilisation</h2>
-<div class="block">
-  <p>Chaque abonnement permet la gestion d’un <strong>seul compte Facebook et/ou Instagram</strong>.</p>
-  <p>Le client ne peut pas utiliser un abonnement pour plusieurs agences ou pages Meta.</p>
-</div>
-
-<h2>7. Disponibilité et maintenance</h2>
-<div class="block">
-  <p>Le service peut être interrompu temporairement pour maintenance, mise à jour ou incident technique.</p>
-  <p>Noyer mettra tout en œuvre pour réduire la durée des interruptions.</p>
-</div>
-
-<h2>8. Responsabilités</h2>
-<div class="block">
-  <p>Le client reste responsable du contenu publié via Noyer.</p>
-  <p>Noyer ne peut être tenu responsable des erreurs provenant du site source (photos manquantes, mauvaises données, prix erroné, etc.).</p>
-</div>
-
-<h2>9. Données personnelles</h2>
-<div class="block">
-  <p>Les données sont traitées conformément à la <a href="confidentialite.html">Politique de confidentialité</a>.</p>
-  <p>Les automatisations techniques sont opérées via la plateforme n8n.cloud.</p>
-</div>
-
-<h2>10. Droit applicable</h2>
-<div class="block">
-  <p>Les CGU sont soumises au <strong>droit belge</strong>.</p>
-</div>
-
-<h2>11. Contact</h2>
-<div class="block">
-  <p>📧 <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>
-     📧 RGPD : <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>
-     ☎️ +32 478 16 65 06</p>
-</div>
-
-<footer>
-  © 2025 Noyer — Conditions Générales d’Utilisation
-
-  <div class="footer-links">
-    <a href="confidentialite.html">Politique de confidentialité</a> ·
-    <a href="mentions-legales.html">Mentions légales</a> ·
-    <a href="conditions-utilisation.html">CGU</a> ·
-    <a href="conditions-vente.html">CGV</a>
+      <h2>11. Contact</h2>
+      <p>📧 <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>☎️ +32 478 16 65 06</p>
+    </div>
   </div>
-</footer>
 
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer</p>
+    </div>
+  </footer>
 </body>
 </html>

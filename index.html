@@ -3,200 +3,191 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NOYER — Publication Automatique</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #000;
-      --text: #e7e7e7;
-      --muted: #8f8f8f;
-      --panel: #111;
-      --accent: #26d19a;
-      --accent-dark: #1ea97b;
-    }
-
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'JetBrains Mono', monospace;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      padding: 30px 10px 80px;
-      overflow-x: hidden; /* empêche tout scroll horizontal */
-    }
-
-    /* HEADER FIXÉ PROPREMENT */
-    header {
-      width: 100%;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 10px;
-    }
-
-    header img {
-      height: 120px;
-      width: auto;
-      cursor: pointer;
-    }
-
-    .contact-btn {
-      background: var(--panel);
-      border: 1px solid rgba(38,209,154,0.3);
-      padding: 10px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: var(--accent);
-      font-size: .95rem;
-      transition: .25s;
-      white-space: nowrap;
-    }
-
-    .contact-btn:hover {
-      border-color: var(--accent);
-      background: #0a0a0a;
-      transform: translateY(-2px);
-    }
-
-    main {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto;
-      margin-top: 140px;
-      padding: 0 10px;
-    }
-
-    h1 {
-      font-size: 2.6rem;
-      color: var(--accent);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      color: var(--text);
-      margin-bottom: 14px;
-    }
-
-    p {
-      color: var(--muted);
-      font-size: .95rem;
-      line-height: 1.7;
-      margin-bottom: 30px;
-    }
-
-    .cta {
-      background: var(--accent);
-      color: #08241a;
-      padding: 14px 32px;
-      border-radius: 10px;
-      font-weight: bold;
-      text-decoration: none;
-      display: inline-block;
-      box-shadow: 0 0 20px rgba(38,209,154,0.25);
-      transition: .25s;
-      margin-bottom: 20px;
-    }
-
-    .cta:hover {
-      background: var(--accent-dark);
-      transform: translateY(-2px);
-    }
-
-    .steps {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      width: 100%;
-      max-width: 1050px;
-      margin: 50px auto;
-      flex-wrap: wrap;
-    }
-
-    .step {
-      background: var(--panel);
-      border: 1px solid rgba(38,209,154,0.15);
-      padding: 22px 18px;
-      border-radius: 14px;
-      width: 300px;
-      transition: .25s;
-      text-align: left;
-    }
-
-    .step:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    footer {
-      margin-top: 80px;
-      text-align: center;
-      color: var(--muted);
-      font-size: .9rem;
-      padding: 0 20px;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-  </style>
+  <title>NOYER — Automatisez vos publications immobilières</title>
+  <meta name="description" content="Automatisez vos annonces immobilières sur Facebook et Instagram. Gagnez du temps, augmentez votre visibilité.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-<header>
-  <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-  <a href="contact.html" class="contact-btn">Contact</a>
-</header>
-
-<main>
-  <h1>NOYER</h1>
-  <h2>Publication automatique de vos biens immobiliers</h2>
-
-  <p>Automatisez vos annonces, gagnez du temps, augmentez votre visibilité.  
-  Publiez automatiquement vos biens sur Facebook et Instagram — sans effort.</p>
-
-  <a href="verifier.html" class="cta">Commencer</a>
-
-  <section class="steps">
-    <div class="step">
-      <h3>📝 Répondez à quelques questions</h3>
-      <p>En moins de 2 minutes, Noyer personnalise vos publications automatiquement.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-badge">
+      <span>Publication automatique pour l'immobilier</span>
     </div>
 
-    <div class="step">
-      <h3>🔗 Connectez vos réseaux sociaux</h3>
-      <p>Reliez votre page professionnelle pour activer la publication automatique.</p>
-    </div>
+    <h1 class="hero-title">
+      Vos biens immobiliers,<br>
+      <span class="gradient-text">publiés automatiquement</span>
+    </h1>
 
-    <div class="step">
-      <h3>⚡ Laissez Noyer s'occuper du reste</h3>
-      <p>Vos annonces sont publiées automatiquement, avec texte & photos optimisés.</p>
+    <p class="hero-subtitle">
+      Automatisez vos annonces sur Facebook et Instagram.
+      Gagnez du temps, augmentez votre visibilité, concentrez-vous sur vos ventes.
+    </p>
+
+    <div class="hero-cta">
+      <a href="verifier.html" class="btn btn-primary btn-lg">
+        Commencer gratuitement
+        <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+        </svg>
+      </a>
+      <a href="fonctionnement.html" class="btn btn-secondary btn-lg">
+        Voir comment ça marche
+      </a>
     </div>
   </section>
-</main>
 
-<footer>
-  © 2025 Noyer — Publication Automatique<br>
-  <a href="confidentialite.html">Politique de confidentialité</a> ·
-  <a href="mentions-legales.html">Mentions légales</a> ·
-  <a href="conditions-utilisation.html">CGU</a> ·
-  <a href="conditions-vente.html">CGV</a>
-</footer>
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="features-header">
+        <h2 class="gradient-text">Comment ça fonctionne ?</h2>
+        <p>En 3 étapes simples, automatisez toute votre présence sur les réseaux sociaux</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card animate-fadeInUp animate-delay-1">
+          <div class="feature-icon">📝</div>
+          <h3 class="feature-title">Répondez à quelques questions</h3>
+          <p class="feature-desc">
+            En moins de 2 minutes, personnalisez vos publications automatiquement.
+            Choisissez le style, les jours de publication, et laissez-nous faire le reste.
+          </p>
+        </div>
+
+        <div class="feature-card animate-fadeInUp animate-delay-2">
+          <div class="feature-icon">🔗</div>
+          <h3 class="feature-title">Connectez vos réseaux sociaux</h3>
+          <p class="feature-desc">
+            Reliez votre page professionnelle Facebook et Instagram pour activer
+            la publication automatique en toute sécurité.
+          </p>
+        </div>
+
+        <div class="feature-card animate-fadeInUp animate-delay-3">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">Laissez Noyer s'occuper du reste</h3>
+          <p class="feature-desc">
+            Vos annonces sont publiées automatiquement avec textes optimisés par IA
+            et photos redimensionnées parfaitement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Pourquoi choisir <span class="gradient-text">NOYER</span> ?</h2>
+        <p class="section-subtitle">La solution complète pour automatiser votre marketing immobilier</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3 class="feature-title">IA Intelligente</h3>
+          <p class="feature-desc">
+            Descriptions générées automatiquement et optimisées pour maximiser l'engagement.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📸</div>
+          <h3 class="feature-title">Photos optimisées</h3>
+          <p class="feature-desc">
+            Redimensionnement automatique pour chaque plateforme. Stories, Reels, Posts.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🕐</div>
+          <h3 class="feature-title">Horaires optimaux</h3>
+          <p class="feature-desc">
+            Publication aux meilleurs moments pour toucher un maximum de prospects.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3 class="feature-title">Multi-plateformes</h3>
+          <p class="feature-desc">
+            Facebook, Instagram, Stories, et Reels - tout depuis une seule plateforme.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3 class="feature-title">100% Sécurisé</h3>
+          <p class="feature-desc">
+            Connexion OAuth sécurisée. Vos données sont protégées et conformes RGPD.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💼</div>
+          <h3 class="feature-title">Branding personnalisé</h3>
+          <p class="feature-desc">
+            Ajoutez votre logo, personnalisez le style pour renforcer votre image de marque.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section">
+    <div class="container" style="max-width: 800px; text-align: center;">
+      <div class="card card-glass" style="padding: 3rem;">
+        <h2 class="mb-md">Prêt à automatiser vos publications ?</h2>
+        <p class="mb-lg" style="font-size: 1.1rem;">
+          Rejoignez les agences immobilières qui gagnent du temps chaque jour avec NOYER.
+        </p>
+        <div class="flex justify-center gap-md" style="flex-wrap: wrap;">
+          <a href="verifier.html" class="btn btn-primary btn-lg">
+            Vérifier mon éligibilité
+          </a>
+          <a href="plans.html" class="btn btn-secondary btn-lg">
+            Voir les tarifs
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Politique de confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer — Publication Automatique</p>
+    </div>
+  </footer>
 
 </body>
 </html>

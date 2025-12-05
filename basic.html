@@ -3,209 +3,122 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noyer — Plan Basic</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #000;
-      --panel: #111;
-      --accent: #26d19a;
-      --accent-2: #1ea97b;
-      --muted: #bcbcbc;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: var(--bg);
-      color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
-      padding: 40px 20px 80px;
-    }
-
-    /* HEADER / LOGO IDENTIQUE */
-    header {
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      position: absolute;
-      top: 25px;
-      left: 40px;
-    }
-
-    header img {
-      height: 120px;
-      width: auto;
-      cursor: pointer;
-    }
-
-    h1 {
-      color: var(--accent);
-      text-align: center;
-      margin-top: 150px;
-      margin-bottom: 30px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-size: 2.3rem;
-    }
-
-    .section {
-      background: var(--panel);
-      padding: 28px;
-      border-radius: 18px;
-      max-width: 900px;
-      margin: 0 auto 35px;
-      box-shadow: 0 0 25px rgba(38,209,154,.08);
-    }
-
-    .section h2 {
-      color: var(--accent);
-      margin-bottom: 15px;
-      font-size: 1.7rem;
-    }
-
-    .section p, .section li {
-      font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    ul {
-      margin-top: 10px;
-      list-style: none;
-    }
-
-    li::before {
-      content: "• ";
-      color: var(--accent);
-    }
-
-    /* Checkbox + bouton */
-    .confirm-box {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 20px;
-      font-size: 1rem;
-      color: var(--muted);
-    }
-
-    .btn-next {
-      margin-top: 25px;
-      background: var(--accent);
-      color: #0a0a0a;
-      padding: 16px 30px;
-      border: none;
-      border-radius: 12px;
-      font-weight: bold;
-      cursor: not-allowed;
-      opacity: .4;
-      font-size: 1.1rem;
-      box-shadow: 0 0 12px rgba(38,209,154,.4);
-      text-decoration: none;
-      display: inline-block;
-      transition: .3s ease;
-    }
-
-    .btn-next.enabled {
-      cursor: pointer;
-      opacity: 1;
-    }
-
-    .btn-next.enabled:hover {
-      background: var(--accent-2);
-      transform: translateY(-2px);
-    }
-
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      color: #666;
-      font-size: .9rem;
-    }
-
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    .footer-links a {
-      color: var(--accent);
-      margin: 0 8px;
-      text-decoration: none;
-    }
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <title>NOYER — Plan Basic</title>
+  <meta name="description" content="Découvrez le plan Basic de NOYER pour automatiser vos publications immobilières.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- LOGO IDENTIQUE -->
-  <header>
-    <a href="index.html">
-      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-    </a>
-  </header>
+  <div class="page-wrapper">
+    <div class="page-header">
+      <h1 class="page-title">
+        Plan <span class="gradient-text">Basic</span>
+      </h1>
+      <p class="page-subtitle">
+        La solution idéale pour démarrer votre présence automatisée sur Facebook.
+      </p>
+    </div>
 
-  <h1>Plan Noyer Basic</h1>
+    <!-- Progress Steps -->
+    <div class="steps">
+      <div class="step-indicator active"></div>
+      <div class="step-indicator"></div>
+      <div class="step-indicator"></div>
+      <div class="step-indicator"></div>
+    </div>
 
-  <!-- Présentation du plan -->
-  <div class="section">
-    <h2>Présentation du plan Basic</h2>
-    <p>
-      Le plan <strong>Noyer Basic</strong> permet à votre agence de publier automatiquement
-      jusqu’à <strong>8 annonces immobilières par mois</strong>, directement sur Facebook.
-    </p>
+    <div class="container container-md">
+      <div class="card animate-fadeInUp">
+        <h2 class="mb-md">Présentation du plan Basic</h2>
+        <p class="mb-lg">
+          Le plan <strong>Noyer Basic</strong> permet à votre agence de publier automatiquement
+          jusqu'à <strong>8 annonces immobilières par mois</strong>, directement sur Facebook.
+        </p>
 
-    <ul>
-      <li>Publication automatique sur Facebook.</li>
-      <li>Jusqu’à <strong>8 posts</strong> mensuels.</li>
-      <li><strong>6 photos</strong> par annonce, automatiquement redimensionnées.</li>
-      <li>Descriptions personnalisées et attrayantes générées par l’IA.</li>
-      <li>Publication aux <strong>meilleurs horaires</strong> pour maximiser la visibilité.</li>
-    </ul>
+        <div class="mb-lg">
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Publication automatique sur Facebook</span>
+          </div>
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Jusqu'à 8 posts mensuels</span>
+          </div>
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>6 photos par annonce, automatiquement redimensionnées</span>
+          </div>
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Descriptions personnalisées générées par IA</span>
+          </div>
+          <div class="pricing-feature">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" style="width: 20px; height: 20px; color: #10b981;">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Publication aux meilleurs horaires</span>
+          </div>
+        </div>
+
+        <h3 class="mb-md">Comment ça marche ?</h3>
+        <p class="mb-lg">
+          Deux fois par semaine, entre <strong>17h30 et 18h30</strong>, Noyer analyse automatiquement
+          les nouveaux biens publiés sur le site web de votre agence et les publie sur votre page Facebook.
+        </p>
+
+        <div class="form-checkbox mt-lg">
+          <input type="checkbox" id="confirm">
+          <label for="confirm">J'ai pris connaissance du fonctionnement de Noyer.</label>
+        </div>
+
+        <div class="mt-lg">
+          <a id="nextBtn" class="btn btn-primary disabled" href="#">
+            Suivant
+            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <!-- Fonctionnement -->
-  <div class="section">
-    <h2>Comment ça marche ?</h2>
-    <p>
-      Deux fois par semaine, entre <strong>17h30 et 18h30</strong>, Noyer analyse automatiquement
-      les nouveaux biens publiés sur le site web de votre agence.
-    </p>
-
-    <ul>
-      <li>Noyer détecte les <strong>nouvelles annonces</strong> publiées.</li>
-      <li>Récupère automatiquement les <strong>6 premières photos</strong> du bien.</li>
-      <li>Redimensionne les images pour assurer un rendu net et professionnel.</li>
-      <li>Génère une <strong>description attrayante</strong> basée sur les données du site.</li>
-      <li>Programme la publication à l’heure la plus optimale.</li>
-      <li>Un seul bien est publié à la fois pour éviter toute saturation de votre page.</li>
-    </ul>
-
-    <!-- Confirmation obligatoire -->
-    <label class="confirm-box">
-      <input type="checkbox" id="confirm">
-      J’ai pris connaissance du fonctionnement de Noyer.
-    </label>
-
-    <!-- Bouton suivant -->
-    <a id="nextBtn" class="btn-next">Suivant</a>
-  </div>
-
-  <footer>
-    © 2025 Noyer — Publication Automatique
-    <div class="footer-links">
-      <a href="confidentialite.html">Politique de confidentialité</a> ·
-      <a href="mentions-legales.html">Mentions légales</a> ·
-      <a href="conditions-utilisation.html">CGU</a> ·
-      <a href="conditions-vente.html">CGV</a>
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Politique de confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer — Publication Automatique</p>
     </div>
   </footer>
 
@@ -215,13 +128,11 @@
 
     checkbox.addEventListener('change', () => {
       if (checkbox.checked) {
-        nextBtn.classList.add('enabled');
+        nextBtn.classList.remove('disabled');
         nextBtn.href = "basic1.html";
-        nextBtn.style.cursor = "pointer";
       } else {
-        nextBtn.classList.remove('enabled');
-        nextBtn.removeAttribute('href');
-        nextBtn.style.cursor = "not-allowed";
+        nextBtn.classList.add('disabled');
+        nextBtn.href = "#";
       }
     });
   </script>

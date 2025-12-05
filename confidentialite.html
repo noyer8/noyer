@@ -1,239 +1,113 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Politique de confidentialité — Noyer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #000000;
-      --panel: #111;
-      --accent: #26d19a;
-      --text: #e5e5e5;
-      --muted: #bbbbbb;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'JetBrains Mono', monospace;
-      line-height: 1.6;
-      padding: 40px 20px 80px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    /* 🔹 Logo identique à toutes les autres pages */
-    header {
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      margin-bottom: 35px;
-      position: absolute;
-      top: 25px;
-      left: 40px;
-    }
-
-    header img {
-      height: 120px;
-      width: auto;
-      cursor: pointer;
-    }
-
-    h1, h2, h3 {
-      color: var(--accent);
-      text-transform: none;
-      letter-spacing: 1px;
-      margin-top: 40px;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 1.8rem;
-      margin-top: 150px;
-      margin-bottom: 30px;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      border-left: 3px solid var(--accent);
-      padding-left: 10px;
-    }
-
-    p, li {
-      color: var(--muted);
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-    }
-
-    ul {
-      margin: 10px 0 20px 25px;
-    }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      color: #666;
-      font-size: 0.85rem;
-    }
-
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    .footer-links a {
-      color: var(--accent);
-      margin: 0 8px;
-      text-decoration: none;
-    }
-
-    .footer-links a:hover {
-      text-decoration: underline;
-    }
-
-    a {
-      color: var(--accent);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOYER — Politique de confidentialité</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- 🔹 LOGO -->
-  <header>
-    <a href="index.html">
-      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-    </a>
-  </header>
+  <div class="page-wrapper">
+    <div class="legal-content animate-fadeIn">
+      <h1>Politique de confidentialité</h1>
+      <p style="text-align: center; margin-bottom: 2rem;">Dernière mise à jour : <strong>10 novembre 2025</strong></p>
 
-  <h1>🔐 Politique de confidentialité — Noyer</h1>
-  <p class="intro">Dernière mise à jour : <strong>10 novembre 2025</strong></p>
+      <h2>1. Introduction</h2>
+      <p>La présente politique de confidentialité décrit la manière dont <strong>Noyer</strong>, exploité par <strong>Pierre Evrard</strong>, collecte, utilise, conserve et protège les données personnelles de ses utilisateurs professionnels et de leurs clients dans le cadre de la fourniture du service SaaS Noyer.</p>
+      <p>En utilisant le site ou la plateforme Noyer, vous acceptez les termes de cette politique.</p>
 
-  <h2>1. Introduction</h2>
-  <p>La présente politique de confidentialité décrit la manière dont <strong>Noyer</strong>, exploité par <strong>Pierre Evrard</strong>, collecte, utilise, conserve et protège les données personnelles de ses utilisateurs professionnels et de leurs clients dans le cadre de la fourniture du service SaaS Noyer.</p>
-  <p>En utilisant le site ou la plateforme Noyer, vous acceptez les termes de cette politique.</p>
+      <h2>2. Responsable du traitement</h2>
+      <p><strong>Pierre Evrard</strong><br>Fondateur et responsable du traitement des données pour le service Noyer</p>
+      <p>📍 Adresse : Minderbroedersrui 15, 2000 Anvers<br>📧 Contact général : <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>📧 Contact RGPD : <a href="mailto:contact@noyer.io">contact@noyer.io</a></p>
 
-  <h2>2. Responsable du traitement</h2>
-  <p><strong>Pierre Evrard</strong><br>
-  Fondateur et responsable du traitement des données pour le service Noyer</p>
-  <p>📍 Adresse : [à compléter – adresse professionnelle ou siège social en Belgique]<br>
-  📧 Contact général : <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>
-  📧 Contact RGPD : <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>
-  Numéro d’entreprise (BCE) : [à compléter]</p>
-  <p>Aucun délégué à la protection des données (DPO) n’a été désigné, car cela n’est pas requis au regard de la taille et de la nature du traitement.</p>
+      <h2>3. Rôles et responsabilités</h2>
+      <p>Noyer agit selon deux rôles distincts :</p>
+      <ul>
+        <li><strong>En responsable de traitement</strong>, pour la gestion des comptes, abonnements et communications commerciales.</li>
+        <li><strong>En sous-traitant</strong>, pour la publication automatique des annonces immobilières et la génération de contenu via IA.</li>
+      </ul>
 
-  <h2>3. Rôles et responsabilités</h2>
-  <p>Noyer agit selon deux rôles distincts :</p>
-  <ul>
-    <li><strong>En responsable de traitement</strong>, pour la gestion des comptes, abonnements et communications commerciales.</li>
-    <li><strong>En sous-traitant</strong>, pour la publication automatique des annonces immobilières et la génération de contenu via IA.</li>
-  </ul>
-  <p>Un Accord de Sous-Traitance (DPA) conforme à l’article 28 du RGPD est disponible sur demande à <a href="mailto:contact@noyer.io">contact@noyer.io</a>.</p>
+      <h2>4. Données collectées</h2>
+      <p><strong>Données d'identification :</strong> nom, e-mail professionnel, coordonnées et logo de l'agence.</p>
+      <p><strong>Données techniques :</strong> configuration, identifiants Meta, logs, statistiques, données importées.</p>
+      <p><strong>Données de facturation :</strong> abonnements, factures, paiements (via Stripe).</p>
+      <p><strong>Données IA :</strong> textes immobiliers reformulés ou améliorés par des modèles IA sécurisés.</p>
 
-  <h2>4. Données collectées</h2>
-  <p><strong>Données d’identification :</strong> nom, e-mail professionnel, coordonnées et logo de l’agence.</p>
-  <p><strong>Données techniques :</strong> configuration, identifiants Meta, logs, statistiques, données importées.</p>
-  <p><strong>Données de facturation :</strong> abonnements, factures, paiements (via Stripe).</p>
-  <p><strong>Données IA :</strong> textes immobiliers reformulés ou améliorés par des modèles IA sécurisés.</p>
-  <p>Aucune donnée sensible n’est collectée.</p>
+      <h2>5. Finalités et bases légales</h2>
+      <ul>
+        <li>Gestion des comptes et paiements — <em>Exécution du contrat</em></li>
+        <li>Automatisation des publications — <em>Exécution du contrat</em></li>
+        <li>Génération IA — <em>Exécution du contrat / Intérêt légitime</em></li>
+        <li>Connexion Meta — <em>Consentement</em></li>
+        <li>Support client — <em>Exécution du contrat</em></li>
+      </ul>
 
-  <h2>5. Finalités et bases légales du traitement</h2>
-  <ul>
-    <li>Gestion des comptes et paiements — <em>Exécution du contrat</em></li>
-    <li>Automatisation des publications — <em>Exécution du contrat</em></li>
-    <li>Génération IA — <em>Exécution du contrat / Intérêt légitime</em></li>
-    <li>Connexion Meta — <em>Consentement</em></li>
-    <li>Support client — <em>Exécution du contrat</em></li>
-  </ul>
+      <h2>6. Sous-traitants et hébergement</h2>
+      <p>Les données sont traitées sur des plateformes sécurisées :</p>
+      <ul>
+        <li>n8n.cloud — Automatisation (EEE)</li>
+        <li>Render.com — Hébergement applicatif (EEE / USA — SCC + DPF)</li>
+        <li>GitHub Pages — Site vitrine (USA — SCC + DPF)</li>
+        <li>Stripe — Paiements (USA — DPF)</li>
+        <li>OpenAI / Anthropic — IA (USA — SCC + DPF)</li>
+        <li>Meta — Publication automatisée (USA — DPF)</li>
+      </ul>
 
-  <h2>6. Sous-traitants et hébergement</h2>
-  <p>Les données sont traitées sur des plateformes sécurisées :</p>
-  <ul>
-    <li>n8n.cloud — Automatisation (EEE)</li>
-    <li>Render.com — Hébergement applicatif (EEE / USA — SCC + DPF)</li>
-    <li>GitHub Pages — Site vitrine (USA — SCC + DPF)</li>
-    <li>Stripe — Paiements (USA — DPF)</li>
-    <li>OpenAI / Anthropic — IA (USA — SCC + DPF)</li>
-    <li>Meta — Publication automatisée (USA — DPF)</li>
-  </ul>
+      <h2>7. Sécurité des données</h2>
+      <ul>
+        <li>Chiffrement SSL/TLS, AES-256 au repos</li>
+        <li>Accès restreint avec 2FA</li>
+        <li>Sauvegardes automatiques et journaux d'audit</li>
+        <li>Surveillance et tests de sécurité réguliers</li>
+      </ul>
 
-  <h2>7. Provenance des données</h2>
-  <p>Données saisies par l’utilisateur, importées depuis le site ou CRM, ou via API Meta et Stripe.</p>
+      <h2>8. Paiements via Stripe</h2>
+      <p>Les paiements sont gérés par Stripe, certifié PCI DSS. Aucune donnée bancaire complète n'est stockée par Noyer.<br>Consultez la politique Stripe : <a href="https://stripe.com/privacy" target="_blank">https://stripe.com/privacy</a></p>
 
-  <h2>8. Jetons Meta et révocation</h2>
-  <p>Les jetons d’accès Meta sont chiffrés, non partagés, supprimés à la fin du contrat, et révocables à tout moment via Meta ou <a href="mailto:contact@noyer.io">contact@noyer.io</a>.</p>
+      <h2>9. Durée de conservation</h2>
+      <ul>
+        <li>Données de compte : durée du contrat + 90 jours</li>
+        <li>Jetons Meta : durée du contrat ou jusqu'à révocation</li>
+        <li>Logs : 90 jours</li>
+        <li>Facturation : 10 ans</li>
+      </ul>
 
-  <h2>9. Sécurité des données</h2>
-  <ul>
-    <li>Chiffrement SSL/TLS, AES-256 au repos</li>
-    <li>Accès restreint avec 2FA</li>
-    <li>Sauvegardes automatiques et journaux d’audit</li>
-    <li>Surveillance et tests de sécurité réguliers</li>
-  </ul>
+      <h2>10. Vos droits</h2>
+      <p>Vous disposez des droits d'accès, de rectification, d'effacement, d'opposition, de portabilité et de retrait du consentement. Toute demande : <a href="mailto:contact@noyer.io">contact@noyer.io</a></p>
 
-  <h2>10. Paiements via Stripe</h2>
-  <p>Les paiements sont gérés par Stripe, certifié PCI DSS. Aucune donnée bancaire complète n’est stockée par Noyer.<br>
-  Consultez la politique Stripe : <a href="https://stripe.com/privacy" target="_blank">https://stripe.com/privacy</a></p>
+      <h2>11. Contact</h2>
+      <p>📧 <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>📍 Pierre Evrard – Noyer – Minderbroedersrui 15, 2000 Anvers</p>
+    </div>
+  </div>
 
-  <h2>11. Durée de conservation</h2>
-  <ul>
-    <li>Données de compte : durée du contrat + 90 jours</li>
-    <li>Jetons Meta : durée du contrat ou jusqu’à révocation</li>
-    <li>Logs : 90 jours</li>
-    <li>Facturation : 10 ans</li>
-  </ul>
-
-  <h2>12. Droits des personnes concernées</h2>
-  <p>Vous disposez des droits d’accès, de rectification, d’effacement, d’opposition, de portabilité et de retrait du consentement.  
-  Toute demande : <a href="mailto:contact@noyer.io">contact@noyer.io</a></p>
-
-  <h2>13. Transferts hors UE</h2>
-  <p>Certains prestataires (Stripe, Meta, OpenAI, Render) opèrent aux États-Unis sous SCC et/ou DPF. Noyer effectue des évaluations d’impact transfert (TIA).</p>
-
-  <h2>14. Violation de données</h2>
-  <p>En cas d’incident, Noyer notifie l’autorité sous 72h et informe les utilisateurs concernés.</p>
-
-  <h2>15. Cookies</h2>
-  <p>Seuls des cookies techniques essentiels sont utilisés. Aucun cookie publicitaire sans consentement.</p>
-
-  <h2>16. Données relatives à l’IA</h2>
-  <p>Les textes traités par l’IA ne sont pas stockés ni utilisés à des fins d’entraînement.</p>
-
-  <h2>17. Public visé</h2>
-  <p>Service réservé aux professionnels majeurs. Aucune collecte de données mineures.</p>
-
-  <h2>18. Privacy by Design</h2>
-  <p>Noyer intègre la protection des données dès la conception. Registre interne et audits réguliers.</p>
-
-  <h2>19. Modifications</h2>
-  <p>Noyer peut modifier cette politique. La date de mise à jour figure en haut de page.</p>
-
-  <h2>20. Contact</h2>
-  <p>📧 <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>
-  📍 Pierre Evrard – Noyer – Minderbroedersrui 15, 2000 Anvers</p>
-
-  <footer>
-    © 2025 Noyer — Politique de confidentialité
-    <div class="footer-links">
-      <a href="confidentialite.html">Politique de confidentialité</a> ·
-      <a href="mentions-legales.html">Mentions légales</a> ·
-      <a href="conditions-utilisation.html">CGU</a> ·
-      <a href="conditions-vente.html">CGV</a>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer</p>
     </div>
   </footer>
-
 </body>
 </html>

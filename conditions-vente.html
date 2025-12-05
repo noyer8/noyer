@@ -1,252 +1,96 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>💳 Conditions Générales de Vente — Noyer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg:#000000;
-      --panel:#111;
-      --accent:#26d19a;
-      --text:#e5e5e5;
-      --muted:#bbbbbb;
-    }
-
-    * { box-sizing:border-box; margin:0; padding:0; }
-
-    body {
-      background:var(--bg);
-      color:var(--text);
-      font-family:'JetBrains Mono',monospace;
-      line-height:1.6;
-      padding:40px 20px 80px;
-      max-width:900px;
-      margin:0 auto;
-    }
-
-    header {
-      position: absolute;
-      top: 25px;
-      left: 40px;
-    }
-
-    header img {
-      height: 120px;
-      width: auto;
-    }
-
-    h1, h2 {
-      color: var(--accent);
-      margin-top: 40px;
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      text-align: center;
-      margin-top: 140px;
-      margin-bottom: 22px;
-    }
-
-    p, li {
-      color: var(--muted);
-      margin-bottom: 10px;
-      font-size: .95rem;
-    }
-
-    ul {
-      margin: 8px 0 18px 22px;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .block {
-      background:#111;
-      border:1px solid #1f1f1f;
-      border-radius:12px;
-      padding:18px;
-      margin:14px 0;
-    }
-
-    footer {
-      margin-top:60px;
-      text-align:center;
-      color:#666;
-      font-size:.85rem;
-    }
-
-    .footer-links {
-      margin-top: 12px;
-    }
-
-    .footer-links a {
-      color: var(--accent);
-      margin: 0 8px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOYER — Conditions Générales de Vente</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-  <header>
-    <a href="index.html">
-      <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-    </a>
-  </header>
+  <div class="page-wrapper">
+    <div class="legal-content animate-fadeIn">
+      <h1>Conditions Générales de Vente</h1>
+      <p style="text-align: center; margin-bottom: 2rem;">Dernière mise à jour : <strong>22 novembre 2025</strong></p>
 
-  <h1>💳 Conditions Générales de Vente — Noyer</h1>
+      <h2>1. Objet et champ d'application</h2>
+      <p>Les présentes CGV régissent la souscription et l'utilisation des services proposés par <strong>Noyer</strong>, édité par <strong>Pierre Evrard</strong>.</p>
+      <p>Elles s'appliquent à toute commande passée par un client professionnel utilisant la plateforme d'automatisation de publication immobilière Noyer.</p>
 
-  <p>Dernière mise à jour : <strong>22 novembre 2025</strong></p>
+      <h2>2. Description du service</h2>
+      <p>Noyer est un service SaaS permettant notamment :</p>
+      <ul>
+        <li>la publication automatique d'annonces immobilières sur les réseaux sociaux ;</li>
+        <li>la gestion et le redimensionnement automatique des photos ;</li>
+        <li>la génération de descriptions immobilières assistée par IA ;</li>
+        <li>la planification de publications selon des jours déterminés ;</li>
+        <li>la génération automatique de contenus additionnels (stories, reels, visuels avec logo) selon l'offre.</li>
+      </ul>
 
-  <h2>1. Objet et champ d’application</h2>
-  <div class="block">
-    <p>Les présentes Conditions Générales de Vente (CGV) régissent la souscription et l’utilisation des services proposés par <strong>Noyer</strong>, édité par <strong>Pierre Evrard</strong>, accessible via le site <strong>noyer.io</strong> (ci-après le « Service » ou la « Plateforme »).</p>
-    <p>Elles s’appliquent à toute commande passée par un client professionnel (agence immobilière, société ou indépendant) utilisant la plateforme d’automatisation de publication immobilière <strong>Noyer</strong>.</p>
-    <p>Le fait de souscrire à une offre d’abonnement implique l’acceptation pleine et entière des présentes CGV.</p>
+      <h2>3. Tarifs et abonnements</h2>
+      <ul>
+        <li><strong>Noyer Basic</strong> — 49,99 € / mois : 2 publications/semaine, Facebook uniquement, 6 photos max.</li>
+        <li><strong>Noyer Premium</strong> — 89,99 € / mois : 3 publications/semaine, Facebook + Instagram + Stories, 10 photos max.</li>
+        <li><strong>Noyer Business</strong> — 149,99 € / mois : Publications illimitées (max 3/jour), Reels, logo sur photos, 12 photos max.</li>
+      </ul>
+      <p>Les prix sont indiqués en euros, hors TVA le cas échéant.</p>
+
+      <h2>4. Fonctionnement des publications</h2>
+      <p>Le client choisit les jours de publication. Le système vérifie automatiquement la présence de nouveaux biens et les publie dans la limite de l'offre souscrite.</p>
+
+      <h2>5. Commande et paiement</h2>
+      <p>Les paiements sont effectués via <strong>Stripe</strong>. L'abonnement devient effectif après validation du paiement. Les paiements sont récurrents mensuellement.</p>
+
+      <h2>6. Durée, résiliation et renouvellement</h2>
+      <p>Chaque abonnement est conclu pour un mois, renouvelable tacitement. Le client peut résilier à tout moment via Stripe ou par email à <a href="mailto:contact@noyer.io">contact@noyer.io</a>.</p>
+
+      <h2>7. Utilisation des comptes et limitations</h2>
+      <p>Chaque abonnement est limité à un compte Facebook (page) et, pour les offres concernées, un compte Instagram associé.</p>
+
+      <h2>8. Responsabilités</h2>
+      <p>Noyer s'engage à fournir le service avec diligence. Le client reste seul responsable du contenu publié via le service.</p>
+
+      <h2>9. Données personnelles</h2>
+      <p>Les données sont traitées conformément à la <a href="confidentialite.html">Politique de confidentialité</a>.</p>
+
+      <h2>10. Propriété intellectuelle</h2>
+      <p>L'ensemble des éléments du service Noyer est protégé par le droit d'auteur. Le client conserve la propriété de ses contenus.</p>
+
+      <h2>11. Droit applicable</h2>
+      <p>Les présentes CGV sont soumises au <strong>droit belge</strong>. Compétence est attribuée aux tribunaux d'<strong>Anvers</strong>.</p>
+
+      <h2>12. Contact</h2>
+      <p>📧 <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>☎️ +32 478 16 65 06</p>
+    </div>
   </div>
 
-  <h2>2. Description du service</h2>
-  <div class="block">
-    <p><strong>Noyer</strong> est un service SaaS (Software as a Service) permettant notamment&nbsp;:</p>
-    <ul>
-      <li>la publication automatique d’annonces immobilières sur les réseaux sociaux (Facebook, Instagram) ;</li>
-      <li>la gestion et le redimensionnement automatique des photos ;</li>
-      <li>la génération de descriptions immobilières assistée par IA ;</li>
-      <li>la planification de publications selon des jours déterminés par le client ;</li>
-      <li>la génération automatique de contenus additionnels (stories, reels, visuels avec logo) selon l’offre souscrite.</li>
-    </ul>
-    <p>Les fonctionnalités disponibles dépendent du plan d’abonnement souscrit&nbsp;: <strong>Noyer Basic</strong>, <strong>Noyer Premium</strong> ou <strong>Noyer Business</strong>.</p>
-    <p>Sauf mention contraire, chaque abonnement est limité à un (1) compte professionnel Facebook (page) et, pour les offres qui le prévoient, à un (1) compte Instagram associé.</p>
-  </div>
-
-  <h2>3. Tarifs et abonnements</h2>
-  <div class="block">
-    <p>Les offres d’abonnement sont présentées sur le site <strong>Noyer</strong> avec leurs caractéristiques et prix respectifs. À la date de la dernière mise à jour, les principales offres sont les suivantes&nbsp;:</p>
-
-    <ul>
-      <li>
-        🟩 <strong>Noyer Basic</strong> — <strong>34,99 € / mois</strong><br>
-        2 publications par semaine (soit jusqu’à 8 publications par mois) sur Facebook uniquement, jusqu’à 6 photos par publication, redimension automatique des visuels, descriptions IA optimisées et publication aux meilleurs horaires estimés.<br>
-        Instagram, stories et reels ne sont pas inclus dans cette offre.
-      </li>
-
-      <li>
-        🟨 <strong>Noyer Premium</strong> — <strong>89,99 € / mois</strong><br>
-        3 publications par semaine (soit jusqu’à 12 publications par mois) sur Facebook <strong>et</strong> Instagram, jusqu’à 10 photos par publication, descriptions IA avancées, optimisation horaire renforcée et stories automatiques. L’offre Premium inclut toutes les fonctionnalités présentes dans l’offre Noyer Basic.<br>
-        Les reels ne sont pas inclus dans cette offre.
-      </li>
-
-      <li>
-        🟪 <strong>Noyer Business</strong> — <strong>149,99 € / mois</strong><br>
-        Publications illimitées sur Facebook et Instagram, dans la limite d’un maximum de <strong>3 publications par jour</strong> Jusqu’à 12 photos par publication, stories automatiques et génération d’un <strong>reel</strong> pour chaque bien, basé automatiquement sur les photos fournies. Ajout automatique du logo du client sur les photos (le logo devant être fourni par le client, notamment au format PNG de qualité suffisante). Priorité de traitement, optimisation avancée des horaires et accès à l’ensemble des options présentes dans l’offre Noyer Premium.
-      </li>
-    </ul>
-
-    <p>Les prix sont indiqués en euros, hors TVA, le cas échéant. <strong>Noyer</strong> se réserve le droit de modifier ses tarifs à tout moment. Les modifications tarifaires ne s’appliquent pas rétroactivement aux périodes de facturation déjà payées. En cas de changement de prix, le client sera informé avant le renouvellement, afin de pouvoir éventuellement résilier son abonnement.</p>
-    <p>Des offres promotionnelles temporaires peuvent être proposées sans engager <strong>Noyer</strong> à les maintenir dans le temps.</p>
-  </div>
-
-  <h2>4. Fonctionnement des publications</h2>
-  <div class="block">
-    <p>Lors de la configuration de son compte, le client choisit les jours de la semaine durant lesquels il souhaite publier ses annonces.</p>
-    <p>Sur ces jours sélectionnés, le système <strong>Noyer</strong> vérifie automatiquement la présence de nouveaux biens (selon les modalités convenues&nbsp;: flux, intégration, ajout manuel, etc.). Lorsque de nouveaux biens sont détectés, le service les publie automatiquement dans la limite&nbsp;:</p>
-    <ul>
-      <li>de 2 publications par semaine pour l’offre Noyer Basic&nbsp;;</li>
-      <li>de 3 publications par semaine pour l’offre Noyer Premium&nbsp;;</li>
-      <li>des publications illimitées, avec un plafond de 3 publications par jour pour l’offre Noyer Business.</li>
-    </ul>
-    <p>Pour l’offre Noyer Business, un reel est généré automatiquement pour chaque bien, dans la mesure où les photos et éléments nécessaires ont été fournis par le client. La qualité du reel dépend notamment de la qualité des images transmises.</p>
-    <p><strong>Noyer</strong> ne garantit pas la publication si les contenus nécessaires ne sont pas disponibles, non conformes, de qualité insuffisante ou contraires aux présentes CGV / CGU ou à la législation.</p>
-  </div>
-
-  <h2>5. Commande et paiement</h2>
-  <div class="block">
-    <p>Les commandes et paiements sont effectués via la plateforme sécurisée <strong>Stripe</strong>. L’abonnement devient effectif après validation du paiement.</p>
-    <p>Les paiements sont récurrents mensuellement et se renouvellent automatiquement à la date anniversaire, sauf résiliation par le client avant cette date.</p>
-    <p>En cas d’échec de paiement (carte expirée, fonds insuffisants, etc.), <strong>Noyer</strong> se réserve le droit de suspendre temporairement l’accès au service jusqu’à régularisation et/ou de résilier l’abonnement après relance restée sans effet.</p>
-  </div>
-
-  <h2>6. Durée, résiliation et renouvellement</h2>
-  <div class="block">
-    <p>Chaque abonnement est conclu pour une durée d’un (1) mois, renouvelable tacitement pour des périodes successives d’un (1) mois.</p>
-    <p>Le client peut résilier son abonnement à tout moment, sans frais, pour la période suivante, via son espace Stripe ou en écrivant à <a href="mailto:contact@noyer.io">contact@noyer.io</a>. La résiliation prendra effet à la fin de la période mensuelle en cours, aucune somme déjà facturée n’étant remboursable au titre d’un mois entamé.</p>
-    <p><strong>Noyer</strong> se réserve le droit de résilier un abonnement en cas de non-respect des présentes CGV et/ou des Conditions Générales d’Utilisation (CGU), en cas de fraude, d’utilisation manifestement abusive du service (par exemple, tentative de contourner la limite de 3 publications par jour en Business) ou en cas de demande des plateformes tierces (Meta/Facebook/Instagram) suite à un signalement.</p>
-  </div>
-
-  <h2>7. Utilisation des comptes et limitations</h2>
-  <div class="block">
-    <p>Chaque abonnement est destiné à un seul client professionnel et à un périmètre limité de comptes&nbsp;:</p>
-    <ul>
-      <li>un (1) compte professionnel Facebook (page) par abonnement&nbsp;;</li>
-      <li>et, pour les offres qui le comprennent, un (1) compte Instagram associé.</li>
-    </ul>
-    <p>Tout partage d’accès ou utilisation de l’abonnement pour plusieurs agences, entités juridiques ou réseaux sociaux non prévus explicitement est interdit sans accord écrit de <strong>Noyer</strong>.</p>
-    <p>En cas d’utilisation non conforme, <strong>Noyer</strong> pourra restreindre l’accès, facturer un complément, ou résilier l’abonnement.</p>
-  </div>
-
-  <h2>8. Responsabilités</h2>
-  <div class="block">
-    <p><strong>Noyer</strong> s’engage à fournir le service avec diligence et compétence, dans la limite d’une obligation de moyens.</p>
-    <p>Le client reste seul responsable du contenu publié via le service (annonces, images, textes, prix, coordonnées, liens, mentions légales, etc.) et garantit que celui-ci respecte les droits des tiers, la réglementation applicable (notamment en matière de publicité, de consommation, d’urbanisme) et les règles des plateformes Meta (Facebook, Instagram).</p>
-    <p><strong>Noyer</strong> ne pourra être tenu responsable&nbsp;:</p>
-    <ul>
-      <li>des conséquences d’une suspension ou d’un blocage du compte Facebook ou Instagram du client par Meta&nbsp;;</li>
-      <li>des variations de performance (portée, impressions, clics, etc.) liées aux algorithmes des réseaux sociaux&nbsp;;</li>
-      <li>des interruptions temporaires du service liées à la maintenance, à une panne de serveur, à un incident chez un prestataire tiers ou à un cas de force majeure.</li>
-    </ul>
-    <p>Le client demeure responsable de fournir des contenus (photos, logos, textes) de qualité suffisante. Pour le service d’ajout de logo (offre Business), le client doit fournir un logo exploitable (par exemple au format PNG, en résolution adéquate). <strong>Noyer</strong> ne pourra être tenu responsable de la mauvaise qualité d’un rendu liée à des fichiers de départ insuffisants.</p>
-  </div>
-
-  <h2>9. Données personnelles</h2>
-  <div class="block">
-    <p>Les données collectées dans le cadre de la vente et de l’utilisation du service sont traitées conformément à la <a href="confidentialite.html">Politique de confidentialité</a> de <strong>Noyer</strong>.</p>
-    <p>Le client est informé que certains traitements impliquent l’utilisation d’API tierces (notamment Meta/Facebook/Instagram et Stripe) et que les données nécessaires à l’exécution du service peuvent être transmises à ces prestataires dans le strict cadre de la fourniture du service.</p>
-  </div>
-
-  <h2>10. Propriété intellectuelle</h2>
-  <div class="block">
-    <p>L’ensemble des éléments du site et du service <strong>Noyer</strong> (structure, code, interface, logo, textes, modèles de description, scripts d’automatisation, etc.) est protégé par le droit d’auteur et reste la propriété exclusive de <strong>Pierre Evrard</strong>.</p>
-    <p>Le client conserve la propriété de ses contenus (annonces, images, logos, données importées) mais accorde à <strong>Noyer</strong> une licence non exclusive, mondiale et limitée à la durée de l’abonnement pour utiliser ces contenus dans le cadre strict de la fourniture du service (publications sur les réseaux sociaux, génération de visuels, reels, etc.).</p>
-  </div>
-
-  <h2>11. Droit applicable et juridiction compétente</h2>
-  <div class="block">
-    <p>Les présentes CGV sont soumises au <strong>droit belge</strong>.</p>
-    <p>En cas de litige relatif à l’interprétation, la validité ou l’exécution des présentes, et à défaut de résolution amiable, compétence expresse est attribuée aux tribunaux d’<strong>Anvers</strong>, nonobstant pluralité de défendeurs ou appel en garantie.</p>
-  </div>
-
-  <h2>12. Contact</h2>
-  <div class="block">
-    <p>Pour toute question relative aux présentes CGV ou au service&nbsp;:</p>
-    <p>
-      📧 Support général : <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>
-      📧 RGPD / données personnelles : <a href="mailto:contact@noyer.io">contact@noyer.io</a><br>
-      ☎️ +32 478 16 65 06
-    </p>
-  </div>
-
-  <footer>
-    © 2025 Noyer — Conditions Générales de Vente
-
-    <div class="footer-links">
-      <a href="confidentialite.html">Politique de confidentialité</a> ·
-      <a href="mentions-legales.html">Mentions légales</a> ·
-      <a href="conditions-utilisation.html">CGU</a> ·
-      <a href="conditions-vente.html">CGV</a>
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer</p>
     </div>
   </footer>
-
 </body>
 </html>

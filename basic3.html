@@ -3,181 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noyer — Étape 3</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #000;
-      --panel: #111;
-      --accent: #26d19a;
-      --accent-2: #1ea97b;
-      --muted: #bcbcbc;
-    }
-
-    body {
-      background: var(--bg);
-      color: #e5e5e5;
-      font-family: "JetBrains Mono", monospace;
-      padding: 40px 20px 80px;
-    }
-
-    header {
-      width: 100%;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
-      position: absolute;
-      top: 25px;
-      left: 40px;
-    }
-
-    header img {
-      height: 120px;
-      cursor: pointer;
-    }
-
-    h1 {
-      color: var(--accent);
-      text-align: center;
-      margin-top: 150px;
-      margin-bottom: 10px;
-      font-size: 2.3rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    h2 {
-      text-align: center;
-      color: var(--muted);
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-    }
-
-    .section {
-      background: var(--panel);
-      padding: 30px;
-      border-radius: 18px;
-      max-width: 900px;
-      margin: 0 auto;
-      box-shadow: 0 0 25px rgba(38,209,154,.08);
-    }
-
-    label {
-      display: block;
-      margin-top: 18px;
-      font-size: 1rem;
-      color: var(--muted);
-    }
-
-    input {
-      width: 100%;
-      padding: 14px;
-      margin-top: 8px;
-      border-radius: 10px;
-      border: 1px solid #333;
-      background: #0a0a0a;
-      color: #e5e5e5;
-      font-size: 1rem;
-    }
-
-    .btn-next {
-      margin-top: 30px;
-      background: var(--accent);
-      color: #0a0a0a;
-      padding: 16px 30px;
-      border: none;
-      border-radius: 12px;
-      font-weight: bold;
-      font-size: 1.1rem;
-      opacity: .4;
-      cursor: not-allowed;
-      transition: .3s ease;
-      box-shadow: 0 0 12px rgba(38,209,154,.4);
-    }
-
-    .btn-next.enabled {
-      opacity: 1;
-      cursor: pointer;
-    }
-
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      color: #666;
-      font-size: .9rem;
-    }
-  </style>
+  <title>NOYER — Étape 3 : Vos coordonnées</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-<header>
-  <a href="index.html">
-    <img src="https://i.imgur.com/3V2jomn.png" alt="Logo Noyer">
-  </a>
-</header>
+  <div class="page-wrapper">
+    <div class="page-header">
+      <h1 class="page-title">
+        Étape 3 — <span class="gradient-text">Vos coordonnées</span>
+      </h1>
+      <p class="page-subtitle">
+        Ces informations nous permettent de personnaliser vos publications.
+      </p>
+    </div>
 
-<h1>Étape 3</h1>
-<h2>Vos coordonnées</h2>
+    <!-- Progress Steps -->
+    <div class="steps">
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator completed"></div>
+      <div class="step-indicator active"></div>
+    </div>
 
-<div class="section">
-  <label>Nom de l’agence :</label>
-  <input type="text" id="agence">
+    <div class="container container-sm">
+      <div class="card animate-fadeInUp">
 
-  <label>Adresse email :</label>
-  <input type="email" id="email">
+        <div class="form-group">
+          <label class="form-label">Nom de l'agence</label>
+          <input type="text" id="agence" class="form-input" placeholder="Mon Agence Immobilière">
+        </div>
 
-  <label>Numéro de téléphone :</label>
-  <input type="text" id="telephone">
+        <div class="form-group">
+          <label class="form-label">Adresse email</label>
+          <input type="email" id="email" class="form-input" placeholder="contact@agence.fr">
+        </div>
 
-  <label>Nom & prénom du responsable :</label>
-  <input type="text" id="responsable">
+        <div class="form-group">
+          <label class="form-label">Numéro de téléphone</label>
+          <input type="text" id="telephone" class="form-input" placeholder="06 12 34 56 78">
+        </div>
 
-  <button id="nextBtn" class="btn-next">Suivant</button>
-</div>
+        <div class="form-group">
+          <label class="form-label">Nom & prénom du responsable</label>
+          <input type="text" id="responsable" class="form-input" placeholder="Jean Dupont">
+        </div>
 
-<footer>
-  © 2025 Noyer — Publication Automatique
-</footer>
+        <div class="mt-xl">
+          <button id="nextBtn" class="btn btn-primary disabled" style="width: 100%;">
+            Suivant
+            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </button>
+        </div>
 
-<script>
-  const agence = document.getElementById('agence');
-  const email = document.getElementById('email');
-  const telephone = document.getElementById('telephone');
-  const responsable = document.getElementById('responsable');
+      </div>
+    </div>
+  </div>
 
-  const nextBtn = document.getElementById('nextBtn');
-  const fields = [agence, email, telephone, responsable];
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Politique de confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer — Publication Automatique</p>
+    </div>
+  </footer>
 
-  function checkForm() {
-    const allFilled = fields.every(f => f.value.trim() !== "");
-    if (allFilled) {
-      nextBtn.classList.add("enabled");
-    } else {
-      nextBtn.classList.remove("enabled");
+  <script>
+    const agence = document.getElementById('agence');
+    const email = document.getElementById('email');
+    const telephone = document.getElementById('telephone');
+    const responsable = document.getElementById('responsable');
+
+    const nextBtn = document.getElementById('nextBtn');
+    const fields = [agence, email, telephone, responsable];
+
+    function checkForm() {
+      const allFilled = fields.every(f => f.value.trim() !== "");
+      if (allFilled) {
+        nextBtn.classList.remove("disabled");
+      } else {
+        nextBtn.classList.add("disabled");
+      }
     }
-  }
 
-  fields.forEach(f => f.addEventListener("input", checkForm));
+    fields.forEach(f => f.addEventListener("input", checkForm));
 
-  // 🔥 Sauvegarde + navigation
-  nextBtn.onclick = function () {
-    if (!nextBtn.classList.contains("enabled")) return;
+    nextBtn.onclick = function () {
+      if (nextBtn.classList.contains("disabled")) return;
 
-    localStorage.setItem("agencyInfo", JSON.stringify({
-      agence: agence.value.trim(),
-      email: email.value.trim(),
-      telephone: telephone.value.trim(),
-      responsable: responsable.value.trim()
-    }));
+      localStorage.setItem("agencyInfo", JSON.stringify({
+        agence: agence.value.trim(),
+        email: email.value.trim(),
+        telephone: telephone.value.trim(),
+        responsable: responsable.value.trim()
+      }));
 
-    window.location.href = "basic-connect-facebook.html";
-  };
-</script>
+      window.location.href = "basic-connect-facebook.html";
+    };
+  </script>
 
 </body>
 </html>

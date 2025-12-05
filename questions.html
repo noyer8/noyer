@@ -4,308 +4,176 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NOYER — Questionnaire</title>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #000;
-      --accent: #26d19a;
-      --accent-hover: #1ea97b;
-      --text: #e5e5e5;
-      --muted: #9a9a9a;
-      --panel: #111;
-      --panel-light: #1a1a1a;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: "JetBrains Mono", monospace;
-      padding: 40px 20px 80px;
-      min-height: 100vh;
-    }
-
-    /* LOGO */
-    .logo {
-      position: absolute;
-      top: 25px;
-      left: 40px;
-      cursor: pointer;
-    }
-    .logo img { height: 120px; }
-
-    /* TITLE */
-    h1 {
-      color: var(--accent);
-      text-align: center;
-      margin-top: 120px;
-      font-size: 2rem;
-      letter-spacing: 2px;
-    }
-    .subtitle {
-      text-align: center;
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    /* FORM */
-    form {
-      max-width: 900px;
-      background: var(--panel);
-      padding: 35px;
-      margin: 40px auto 0;
-      border-radius: 16px;
-      box-shadow: 0 0 16px rgba(38,209,154,0.09);
-    }
-
-    label {
-      display: block;
-      margin-top: 25px;
-      margin-bottom: 6px;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid var(--accent);
-      background: transparent;
-      color: var(--text);
-      font-size: .95rem;
-    }
-
-    input[readonly] {
-      background: #1b1b1b;
-      color: #ccc;
-    }
-
-    .info { font-size: .8rem; color: var(--muted); margin-top: 4px; }
-
-    /* ALERT BUSINESS */
-    .alert {
-      background: #16231c;
-      border-left: 3px solid var(--accent);
-      padding: 14px;
-      border-radius: 8px;
-      margin-top: 10px;
-      color: var(--accent);
-      font-size: .85rem;
-    }
-
-    /* DESCRIPTIONS */
-    .descriptions {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap: 20px;
-      margin-top: 25px;
-    }
-
-    .card {
-      background: #121212;
-      border: 1px solid #1f1f1f;
-      padding: 20px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: .25s;
-      color: var(--text) !important;
-    }
-
-    .card strong { color: var(--text) !important; }
-
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .card input[type="radio"] {
-      margin-right: 10px;
-    }
-
-    /* BUTTON */
-    button {
-      background: var(--accent);
-      color: #000;
-      padding: 14px 26px;
-      border-radius: 8px;
-      margin-top: 35px;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-      transition: .25s;
-    }
-
-    button:hover {
-      background: var(--accent-hover);
-      transform: translateY(-2px);
-    }
-
-    #loading {
-      display: none;
-      color: var(--muted);
-      margin-top: 10px;
-      font-style: italic;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-      margin: 0 5px;
-    }
-    footer a:hover { color: var(--accent-hover); }
-  </style>
+  <meta name="description" content="Complétez vos informations pour personnaliser vos publications automatiques.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" href="https://i.imgur.com/3V2jomn.png">
 </head>
 
 <body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="https://i.imgur.com/3V2jomn.png" alt="Noyer">
+        <span class="gradient-text">NOYER</span>
+      </a>
+      <div class="nav-links">
+        <a href="fonctionnement.html" class="nav-link">Comment ça marche</a>
+        <a href="plans.html" class="nav-link">Tarifs</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="verifier.html" class="nav-cta">Commencer</a>
+      </div>
+    </div>
+  </nav>
 
-  <!-- LOGO -->
-  <div class="logo" onclick="window.location.href='index.html'">
-    <img src="https://i.imgur.com/3V2jomn.png">
-  </div>
-
-  <h1>COMPLÉTEZ VOS INFORMATIONS</h1>
-  <div class="subtitle">Ces informations permettent de personnaliser automatiquement vos publications.</div>
-
-  <form id="questionForm" action="https://pierre07.app.n8n.cloud/webhook/infosclients" method="POST">
-
-    <!-- AGENCE -->
-    <label>🏢 Nom de l’agence</label>
-    <input type="text" id="agencyName" name="agencyName" readonly>
-
-    <!-- EMAIL -->
-    <label>📧 Adresse e-mail de contact</label>
-    <input type="email" name="email" required placeholder="ex : contact@votreagence.fr">
-    <div class="info">Nous utiliserons cette adresse uniquement pour vous envoyer vos contenus, workflows et factures.</div>
-
-    <!-- LOGO -->
-    <label>🖼️ URL du logo de l’agence (facultatif)</label>
-    <input type="text" name="logoUrl" placeholder="https://www.votreagence.fr/logo.png">
-    <div class="alert">ℹ️ L’ajout automatique du logo sur vos photos est disponible uniquement avec le forfait <b>Business</b>.</div>
-
-    <!-- STYLE DESCRIPTIONS -->
-    <label>📝 Choisissez la description que vous souhaitez pour vos futures publications :</label>
-    <div class="info">Sélectionnez la formulation qui correspond le mieux à vos annonces immobilières.</div>
-
-    <div class="descriptions">
-
-      <!-- Description complète 1 -->
-      <label class="card">
-        <input type="radio" name="descriptionChoice" value="1" required>
-
-        🌟 <strong>À vendre — Votre futur nid familial vous attend !</strong><br><br>
-
-        ❤️ On tombe immédiatement sous le charme de cette maison lumineuse, pensée pour offrir un maximum de confort au quotidien.  
-        Chaque espace a été soigneusement optimisé pour créer une atmosphère chaleureuse, moderne et agréable à vivre.<br><br>
-
-        ✔️ <strong>Vaste séjour</strong> ouvert sur une cuisine moderne et entièrement équipée  
-        ✔️ <strong>Jardin accueillant</strong> idéal pour les moments en famille ou entre amis  
-        ✔️ <strong>Chambres spacieuses</strong>, parfaites pour enfants, invités ou bureau  
-        ✔️ <strong>Quartier calme</strong>, proche des commodités essentielles<br><br>
-
-        Cette maison réunit parfaitement chaleur, praticité et bien-être.<br><br>
-        <strong>Un vrai coup de cœur familial 🫶</strong>
-      </label>
-
-      <!-- Description complète 2 -->
-      <label class="card">
-        <input type="radio" name="descriptionChoice" value="2">
-
-        📍 <strong>Nouvelle opportunité immobilière à découvrir</strong><br><br>
-
-        💼 Idéal pour les personnes recherchant un bien fonctionnel, propre et prêt à accueillir un nouveau projet de vie.  
-        Le bien offre une configuration équilibrée et des espaces lumineux adaptés à un quotidien confortable.<br><br>
-
-        • <strong>Séjour lumineux</strong> avec de belles ouvertures  
-        • <strong>Cuisine équipée</strong> pratique et moderne  
-        • <strong>Chambres confortables</strong> et faciles à meubler  
-        • <strong>Extérieur agréable</strong> pour se détendre ou jardiner  
-        • <strong>Proximité</strong> des commerces et services du quartier<br><br>
-
-        Une maison saine, pratique, et parfaitement adaptée à un nouveau départ.<br><br>
-        <strong>À visiter rapidement pour ne pas la manquer.</strong>
-      </label>
-
-      <!-- Description complète 3 -->
-      <label class="card">
-        <input type="radio" name="descriptionChoice" value="3">
-
-        ✨ <strong>Un bien d’exception qui séduit dès le premier regard</strong><br><br>
-
-        Architecture élégante, volumes généreux, finitions soignées :  
-        cette propriété offre une atmosphère unique où chaque détail a été pensé pour le confort et la beauté du lieu.<br><br>
-
-        🌅 <strong>Lumière naturelle omniprésente</strong> grâce aux grandes ouvertures  
-        🌿 <strong>Extérieurs conçus pour la détente</strong>, terrasse & jardin harmonieux  
-        🛏️ <strong>Espaces de vie premium</strong> mêlant modernité et charme  
-        🪞 <strong>Finitions haut de gamme</strong> dans chaque pièce<br><br>
-
-        Une maison rare, parfaite pour les amateurs d’exception recherchant une vraie expérience de vie.<br><br>
-        <strong>Un bien unique, à découvrir sans tarder.</strong>
-      </label>
-
+  <div class="page-wrapper">
+    <div class="page-header">
+      <h1 class="page-title">
+        Complétez vos <span class="gradient-text">informations</span>
+      </h1>
+      <p class="page-subtitle">
+        Ces informations permettent de personnaliser automatiquement vos publications.
+      </p>
     </div>
 
-    <!-- SUBMIT -->
-    <button type="submit">Valider mes informations</button>
-    <p id="loading">⏳ Envoi en cours…</p>
+    <div class="container container-md">
+      <form id="questionForm" class="card animate-fadeInUp">
 
-  </form>
+        <div class="form-group">
+          <label class="form-label">Nom de l'agence</label>
+          <input type="text" id="agencyName" name="agencyName" class="form-input" readonly style="opacity: 0.7;">
+        </div>
 
-  <footer>
-    © 2025 Noyer — Publication Automatique<br>
-    <a href="confidentialite.html">Politique de confidentialité</a> ·
-    <a href="mentions-legales.html">Mentions légales</a> ·
-    <a href="conditions-utilisation.html">CGU</a> ·
-    <a href="conditions-vente.html">CGV</a>
+        <div class="form-group">
+          <label class="form-label">Adresse e-mail de contact</label>
+          <input type="email" name="email" class="form-input" required placeholder="contact@votreagence.fr">
+          <small style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; display: block;">
+            Nous utiliserons cette adresse uniquement pour vous envoyer vos contenus, workflows et factures.
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">URL du logo de l'agence (facultatif)</label>
+          <input type="text" name="logoUrl" class="form-input" placeholder="https://www.votreagence.fr/logo.png">
+          <div class="warn-box mt-sm">
+            L'ajout automatique du logo sur vos photos est disponible uniquement avec le forfait <strong>Business</strong>.
+          </div>
+        </div>
+
+        <div class="form-group mt-xl">
+          <label class="form-label">Choisissez le style de description pour vos publications</label>
+          <small style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem; display: block;">
+            Sélectionnez la formulation qui correspond le mieux à vos annonces immobilières.
+          </small>
+
+          <div class="style-grid">
+
+            <label class="style-card">
+              <input type="radio" name="descriptionChoice" value="1" required>
+              <h3>Style Chaleureux</h3>
+              <p>
+                "À vendre — Votre futur nid familial vous attend !"<br><br>
+                Ton émotionnel et engageant, parfait pour créer une connexion avec les acheteurs familiaux.
+              </p>
+            </label>
+
+            <label class="style-card">
+              <input type="radio" name="descriptionChoice" value="2">
+              <h3>Style Professionnel</h3>
+              <p>
+                "Nouvelle opportunité immobilière à découvrir"<br><br>
+                Ton neutre et informatif, idéal pour les investisseurs et acheteurs pragmatiques.
+              </p>
+            </label>
+
+            <label class="style-card">
+              <input type="radio" name="descriptionChoice" value="3">
+              <h3>Style Premium</h3>
+              <p>
+                "Un bien d'exception qui séduit dès le premier regard"<br><br>
+                Ton luxueux et raffiné, parfait pour les biens haut de gamme.
+              </p>
+            </label>
+
+          </div>
+        </div>
+
+        <div class="mt-xl">
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+            Valider mes informations
+            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </button>
+          <p id="loading" class="text-center mt-md hidden" style="color: var(--text-muted);">
+            Envoi en cours…
+          </p>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo gradient-text">NOYER</div>
+      <div class="footer-links">
+        <a href="confidentialite.html" class="footer-link">Politique de confidentialité</a>
+        <a href="mentions-legales.html" class="footer-link">Mentions légales</a>
+        <a href="conditions-utilisation.html" class="footer-link">CGU</a>
+        <a href="conditions-vente.html" class="footer-link">CGV</a>
+      </div>
+      <p class="footer-copyright">© 2025 Noyer — Publication Automatique</p>
+    </div>
   </footer>
 
-  <!-- SCRIPT -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-
       const agencyName = localStorage.getItem("agencyName");
       if (agencyName) {
         document.getElementById("agencyName").value = agencyName;
       }
+
+      // Style card selection
+      const styleCards = document.querySelectorAll('.style-card');
+      styleCards.forEach(card => {
+        card.addEventListener('click', () => {
+          styleCards.forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+        });
+      });
 
       const form = document.getElementById("questionForm");
       const loading = document.getElementById("loading");
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
-        loading.style.display = "block";
+        loading.classList.remove('hidden');
 
         const data = Object.fromEntries(new FormData(form).entries());
 
         try {
-          const response = await fetch(form.action, {
+          const response = await fetch("https://pierre07.app.n8n.cloud/webhook/infosclients", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data)
           });
 
           if (response.ok) {
-            loading.textContent = "✅ Formulaire envoyé !";
+            loading.innerHTML = '✓ Formulaire envoyé avec succès !';
+            loading.style.color = '#10b981';
             setTimeout(() => {
-              window.location.href = "https://noyer.io/abonnements.html";
+              window.location.href = "success.html";
             }, 800);
           } else {
-            loading.textContent = "⚠️ Une erreur est survenue.";
+            loading.innerHTML = '⚠ Une erreur est survenue.';
+            loading.style.color = '#ef4444';
           }
 
         } catch (error) {
-          loading.textContent = "❌ Erreur réseau.";
+          loading.innerHTML = '✗ Erreur réseau.';
+          loading.style.color = '#ef4444';
         }
       });
     });
